@@ -3,15 +3,31 @@
 import * as React from "react"
 import { MessageCircle, Phone, ArrowUp, ArrowRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { CLINIC_INFO, WHATSAPP_MESSAGE } from "@/lib/constants"
-import { generateWhatsAppUrl } from "@/lib/utils"
+
 import { Button } from "@/components/ui/button"
-import { usePathname } from "next/navigation"
+
 
 export function FloatingWidgets() {
   const [showScrollTop, setShowScrollTop] = React.useState(false)
-  const pathname = usePathname()
-  const isHomePage = pathname === "/"
+  const [isHomePage, setIsHomePage] = React.useState(false)
+  
+  // Use useEffect to safely check pathname after component mounts
+  React.useEffect(() => {
+    const pathname = window.location.pathname
+    setIsHomePage(pathname === "/")
+  }, [])
+  
+  // Import constants only on client side
+  const CLINIC_INFO = {
+    phones: ["7588832221"]
+  }
+  const WHATSAPP_MESSAGE = "Hello! I would like to book an appointment at Aries Skin and General Clinic. Please let me know your availability."
+  
+  const generateWhatsAppUrl = (phone: string, message: string) => {
+    const cleanPhone = phone.replace(/\D/g, '')
+    const formattedPhone = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`
+    return `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`
+  }
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -23,22 +39,28 @@ export function FloatingWidgets() {
   }, [])
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    })
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    }
   }
 
   const handleWhatsAppClick = () => {
-    window.open(
-      generateWhatsAppUrl(CLINIC_INFO.phones[0], WHATSAPP_MESSAGE),
-      "_blank",
-      "noopener,noreferrer"
-    )
+    if (typeof window !== 'undefined') {
+      window.open(
+        generateWhatsAppUrl(CLINIC_INFO.phones[0], WHATSAPP_MESSAGE),
+        "_blank",
+        "noopener,noreferrer"
+      )
+    }
   }
 
   const handleCallClick = () => {
-    window.open(`tel:+91${CLINIC_INFO.phones[0]}`)
+    if (typeof window !== 'undefined') {
+      window.open(`tel:+91${CLINIC_INFO.phones[0]}`)
+    }
   }
 
   return (

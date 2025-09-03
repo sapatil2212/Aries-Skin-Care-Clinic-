@@ -3,7 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { FloatingWidgets } from "@/components/layout/floating-widgets"
+import { FloatingWidgetsWrapper } from "@/components/layout/floating-widgets-wrapper"
 import { AppointmentModalProvider } from "@/components/appointment-modal-provider"
 import { ToastProvider } from "@/components/ui/toast-provider"
 import { CLINIC_INFO } from "@/lib/constants"
@@ -148,7 +148,7 @@ export default function RootLayout({
           <AppointmentModalProvider>
             <main className="min-h-screen pb-20 lg:pb-0">{children}</main>
             <Footer />
-            <FloatingWidgets />
+            <FloatingWidgetsWrapper />
           </AppointmentModalProvider>
         </ToastProvider>
       </body>
