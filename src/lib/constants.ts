@@ -38,10 +38,95 @@ export const DOCTOR_INFO: Doctor = {
   image: "/images/dr-shweta-sonje.jpg"
 };
 
+export const TREATMENT_CATEGORIES = [
+  { 
+    id: 'skin', 
+    name: 'Skin Care & Treatments',
+    description: 'Advanced skin care procedures and treatments',
+    hasSubDropdown: true,
+    subItems: [
+      { id: 'medicated-hydrafacial', name: 'Medicated Hydrafacial', href: '/treatments/skin/medicated-hydrafacial' },
+      { id: 'carbon-peel', name: 'Carbon Peel (Hollywood Facial)', href: '/treatments/skin/carbon-peel' },
+      { id: 'chemical-peel', name: 'Chemical Peel', href: '/treatments/skin/chemical-peel' },
+      { id: 'microneedling', name: 'Microneedling', href: '/treatments/skin/microneedling' },
+      { id: 'rf-skin-tightening', name: 'RF Skin Tightening', href: '/treatments/skin/rf-skin-tightening' },
+      { id: 'melasma-acne-freckles', name: 'Melasma, Acne, Freckles Treatment', href: '/treatments/skin/melasma-acne-freckles' },
+      { id: 'skin-care', name: 'Skin Care', href: '/treatments/skin/skin-care' },
+      { id: 'skin-fungal-disease', name: 'Skin Fungal Disease Treatment', href: '/treatments/skin/skin-fungal-disease' }
+    ]
+  },
+  { 
+    id: 'hair', 
+    name: 'Hair Care & Treatments',
+    description: 'Comprehensive hair care solutions',
+    hasSubDropdown: true,
+    subItems: [
+      { id: 'prp-gfc-hair', name: 'PRP/GFC for Hair', href: '/treatments/hair/prp-gfc-hair' },
+      { id: 'dandruff-removal', name: 'Dandruff Removal', href: '/treatments/hair/dandruff-removal' },
+      { id: 'hair-fall-treatment', name: 'Hair Fall Treatment', href: '/treatments/hair/hair-fall-treatment' }
+    ]
+  },
+  { 
+    id: 'cosmetic', 
+    name: 'Cosmetic Procedures',
+    description: 'Beauty enhancement treatments',
+    hasSubDropdown: true,
+    subItems: [
+      { id: 'laser-hair-reduction', name: 'Laser Hair Reduction', href: '/treatments/cosmetic/laser-hair-reduction' },
+      { id: 'tattoo-removal', name: 'Tattoo Removal', href: '/treatments/cosmetic/tattoo-removal' },
+      { id: 'skin-tag-removal', name: 'Skin Tag Removal', href: '/treatments/cosmetic/skin-tag-removal' },
+      { id: 'iv-gluta-drip', name: 'IV Gluta Drip', href: '/treatments/cosmetic/iv-gluta-drip' },
+      { id: 'earlobe-repair', name: 'Earlobe Repair (Permanent)', href: '/treatments/cosmetic/earlobe-repair' }
+    ]
+  },
+  { 
+    id: 'general', 
+    name: 'General Medicine',
+    description: 'General health and gynecological care',
+    hasSubDropdown: true,
+    subItems: [
+      { id: 'gynecological-care', name: 'General Gynecological Care and Treatment', href: '/treatments/general/gynecological-care' }
+    ]
+  }
+];
+
+export const TREATMENTS_BY_CATEGORY = {
+  skin: [
+    'medicated-hydrafacial',
+    'carbon-peel',
+    'chemical-peel',
+    'microneedling',
+    'rf-skin-tightening',
+    'melasma-acne-freckles',
+    'skin-care',
+    'skin-fungal-disease'
+  ],
+  hair: [
+    'prp-gfc-hair',
+    'dandruff-removal',
+    'hair-fall-treatment'
+  ],
+  cosmetic: [
+    'laser-hair-reduction',
+    'tattoo-removal',
+    'skin-tag-removal',
+    'iv-gluta-drip',
+    'earlobe-repair'
+  ],
+  general: [
+    'gynecological-care'
+  ]
+};
+
 export const NAVIGATION: NavItem[] = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Treatments", href: "/treatments" },
+  { 
+    name: "Treatments", 
+    href: "/treatments",
+    hasDropdown: true,
+    dropdownItems: TREATMENT_CATEGORIES
+  },
   { name: "Testimonials", href: "/testimonials" },
   { name: "Our Clinic", href: "/our-clinic" },
   { name: "Contact", href: "/contact" }
@@ -348,7 +433,7 @@ export const TREATMENTS: Treatment[] = [
     duration: "30-45 minutes",
     sessions: "2-6 sessions depending on severity",
     aftercare: "Complete medication course and maintain hygiene",
-    category: "general"
+    category: "skin"
   },
   {
     id: "earlobe-repair",
@@ -402,14 +487,6 @@ export const TESTIMONIALS: Testimonial[] = [
     review: "Very satisfied with the chemical peel treatment. My skin pigmentation has reduced significantly. Professional service and clean environment.",
     date: "2024-03-01"
   }
-];
-
-export const TREATMENT_CATEGORIES = [
-  { id: 'all', name: 'All Treatments' },
-  { id: 'skin', name: 'Skin Care' },
-  { id: 'hair', name: 'Hair Care' },
-  { id: 'cosmetic', name: 'Cosmetic Procedures' },
-  { id: 'general', name: 'General Medicine' }
 ];
 
 export const HOW_DID_YOU_HEAR_OPTIONS = [

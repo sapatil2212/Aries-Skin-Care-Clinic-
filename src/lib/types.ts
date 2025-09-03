@@ -92,7 +92,14 @@ export interface ClinicInfo {
 export interface NavItem {
   name: string;
   href: string;
-  submenu?: NavItem[];
+  hasDropdown?: boolean;
+  dropdownItems?: Array<{ 
+    id: string; 
+    name: string; 
+    description: string;
+    hasSubDropdown?: boolean;
+    subItems?: Array<{ id: string; name: string; href: string }>;
+  }>;
 }
 
 export interface Feature {
