@@ -1,0 +1,350 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { Award, Shield, MapPin, Star, ChevronLeft, ChevronRight } from "lucide-react"
+import { DOCTOR_INFO, CLINIC_INFO } from "@/lib/constants"
+import { useState, useEffect } from "react"
+import HeroImage1 from "../../../public/hero/1.png"
+interface HeroProps {
+  onAppointmentClick: () => void
+}
+
+// Animated Tagline Component
+function AnimatedTagline() {
+  const taglines = [
+    "Your Journey to Flawless Skin Begins Here.",
+    "Expert Skin & Hair Care, Rooted in Medical Excellence.",
+    "Advanced Aesthetics, Trusted Medical Care."
+  ]
+  
+  const [currentIndex, setCurrentIndex] = useState(0)
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % taglines.length)
+    }, 4000) // Change every 4 seconds
+    
+    return () => clearInterval(interval)
+  }, [])
+  
+  return (
+    <motion.h1
+      key={currentIndex}
+      initial={{ opacity: 0, filter: "blur(8px)", scale: 0.95 }}
+      animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+      exit={{ opacity: 0, filter: "blur(8px)", scale: 0.95 }}
+      transition={{ 
+        duration: 1.2, 
+        ease: "easeOut",
+        delay: 0.1
+      }}
+      className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary leading-tight"
+    >
+      {taglines[currentIndex]}
+    </motion.h1>
+  )
+}
+
+// Animated Sub-Content Component
+function AnimatedSubContent() {
+  const subContents = [
+    "At Aries Skin & General Clinic, we blend advanced cosmetic technology with expert medical care to reveal a more confident, radiant you.",
+    "Led by the experienced Dr. Shweta Sonje, we offer proven treatments for skin, hair, and gynecological health, all under one roof.",
+    "Experience the difference of CE & FDA-approved treatments performed by skilled professionals in a state-of-the-art clinic."
+  ]
+  
+  const [currentIndex, setCurrentIndex] = useState(0)
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % subContents.length)
+    }, 4000) // Change every 4 seconds
+    
+    return () => clearInterval(interval)
+  }, [])
+  
+  return (
+    <motion.p
+      key={currentIndex}
+      initial={{ opacity: 0, y: 40, rotateX: -15 }}
+      animate={{ opacity: 1, y: 0, rotateX: 0 }}
+      exit={{ opacity: 0, y: -40, rotateX: 15 }}
+      transition={{ duration: 0.7, ease: "easeInOut" }}
+      className="text-lg text-gray-600 leading-relaxed"
+    >
+      {subContents[currentIndex]}
+    </motion.p>
+  )
+}
+
+// Image Carousel Component
+function ImageCarousel() {
+  const images = [
+    {
+      id: 1,
+      src: HeroImage1.src,
+      alt: "Aries Skin Clinic",
+      title: "Dr. Shweta Sonje",
+      subtitle: "MBBS, Fellowship in Skin Aesthetics",
+      experience: "15+ Years Experience"
+    },
+    {
+      id: 2,
+      src: "/logo/clinic-logo.webp",
+      alt: "Advanced Treatments",
+      title: "State-of-the-Art Clinic",
+      subtitle: "FDA & CE Approved Equipment",
+      experience: "1000+ Happy Patients"
+    },
+    {
+      id: 3,
+      src: "/logo/clinic-logo.webp",
+      alt: "Expert Care",
+      title: "Professional Team",
+      subtitle: "Government Certified Facility",
+      experience: "18 Advanced Treatments"
+    }
+  ]
+  
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length)
+    }, 4000) // Change every 4 seconds to sync with text
+    
+    return () => clearInterval(interval)
+  }, [])
+  
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index)
+  }
+  
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+  }
+  
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+  }
+  
+  return (
+    <div 
+      className="relative group"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+                              {/* Main Image */}
+         <motion.div
+           key={currentIndex}
+           initial={{ opacity: 0, scale: 0.95 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 0.8, ease: "easeOut" }}
+         >
+                       <img 
+              src={images[currentIndex].src} 
+              alt={images[currentIndex].alt}
+              className="w-full h-auto object-contain"
+            />
+         </motion.div>
+      
+      {/* Navigation Arrows - Hidden by default, visible on hover */}
+      <motion.button
+        onClick={goToPrevious}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ 
+          opacity: isHovered ? 1 : 0,
+          x: isHovered ? 0 : -20
+        }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-primary p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </motion.button>
+      
+      <motion.button
+        onClick={goToNext}
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ 
+          opacity: isHovered ? 1 : 0,
+          x: isHovered ? 0 : 20
+        }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-primary p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-20"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </motion.button>
+      
+      
+    </div>
+  )
+}
+
+export function Hero({ onAppointmentClick }: HeroProps) {
+  return (
+    <section className="relative bg-gradient-to-br from-secondary via-white to-secondary min-h-screen flex items-start  overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/5 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary/5 rounded-full blur-lg"></div>
+      </div>
+
+      <div className="container mx-auto px-6 sm:px-8 lg:px-32 pt-8 pb-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium"
+            >
+              <Award className="h-4 w-4" />
+              <span>15+ Years of Excellence</span>
+            </motion.div>
+
+            {/* Main Headline */}
+            <div className="space-y-4">
+              {/* Animated Tagline as Main Headline */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                <AnimatedTagline />
+              </motion.div>
+              
+              {/* Animated Sub-Content */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                <AnimatedSubContent />
+              </motion.div>
+            </div>
+
+            {/* Key Features */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-2"
+            >
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                  <Shield className="h-3 w-3 text-green-600" />
+                </div>
+                <span className="text-sm text-gray-700">FDA Approved Equipment</span>
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Award className="h-3 w-3 text-blue-600" />
+                </div>
+                <span className="text-sm text-gray-700">Government Certified</span>
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
+                  <Star className="h-3 w-3 text-purple-600" />
+                </div>
+                <span className="text-sm text-gray-700">Expert Medical Care</span>
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center">
+                  <MapPin className="h-3 w-3 text-orange-600" />
+                </div>
+                <span className="text-sm text-gray-700">Prime Location</span>
+              </div>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Button
+                variant="primary"
+                size="xl"
+                onClick={onAppointmentClick}
+                className="group"
+              >
+                Book Free Consultation
+                <motion.span
+                  className="ml-2"
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  →
+                </motion.span>
+              </Button>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="flex items-center space-x-6 text-sm text-gray-600"
+            >
+              <div className="flex items-center space-x-1">
+                <div className="flex space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span>5.0 Rating</span>
+              </div>
+              <div>•</div>
+              <div>1000+ Happy Patients</div>
+              <div>•</div>
+              <div>18 Advanced Treatments</div>
+            </motion.div>
+          </motion.div>
+
+                     {/* Right Content - Image Carousel */}
+           <motion.div
+             initial={{ opacity: 0, x: 50 }}
+             animate={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.8, delay: 0.3 }}
+           >
+             <ImageCarousel />
+           </motion.div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-6 h-10 border-2 border-primary rounded-full flex justify-center"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1 h-3 bg-primary rounded-full mt-2"
+          />
+        </motion.div>
+      </motion.div>
+    </section>
+  )
+}

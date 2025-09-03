@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://ariesskin.com/sitemap.xml
+
+# Disallow admin pages if any
+Disallow: /admin/
