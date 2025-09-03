@@ -8,9 +8,7 @@ import { useState, useEffect } from "react"
 import HeroImage1 from "../../../public/hero/1.png"
 import HeroImage2 from "../../../public/hero/2.png"
 import HeroImage3 from "../../../public/hero/3.png"
-interface HeroProps {
-  onAppointmentClick: () => void
-}
+import { useAppointmentModal } from "@/components/appointment-modal-provider"
 
 // Animated Tagline Component
 function AnimatedTagline() {
@@ -185,7 +183,9 @@ function ImageCarousel() {
   )
 }
 
-export function Hero({ onAppointmentClick }: HeroProps) {
+export function Hero() {
+  const { openModal } = useAppointmentModal()
+
   return (
     <section className="relative bg-gradient-to-br from-secondary via-white to-secondary min-h-screen flex items-start overflow-hidden">
       {/* Background decorative elements */}
@@ -282,7 +282,7 @@ export function Hero({ onAppointmentClick }: HeroProps) {
               <Button
                 variant="primary"
                 size="xl"
-                onClick={onAppointmentClick}
+                onClick={openModal}
                 className="group"
               >
                 Book Free Consultation
@@ -361,7 +361,7 @@ export function Hero({ onAppointmentClick }: HeroProps) {
         <Button
           variant="primary"
           size="lg"
-          onClick={onAppointmentClick}
+          onClick={openModal}
           className="group shadow-2xl px-8 py-4 rounded-full text-lg font-semibold w-full"
         >
           Book Appointment

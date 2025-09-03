@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Zap, Sparkles, Heart, Users } from "lucide-react"
+import { useAppointmentModal } from "@/components/appointment-modal-provider"
 
 const featuredTreatments = [
   {
@@ -49,11 +50,9 @@ const featuredTreatments = [
   }
 ]
 
-interface TreatmentsPreviewProps {
-  onAppointmentClick: () => void
-}
+export function TreatmentsPreview() {
+  const { openModal } = useAppointmentModal()
 
-export function TreatmentsPreview({ onAppointmentClick }: TreatmentsPreviewProps) {
   return (
     <section className="py-20 bg-gradient-to-b from-secondary to-white">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
@@ -143,7 +142,7 @@ export function TreatmentsPreview({ onAppointmentClick }: TreatmentsPreviewProps
                       <Button
                         variant="primary"
                         size="sm"
-                        onClick={onAppointmentClick}
+                        onClick={openModal}
                         className="text-xs"
                       >
                         Book Now
@@ -178,7 +177,7 @@ export function TreatmentsPreview({ onAppointmentClick }: TreatmentsPreviewProps
               <Button
                 variant="secondary"
                 size="xl"
-                onClick={onAppointmentClick}
+                onClick={openModal}
                 className="bg-white text-primary hover:bg-gray-100"
               >
                 Book Free Consultation

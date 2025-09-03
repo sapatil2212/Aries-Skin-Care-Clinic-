@@ -7,13 +7,11 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Star, Quote, ArrowRight } from "lucide-react"
 import { TESTIMONIALS } from "@/lib/constants"
 import { formatDate, getInitials } from "@/lib/utils"
+import { useAppointmentModal } from "@/components/appointment-modal-provider"
 
-interface TestimonialsPreviewProps {
-  onAppointmentClick: () => void
-}
-
-export function TestimonialsPreview({ onAppointmentClick }: TestimonialsPreviewProps) {
+export function TestimonialsPreview() {
   const previewTestimonials = TESTIMONIALS.slice(0, 3)
+  const { openModal } = useAppointmentModal()
 
   return (
     <section className="py-20 bg-white">
@@ -192,7 +190,7 @@ export function TestimonialsPreview({ onAppointmentClick }: TestimonialsPreviewP
               <Button
                 variant="primary"
                 size="xl"
-                onClick={onAppointmentClick}
+                onClick={openModal}
               >
                 Start Your Journey
               </Button>

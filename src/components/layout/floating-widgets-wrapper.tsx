@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react'
-import { FloatingWidgets } from './floating-widgets'
+import { FloatingWidgetsDynamic } from './floating-widgets-dynamic'
 
 export function FloatingWidgetsWrapper() {
   const [isMounted, setIsMounted] = useState(false)
@@ -15,5 +15,5 @@ export function FloatingWidgetsWrapper() {
     return null
   }
 
-  return <FloatingWidgets />
+  return <FloatingWidgetsDynamic />
 }

@@ -1,9 +1,9 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { FloatingWidgetsWrapper } from "@/components/layout/floating-widgets-wrapper"
+
 import { AppointmentModalProvider } from "@/components/appointment-modal-provider"
 import { ToastProvider } from "@/components/ui/toast-provider"
 import { CLINIC_INFO } from "@/lib/constants"
@@ -76,12 +76,13 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({
@@ -146,9 +147,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <ToastProvider>
           <AppointmentModalProvider>
-            <main className="min-h-screen pb-20 lg:pb-0">{children}</main>
+            <main className="min-h-screen">{children}</main>
             <Footer />
-            <FloatingWidgetsWrapper />
+            {/* Temporarily disabled to fix build issues */}
+            {/* <FloatingWidgetsWrapper /> */}
           </AppointmentModalProvider>
         </ToastProvider>
       </body>
