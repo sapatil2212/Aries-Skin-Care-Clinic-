@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Award, Shield, MapPin, Star, ChevronLeft, ChevronRight } from "lucide-react"
+import { Award, Shield, MapPin, Star, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import { DOCTOR_INFO, CLINIC_INFO } from "@/lib/constants"
 import { useState, useEffect } from "react"
 import HeroImage1 from "../../../public/hero/1.png"
@@ -71,7 +71,7 @@ function AnimatedSubContent() {
       animate={{ opacity: 1, y: 0, rotateX: 0 }}
       exit={{ opacity: 0, y: -40, rotateX: 15 }}
       transition={{ duration: 0.7, ease: "easeInOut" }}
-      className="text-lg text-gray-600 leading-relaxed"
+      className="text-sm md:text-lg text-gray-600 leading-relaxed"
     >
       {subContents[currentIndex]}
     </motion.p>
@@ -132,7 +132,7 @@ function ImageCarousel() {
   
   return (
     <div 
-      className="relative group"
+      className="relative group bg-transparent"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -142,11 +142,12 @@ function ImageCarousel() {
            initial={{ opacity: 0, scale: 0.95 }}
            animate={{ opacity: 1, scale: 1 }}
            transition={{ duration: 0.8, ease: "easeOut" }}
+           className="bg-transparent"
          >
                        <img 
               src={images[currentIndex].src} 
               alt={images[currentIndex].alt}
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain bg-transparent"
             />
          </motion.div>
       
@@ -188,18 +189,18 @@ export function Hero({ onAppointmentClick }: HeroProps) {
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-20 h-20 bg-primary/5 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary/10 rounded-2xl"></div>
         <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary/5 rounded-full blur-lg"></div>
       </div>
 
-      <div className="container mx-auto px-6 sm:px-8 lg:px-32 pt-8 pb-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-10 sm:px-8 lg:px-32 pt-8 pb-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-4 lg:space-y-8 text-center lg:text-left"
           >
             {/* Badge */}
             <motion.div
@@ -213,32 +214,32 @@ export function Hero({ onAppointmentClick }: HeroProps) {
             </motion.div>
 
             {/* Main Headline */}
-            <div className="space-y-4">
+            <div className="space-y-3 lg:space-y-4">
               {/* Animated Tagline as Main Headline */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
+                initial={{ opacity: 0, filter: "blur(8px)", scale: 0.95 }}
+                animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                transition={{ delay: 0.3, duration: 1.2, ease: "easeOut" }}
               >
                 <AnimatedTagline />
               </motion.div>
               
               {/* Animated Sub-Content */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
+                initial={{ opacity: 0, filter: "blur(8px)", scale: 0.95 }}
+                animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
               >
                 <AnimatedSubContent />
               </motion.div>
             </div>
 
-            {/* Key Features */}
+            {/* Key Features - Hidden on mobile */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-2"
+              initial={{ opacity: 0, filter: "blur(8px)", scale: 0.95 }}
+              animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+              transition={{ delay: 1.0, duration: 1.2, ease: "easeOut" }}
+              className="hidden md:grid grid-cols-1 sm:grid-cols-2 gap-2"
             >
               <div className="flex items-center space-x-2">
                 <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
@@ -269,12 +270,12 @@ export function Hero({ onAppointmentClick }: HeroProps) {
               </div>
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Hidden on mobile */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, filter: "blur(8px)", scale: 0.95 }}
+              animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+              transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }}
+              className="hidden md:flex flex-col sm:flex-row gap-4"
             >
               <Button
                 variant="primary"
@@ -293,12 +294,12 @@ export function Hero({ onAppointmentClick }: HeroProps) {
               </Button>
             </motion.div>
 
-            {/* Trust Indicators */}
+            {/* Trust Indicators - Hidden on mobile */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-              className="flex items-center space-x-6 text-sm text-gray-600"
+              initial={{ opacity: 0, filter: "blur(8px)", scale: 0.95 }}
+              animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+              transition={{ delay: 1.4, duration: 1.2, ease: "easeOut" }}
+              className="hidden md:flex items-center space-x-6 text-sm text-gray-600"
             >
               <div className="flex items-center space-x-1">
                 <div className="flex space-x-1">
@@ -344,6 +345,30 @@ export function Hero({ onAppointmentClick }: HeroProps) {
             className="w-1 h-3 bg-primary rounded-full mt-2"
           />
         </motion.div>
+      </motion.div>
+
+      {/* Mobile Fixed Appointment Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/95 backdrop-blur-sm border-t border-gray-200"
+      >
+        <Button
+          variant="primary"
+          size="lg"
+          onClick={onAppointmentClick}
+          className="group shadow-2xl px-8 py-4 rounded-full text-lg font-semibold w-full"
+        >
+          Book Appointment
+          <motion.div
+            className="ml-2"
+            animate={{ x: [0, 4, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            <ArrowRight className="h-5 w-5" />
+          </motion.div>
+        </Button>
       </motion.div>
     </section>
   )
