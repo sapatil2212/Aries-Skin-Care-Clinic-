@@ -1,14 +1,11 @@
-"use client"
-
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { useState } from "react"
 import "./globals.css"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { FloatingWidgets } from "@/components/layout/floating-widgets"
-import { AppointmentModal } from "@/components/appointment-modal"
-import { ToastContainer, useToast } from "@/components/ui/toast"
+import { AppointmentModalProvider } from "@/components/appointment-modal-provider"
+import { ToastProvider } from "@/components/ui/toast-provider"
 import { CLINIC_INFO } from "@/lib/constants"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -87,17 +84,11 @@ export const metadata: Metadata = {
   },
 }
 
-// Note: Metadata export is not supported in client components
-// This will be handled by a separate metadata file or moved to a different approach
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false)
-  const { toasts, removeToast } = useToast()
-
   return (
     <html lang="en">
       <head>
@@ -153,17 +144,13 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Header onAppointmentClick={() => setIsAppointmentModalOpen(true)} />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <FloatingWidgets />
-        
-        <AppointmentModal
-          open={isAppointmentModalOpen}
-          onOpenChange={setIsAppointmentModalOpen}
-        />
-        
-        <ToastContainer toasts={toasts} onRemove={removeToast} />
+        <ToastProvider>
+          <AppointmentModalProvider>
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+            <FloatingWidgets />
+          </AppointmentModalProvider>
+        </ToastProvider>
       </body>
     </html>
   )
