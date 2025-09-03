@@ -6,6 +6,8 @@ import { Award, Shield, MapPin, Star, ChevronLeft, ChevronRight, ArrowRight } fr
 import { DOCTOR_INFO, CLINIC_INFO } from "@/lib/constants"
 import { useState, useEffect } from "react"
 import HeroImage1 from "../../../public/hero/1.png"
+import HeroImage2 from "../../../public/hero/2.png"
+import HeroImage3 from "../../../public/hero/3.png"
 interface HeroProps {
   onAppointmentClick: () => void
 }
@@ -91,7 +93,7 @@ function ImageCarousel() {
     },
     {
       id: 2,
-      src: "/logo/clinic-logo.webp",
+      src: HeroImage2.src,
       alt: "Advanced Treatments",
       title: "State-of-the-Art Clinic",
       subtitle: "FDA & CE Approved Equipment",
@@ -99,7 +101,7 @@ function ImageCarousel() {
     },
     {
       id: 3,
-      src: "/logo/clinic-logo.webp",
+      src: HeroImage3.src,
       alt: "Expert Care",
       title: "Professional Team",
       subtitle: "Government Certified Facility",
@@ -132,7 +134,7 @@ function ImageCarousel() {
   
   return (
     <div 
-      className="relative group bg-transparent"
+      className="relative group bg-transparent overflow-hidden rounded-lg"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -142,13 +144,13 @@ function ImageCarousel() {
            initial={{ opacity: 0, scale: 0.95 }}
            animate={{ opacity: 1, scale: 1 }}
            transition={{ duration: 0.8, ease: "easeOut" }}
-           className="bg-transparent"
+           className="bg-transparent w-full h-full flex items-center justify-center"
          >
-                       <img 
-              src={images[currentIndex].src} 
-              alt={images[currentIndex].alt}
-              className="w-full h-auto object-contain bg-transparent"
-            />
+           <img 
+             src={images[currentIndex].src} 
+             alt={images[currentIndex].alt}
+             className="w-full h-auto object-contain bg-transparent max-w-full"
+           />
          </motion.div>
       
       {/* Navigation Arrows - Hidden by default, visible on hover */}
@@ -185,16 +187,16 @@ function ImageCarousel() {
 
 export function Hero({ onAppointmentClick }: HeroProps) {
   return (
-    <section className="relative bg-gradient-to-br from-secondary via-white to-secondary min-h-screen flex items-start  overflow-hidden">
+    <section className="relative bg-gradient-to-br from-secondary via-white to-secondary min-h-screen flex items-start overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-20 h-20 bg-primary/5 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary/10 rounded-2xl"></div>
+      
         <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary/5 rounded-full blur-lg"></div>
       </div>
 
       <div className="container mx-auto px-10 sm:px-8 lg:px-32 pt-8 pb-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -321,6 +323,7 @@ export function Hero({ onAppointmentClick }: HeroProps) {
              initial={{ opacity: 0, x: 50 }}
              animate={{ opacity: 1, x: 0 }}
              transition={{ duration: 0.8, delay: 0.3 }}
+             className="relative w-full h-full"
            >
              <ImageCarousel />
            </motion.div>
@@ -352,7 +355,8 @@ export function Hero({ onAppointmentClick }: HeroProps) {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/95 backdrop-blur-sm border-t border-gray-200"
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-lg"
+        style={{ pointerEvents: 'auto' }}
       >
         <Button
           variant="primary"

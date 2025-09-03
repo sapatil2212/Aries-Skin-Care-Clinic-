@@ -38,8 +38,8 @@ export default function MedicatedHydrafacialPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       {/* Hero Section */}
              <section className="relative overflow-hidden bg-gradient-to-r from-blue-100/50 via-blue-50/30 to-green-100/50 py-12 lg:py-16">
-        <div className="container mx-auto px-10 sm:px-8 lg:px-52">
-          <div className="grid lg:grid-cols-2 gap-4 items-center">
+        <div className="container mx-auto px-12 sm:px-16 lg:px-32">
+                     <div className="grid lg:grid-cols-2 gap-4 items-center">            
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}

@@ -146,7 +146,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ToastProvider>
           <AppointmentModalProvider>
-            <main className="min-h-screen">{children}</main>
+            <main className="min-h-screen pb-20 lg:pb-0">{children}</main>
             <Footer />
             <FloatingWidgets />
           </AppointmentModalProvider>

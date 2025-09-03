@@ -1,13 +1,17 @@
 "use client"
 
 import * as React from "react"
-import { MessageCircle, Phone, ArrowUp } from "lucide-react"
+import { MessageCircle, Phone, ArrowUp, ArrowRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { CLINIC_INFO, WHATSAPP_MESSAGE } from "@/lib/constants"
 import { generateWhatsAppUrl } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { usePathname } from "next/navigation"
 
 export function FloatingWidgets() {
   const [showScrollTop, setShowScrollTop] = React.useState(false)
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -84,12 +88,36 @@ export function FloatingWidgets() {
             whileTap={{ scale: 0.95 }}
           >
             <ArrowUp className="h-4 w-4 md:h-5 md:w-5" />
-            <div className="absolute -top-12 left-0 bg-gray-800 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute -top-12 left-0 bg-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
               Back to Top
             </div>
           </motion.button>
         )}
       </AnimatePresence>
+
+      {/* Mobile Bottom Sticky Appointment Button - Only show on non-home pages */}
+      {!isHomePage && (
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/95 backdrop-blur-sm border-t border-gray-200"
+        >
+          <Button
+            onClick={handleWhatsAppClick}
+            className="group shadow-2xl px-8 py-4 rounded-full text-lg font-semibold w-full bg-primary hover:bg-primary-dark text-white"
+          >
+            Book Appointment
+            <motion.div
+              className="ml-2"
+              animate={{ x: [0, 4, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <ArrowRight className="h-5 w-5" />
+            </motion.div>
+          </Button>
+        </motion.div>
+      )}
     </>
   )
 }
