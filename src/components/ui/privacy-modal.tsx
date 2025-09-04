@@ -11,7 +11,7 @@ interface PrivacyModalProps {
 
 export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Privacy Policy">
+    <Modal open={isOpen} onOpenChange={(open) => !open && onClose()} title="Privacy Policy">
       <div className="space-y-4 text-sm text-gray-700">
         <p>
           At Aries Skin and General Clinic, we are committed to protecting your privacy and personal information. 

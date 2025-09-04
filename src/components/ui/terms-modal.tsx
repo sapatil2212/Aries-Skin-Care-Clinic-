@@ -11,7 +11,7 @@ interface TermsModalProps {
 
 export function TermsModal({ isOpen, onClose }: TermsModalProps) {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Terms of Service">
+    <Modal open={isOpen} onOpenChange={(open) => !open && onClose()} title="Terms of Service">
       <div className="space-y-4 text-sm text-gray-700">
         <p>
           Welcome to Aries Skin and General Clinic. These Terms of Service govern your use of our medical services 
