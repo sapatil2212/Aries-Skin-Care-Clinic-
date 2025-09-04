@@ -132,7 +132,7 @@ function ImageCarousel() {
   
   return (
     <div 
-      className="relative group bg-transparent overflow-hidden rounded-lg"
+      className="relative group bg-transparent overflow-hidden rounded-lg h-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -142,7 +142,7 @@ function ImageCarousel() {
            initial={{ opacity: 0, scale: 0.95 }}
            animate={{ opacity: 1, scale: 1 }}
            transition={{ duration: 0.8, ease: "easeOut" }}
-           className="bg-transparent w-full h-full flex items-center justify-center"
+           className="bg-transparent w-full h-auto flex items-center justify-center"
          >
            <img 
              src={images[currentIndex].src} 
@@ -195,14 +195,14 @@ export function Hero() {
         <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary/5 rounded-full blur-lg"></div>
       </div>
 
-      <div className="container mx-auto px-10 sm:px-8 lg:px-32 pt-8 pb-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center w-full">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-4 lg:space-y-8 text-center lg:text-left"
+            className="space-y-2 md:space-y-4 lg:space-y-8 text-center lg:text-left"
           >
             {/* Badge */}
             <motion.div
@@ -323,7 +323,7 @@ export function Hero() {
              initial={{ opacity: 0, x: 50 }}
              animate={{ opacity: 1, x: 0 }}
              transition={{ duration: 0.8, delay: 0.3 }}
-             className="relative w-full h-full"
+             className="relative w-full h-full mt-2 md:mt-0"
            >
              <ImageCarousel />
            </motion.div>
