@@ -51,7 +51,7 @@ export function TreatmentsPreview() {
   const { openModal } = useAppointmentModal()
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <section className="py-5 md:py-5 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-20 relative z-10">
         
         {/* Section Header */}
@@ -107,7 +107,7 @@ export function TreatmentsPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl border overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-2xl bordery overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 h-full">
                 {/* Image Section */}

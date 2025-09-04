@@ -4,7 +4,9 @@ import { InteractiveGallery } from "@/components/sections/interactive-gallery"
 import { Benefits } from "@/components/sections/benefits"
 import { Features } from "@/components/sections/features"
 import { TreatmentsPreview } from "@/components/sections/treatments-preview"
-import { TestimonialsPreview } from "@/components/sections/testimonials-preview"
+import { FAQ } from "@/components/sections/faq"
+import Testimonials from "@/components/sections/testimonials-preview"
+import { HowWeWork } from "@/components/sections/how-we-work"
 
 export default function HomePage() {
   return (
@@ -12,11 +14,12 @@ export default function HomePage() {
       <Hero />
       <About />
       <TreatmentsPreview />
+      <HowWeWork/>
       <InteractiveGallery />
       <Benefits />
       <Features />
-      
-      <TestimonialsPreview />
+      <FAQ />
+      <Testimonials />
     </>
   )
 }

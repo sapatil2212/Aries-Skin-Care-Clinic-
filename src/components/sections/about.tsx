@@ -8,24 +8,7 @@ import HomeAbout from "../../../public/home-about/home-about.png"
 export function About() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
 
-  const stats = [
-    {
-      value: "96%",
-      label: "Patient Satisfaction Rate",
-    },
-    {
-      value: "12+",
-      label: "Years Of Experience",
-    },
-    {
-      value: "1,000+",
-      label: "Successful Surgeries",
-    },
-    {
-      value: "30+",
-      label: "State-Of-The-Art Facilities",
-    }
-  ]
+
 
   const features = [
     "Commitment to Excellence in Skin Health",
@@ -34,7 +17,7 @@ export function About() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-5 md:py-5 bg-white">
       <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
           
@@ -152,37 +135,9 @@ export function About() {
           </motion.div>
         </div>
 
-        {/* Divider Line */}
-        <div className="mt-12 mb-6">
-          <hr className="border-gray-200" />
-        </div>
+    
 
-        {/* Statistics Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-8 grid grid-cols-2 md:grid-cols-4 "
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
-                {stat.value}
-              </div>
-              <div className="text-sm text-gray-600 leading-tight">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+      
       </div>
     </section>
   )

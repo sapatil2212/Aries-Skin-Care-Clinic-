@@ -209,7 +209,7 @@ export function InteractiveGallery() {
   }, [isModalOpen, selectedImage]);
 
   return (
-    <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-5 sm:py-5 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="bg-gradient-to-br from-secondary via-white to-secondary backdrop-blur-sm border border-gray-200 rounded-3xl p-8 lg:p-12 ">
           

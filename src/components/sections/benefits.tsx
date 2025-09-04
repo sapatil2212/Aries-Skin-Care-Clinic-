@@ -9,7 +9,7 @@ import {
   Home
 } from 'lucide-react';
 import Image from 'next/image';
-import HomeAboutImage from "../../../public/home-about/home-about.png";
+import HomeAboutImage from "../../../public/home-modal.png";
 
 interface Benefit {
   title: string;
@@ -53,7 +53,7 @@ const benefits: Benefit[] = [
 export function Benefits() {
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="bg-gradient-to-br from-emerald-800 to-emerald-900 rounded-2xl p-6 lg:p-8 relative overflow-hidden">
           
           {/* Decorative flower icons */}
@@ -107,12 +107,12 @@ export function Benefits() {
 
             {/* Center image */}
             <div className="lg:col-span-4 flex justify-center">
-              <div className="w-48 h-60 rounded-xl overflow-hidden">
+              <div className="w-48 h-80 rounded-xl overflow-hidden">
                 <Image
                   src={HomeAboutImage}
                   alt="Professional dermatology care"
                   width={192}
-                  height={240}
+                  height={320}
                   className="w-full h-full object-cover"
                   priority
                 />
