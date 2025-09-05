@@ -9,7 +9,14 @@ const EMAIL_CONFIG = {
   auth: {
     user: process.env.EMAIL_USER || 'ariesskin25@gmail.com',
     pass: process.env.EMAIL_PASS || 'anfw zygk bgxm itpa'
-  }
+  },
+  // Additional settings to improve deliverability
+  tls: {
+    rejectUnauthorized: false
+  },
+  connectionTimeout: 60000,
+  greetingTimeout: 30000,
+  socketTimeout: 60000
 }
 
 // Create transporter
@@ -28,33 +35,29 @@ const createUserConfirmationEmail = (contactData: any) => {
         <title>Contact Confirmation</title>
         <style>
           * { margin: 0; padding: 0; box-sizing: border-box; }
-          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background-color: #f9fafb; }
-          .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-          .header { background: #ffffff; padding: 40px 30px; text-align: center; border-bottom: 1px solid #e5e7eb; }
-          .logo { width: 80px; height: 80px; margin: 0 auto 20px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; }
-          .success-icon { font-size: 40px; color: white; line-height: 1; display: flex; align-items: center; justify-content: center; }
-          .header h1 { color: #10b981; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-          .header p { color: #6b7280; font-size: 16px; }
-          .content { padding: 40px 30px; }
-          .greeting { font-size: 18px; color: #1f2937; margin-bottom: 20px; }
-          .message { color: #4b5563; margin-bottom: 30px; font-size: 16px; }
-          .message-card { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
-          .card-title { color: #1f2937; font-size: 18px; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; }
-          .card-title::before { content: "💬"; margin-right: 8px; }
-          .message-text { color: #4b5563; font-style: italic; line-height: 1.6; }
-          .signature { margin-top: 30px; color: #4b5563; }
-          .signature strong { color: #1f2937; }
-          .footer { background: #f9fafb; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb; }
-          .footer p { color: #6b7280; font-size: 14px; margin-bottom: 8px; }
+          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; color: #374151; background-color: #f9fafb; }
+          .container { max-width: 600px; margin: 0 auto; background: white; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+          .header { background: white; padding: 30px 20px; text-align: center; border-bottom: 1px solid #e5e7eb; }
+          .success-icon { width: 60px; height: 60px; margin: 0 auto 15px; display: block; }
+          .header h1 { color: #374151; font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+          .header p { color: #6b7280; font-size: 14px; }
+          .content { padding: 30px 20px; }
+          .greeting { font-size: 16px; color: #374151; margin-bottom: 15px; font-weight: 500; }
+          .message { color: #6b7280; margin-bottom: 20px; font-size: 14px; line-height: 1.5; }
+          .message-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 20px; margin: 20px 0; }
+          .card-title { color: #374151; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+          .message-text { color: #6b7280; font-style: italic; line-height: 1.5; font-size: 14px; background: white; padding: 15px; border-radius: 4px; border: 1px solid #e5e7eb; }
+          .signature { margin-top: 25px; color: #6b7280; font-size: 14px; }
+          .signature strong { color: #374151; font-weight: 600; }
+          .footer { background: #f9fafb; padding: 20px; text-align: center; border-top: 1px solid #e5e7eb; }
+          .footer p { color: #9ca3af; font-size: 12px; margin-bottom: 4px; }
           .footer p:last-child { margin-bottom: 0; }
         </style>
       </head>
       <body>
         <div class="container">
           <div class="header">
-            <div class="logo">
-              <div class="success-icon">✓</div>
-            </div>
+            <img src="https://shreebalajilawnsandresorts.com/green-tick.png" alt="Success" class="success-icon" />
             <h1>Message Received!</h1>
             <p>Thank you for contacting Aries Skin & General Clinic</p>
           </div>
@@ -110,46 +113,40 @@ const createAdminNotificationEmail = (contactData: any) => {
         <title>New Contact Form Submission</title>
         <style>
           * { margin: 0; padding: 0; box-sizing: border-box; }
-          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1f2937; background-color: #f9fafb; }
-          .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-          .header { background: #ffffff; padding: 40px 30px; text-align: center; border-bottom: 1px solid #e5e7eb; }
-          .logo { width: 80px; height: 80px; margin: 0 auto 20px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; }
-          .notification-icon { font-size: 40px; color: white; line-height: 1; display: flex; align-items: center; justify-content: center; }
-          .header h1 { color: #3b82f6; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-          .header p { color: #6b7280; font-size: 16px; }
-          .content { padding: 40px 30px; }
-          .alert-banner { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 16px; margin-bottom: 24px; }
-          .alert-text { color: #92400e; font-weight: 600; display: flex; align-items: center; }
-          .alert-text::before { content: "⚠️"; margin-right: 8px; }
-          .info-card { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
-          .card-title { color: #1f2937; font-size: 18px; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; }
-          .card-title.contact::before { content: "👤"; margin-right: 8px; }
-          .card-title.message::before { content: "💬"; margin-right: 8px; }
-          .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #e5e7eb; }
+          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.5; color: #374151; background-color: #f9fafb; }
+          .container { max-width: 600px; margin: 0 auto; background: white; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+          .header { background: white; padding: 30px 20px; text-align: center; border-bottom: 1px solid #e5e7eb; }
+          .notification-icon { width: 40px; height: 40px; margin: 0 auto 15px; font-size: 24px; }
+          .header h1 { color: #374151; font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+          .header p { color: #6b7280; font-size: 14px; }
+          .content { padding: 30px 20px; }
+          .alert-banner { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px; padding: 15px; margin-bottom: 20px; }
+          .alert-text { color: #92400e; font-weight: 600; display: flex; align-items: center; font-size: 14px; }
+          .alert-text::before { content: "⚠️"; margin-right: 8px; font-size: 16px; }
+          .info-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 20px; margin: 20px 0; }
+          .card-title { color: #374151; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
+          .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
           .detail-row:last-child { border-bottom: none; }
-          .detail-label { font-weight: 600; color: #374151; }
-          .detail-value { color: #6b7280; text-align: right; max-width: 60%; word-wrap: break-word; }
-          .message-text { color: #4b5563; font-style: italic; line-height: 1.6; background: #f9fafb; padding: 16px; border-radius: 6px; border-left: 4px solid #3b82f6; }
-          .action-section { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 20px; margin: 24px 0; }
-          .action-title { color: #991b1b; font-size: 16px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; }
-          .action-title::before { content: "📞"; margin-right: 8px; }
-          .action-list { color: #7f1d1d; padding-left: 20px; }
-          .action-list li { margin-bottom: 8px; }
-          .timestamp { background: #f3f4f6; border-radius: 6px; padding: 12px; margin-top: 24px; text-align: center; }
+          .detail-label { font-weight: 600; color: #374151; font-size: 14px; }
+          .detail-value { color: #6b7280; text-align: right; max-width: 60%; word-wrap: break-word; font-size: 14px; }
+          .message-text { color: #6b7280; font-style: italic; line-height: 1.5; font-size: 14px; background: white; padding: 15px; border-radius: 4px; border: 1px solid #e5e7eb; }
+          .action-section { background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 20px; margin: 20px 0; }
+          .action-title { color: #991b1b; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+          .action-list { color: #7f1d1d; padding-left: 20px; font-size: 14px; }
+          .action-list li { margin-bottom: 8px; line-height: 1.5; }
+          .timestamp { background: #f3f4f6; border-radius: 6px; padding: 15px; margin-top: 20px; text-align: center; }
           .timestamp-text { color: #6b7280; font-size: 14px; font-weight: 600; }
-          .footer { background: #f9fafb; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb; }
-          .footer p { color: #6b7280; font-size: 14px; margin-bottom: 8px; }
+          .footer { background: #f9fafb; padding: 20px; text-align: center; border-top: 1px solid #e5e7eb; }
+          .footer p { color: #9ca3af; font-size: 12px; margin-bottom: 4px; }
           .footer p:last-child { margin-bottom: 0; }
         </style>
       </head>
       <body>
         <div class="container">
           <div class="header">
-            <div class="logo">
-              <div class="notification-icon">🔔</div>
-            </div>
+            <div class="notification-icon">🔔</div>
             <h1>New Contact Form Submission</h1>
-            <p>From: ${contactData.name}</p>
+            <p>Website Enquiry</p>
           </div>
           
           <div class="content">
@@ -158,7 +155,7 @@ const createAdminNotificationEmail = (contactData: any) => {
             </div>
             
             <div class="info-card">
-              <div class="card-title contact">Contact Information</div>
+              <div class="card-title">Contact Information</div>
               <div class="detail-row">
                 <span class="detail-label">Name</span>
                 <span class="detail-value">${contactData.name}</span>
@@ -178,7 +175,7 @@ const createAdminNotificationEmail = (contactData: any) => {
             </div>
             
             <div class="info-card">
-              <div class="card-title message">Message</div>
+              <div class="card-title">Message</div>
               <div class="message-text">${contactData.message}</div>
             </div>
             
@@ -232,7 +229,19 @@ export async function POST(request: NextRequest) {
       from: `"Aries Skin & General Clinic" <${process.env.EMAIL_USER || 'ariesskin25@gmail.com'}>`,
       to: contactData.email,
       subject: userEmail.subject,
-      html: userEmail.html
+      html: userEmail.html,
+      headers: {
+        'X-Mailer': 'Aries Skin Clinic Contact System',
+        'X-Priority': '3',
+        'X-MSMail-Priority': 'Normal',
+        'Importance': 'Normal',
+        'X-Report-Abuse': 'Please report abuse to ariesskin25@gmail.com',
+        'List-Unsubscribe': '<mailto:ariesskin25@gmail.com?subject=unsubscribe>',
+        'Return-Path': process.env.EMAIL_USER || 'ariesskin25@gmail.com',
+        'Reply-To': process.env.EMAIL_USER || 'ariesskin25@gmail.com'
+      },
+      // Add text version for better deliverability
+      text: `Dear ${contactData.name},\n\nThank you for contacting Aries Skin & General Clinic. We have received your message and will get back to you within 24 hours.\n\nYour Message: "${contactData.message}"\n\nBest regards,\nDr. Shweta Sonje\nAries Skin & General Clinic\n\nThis is an automated confirmation email. Please do not reply to this email.`
     }
     
     // Send email to admin
@@ -240,7 +249,17 @@ export async function POST(request: NextRequest) {
       from: `"Aries Skin & General Clinic" <${process.env.EMAIL_USER || 'ariesskin25@gmail.com'}>`,
       to: process.env.CLINIC_EMAIL || 'ariesskin25@gmail.com',
       subject: adminEmail.subject,
-      html: adminEmail.html
+      html: adminEmail.html,
+      headers: {
+        'X-Mailer': 'Aries Skin Clinic Contact System',
+        'X-Priority': '3',
+        'X-MSMail-Priority': 'Normal',
+        'Importance': 'Normal',
+        'Return-Path': process.env.EMAIL_USER || 'ariesskin25@gmail.com',
+        'Reply-To': process.env.EMAIL_USER || 'ariesskin25@gmail.com'
+      },
+      // Add text version for better deliverability
+      text: `New Contact Form Submission - Website Enquiry\n\nContact Information:\nName: ${contactData.name}\nEmail: ${contactData.email}\nPhone: ${contactData.phone}\nSubject: ${contactData.subject}\n\nMessage: ${contactData.message}\n\nSubmission Time: ${new Date().toLocaleString('en-IN')}\n\nThis is an automated notification email from Aries Skin & General Clinic contact system.`
     }
     
     // Send both emails

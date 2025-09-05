@@ -9,7 +9,14 @@ const EMAIL_CONFIG = {
   auth: {
     user: process.env.EMAIL_USER || 'ariesskin25@gmail.com',
     pass: process.env.EMAIL_PASS || 'anfw zygk bgxm itpa'
-  }
+  },
+  // Additional settings to improve deliverability
+  tls: {
+    rejectUnauthorized: false
+  },
+  connectionTimeout: 60000,
+  greetingTimeout: 30000,
+  socketTimeout: 60000
 }
 
 // Create transporter
@@ -325,7 +332,19 @@ export async function POST(request: NextRequest) {
       from: `"Aries Skin & General Clinic" <${process.env.EMAIL_USER || 'ariesskin25@gmail.com'}>`,
       to: appointmentData.email,
       subject: userEmail.subject,
-      html: userEmail.html
+      html: userEmail.html,
+      headers: {
+        'X-Mailer': 'Aries Skin Clinic Appointment System',
+        'X-Priority': '3',
+        'X-MSMail-Priority': 'Normal',
+        'Importance': 'Normal',
+        'X-Report-Abuse': 'Please report abuse to ariesskin25@gmail.com',
+        'List-Unsubscribe': '<mailto:ariesskin25@gmail.com?subject=unsubscribe>',
+        'Return-Path': process.env.EMAIL_USER || 'ariesskin25@gmail.com',
+        'Reply-To': process.env.EMAIL_USER || 'ariesskin25@gmail.com'
+      },
+      // Add text version for better deliverability
+      text: `Dear ${appointmentData.name},\n\nYour appointment has been successfully scheduled with Aries Skin & General Clinic.\n\nAppointment Details:\nTreatment: ${appointmentData.treatmentType}\nDate: ${new Date(appointmentData.preferredDate).toLocaleDateString('en-IN')}\nTime: ${appointmentData.preferredTime}\n\nWe look forward to seeing you!\n\nBest regards,\nDr. Shweta Sonje\nAries Skin & General Clinic\n\nThis is an automated confirmation email. Please do not reply to this email.`
     }
     
     // Send email to clinic
@@ -333,7 +352,17 @@ export async function POST(request: NextRequest) {
       from: `"Aries Skin & General Clinic" <${process.env.EMAIL_USER || 'ariesskin25@gmail.com'}>`,
       to: process.env.CLINIC_EMAIL || 'ariesskin25@gmail.com', // Clinic email
       subject: clinicEmail.subject,
-      html: clinicEmail.html
+      html: clinicEmail.html,
+      headers: {
+        'X-Mailer': 'Aries Skin Clinic Appointment System',
+        'X-Priority': '3',
+        'X-MSMail-Priority': 'Normal',
+        'Importance': 'Normal',
+        'Return-Path': process.env.EMAIL_USER || 'ariesskin25@gmail.com',
+        'Reply-To': process.env.EMAIL_USER || 'ariesskin25@gmail.com'
+      },
+      // Add text version for better deliverability
+      text: `New Appointment Booking - ${appointmentData.name}\n\nPatient Information:\nName: ${appointmentData.name}\nEmail: ${appointmentData.email}\nPhone: ${appointmentData.phone}\nAge: ${appointmentData.age}\nGender: ${appointmentData.gender}\n\nAppointment Details:\nTreatment: ${appointmentData.treatmentType}\nDate: ${new Date(appointmentData.preferredDate).toLocaleDateString('en-IN')}\nTime: ${appointmentData.preferredTime}\n\nThis is an automated notification email from Aries Skin & General Clinic appointment system.`
     }
     
     // Send both emails

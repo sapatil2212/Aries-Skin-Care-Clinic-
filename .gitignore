@@ -62,3 +62,14 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Large design files
+*.cdr
+resourcses.cdr
+Backup_of_resourcses.cdr
+
+# Large media files
+*.psd
+*.ai
+*.indd
+*.sketch

@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select } from "@/components/ui/select"
 import { useToast } from "@/components/ui/toast"
+import SuccessModal from "@/components/ui/success-modal"
 import { 
   MapPin, 
   Phone, 
@@ -44,6 +45,7 @@ const subjectOptions = [
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
   const { toast } = useToast()
   
   const {
@@ -79,11 +81,7 @@ export default function ContactPage() {
       const result = await response.json()
       console.log("Contact form submitted successfully:", result)
       
-      toast.success(
-        "Message Sent!",
-        "Thank you for contacting us. We'll get back to you within 24 hours. A confirmation email has been sent to your inbox."
-      )
-      
+      setShowSuccessModal(true)
       reset()
     } catch (error) {
       console.error('Contact form submission error:', error)
@@ -293,6 +291,14 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Success Modal */}
+      <SuccessModal
+        open={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title="Message Sent!"
+        message="Thank you for contacting us. We'll get back to you within 24 hours. A confirmation email has been sent to your inbox."
+        duration={4000}
+      />
     </div>
   )
 }
