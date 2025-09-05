@@ -5,8 +5,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formatPhoneNumber(phone: string): string {
+export function formatPhoneNumber(phone: string | undefined): string {
   // Format phone number for display
+  if (!phone || typeof phone !== 'string') {
+    return ''
+  }
   if (phone.length === 10) {
     return `+91 ${phone.slice(0, 3)} ${phone.slice(3, 6)} ${phone.slice(6)}`
   }
@@ -31,7 +34,10 @@ export function scrollToSection(sectionId: string): void {
   }
 }
 
-export function generateWhatsAppUrl(phone: string, message: string): string {
+export function generateWhatsAppUrl(phone: string | undefined, message: string): string {
+  if (!phone || typeof phone !== 'string') {
+    return ''
+  }
   const cleanPhone = phone.replace(/\D/g, '')
   const formattedPhone = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`
   return `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`

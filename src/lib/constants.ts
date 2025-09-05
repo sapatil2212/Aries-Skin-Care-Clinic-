@@ -2,7 +2,7 @@ import { ClinicInfo, Doctor, Treatment, Testimonial, NavItem, Feature, Stat } fr
 
 export const CLINIC_INFO: ClinicInfo = {
   name: "Aries Skin and General Clinic",
-  phones: ["7588832221", "7972548001"],
+  phones: ["7972548001"],
   email: "ariesskin25@gmail.com",
   address: "Shop No 1, Keystone Residency Apartment, Behind Sharad Pawar Fruit Market, Peth-Makhalamabad Link Road, Samarth Nagar, Panchavati, Nashik - 422001",
   googleMapsUrl: "https://maps.app.goo.gl/41wjFQCukoUpB9m29?g_st=ipc",
@@ -487,12 +487,12 @@ export const WHATSAPP_MESSAGE = `Hello! I would like to book an appointment at A
 export const SOCIAL_LINKS = [
   {
     name: "WhatsApp",
-    url: `https://wa.me/917588832221?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
+    url: `https://wa.me/917972548001?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
     icon: "MessageCircle"
   },
   {
     name: "Call",
-    url: "tel:+917588832221",
+    url: "tel:+917972548001",
     icon: "Phone"
   },
   {
