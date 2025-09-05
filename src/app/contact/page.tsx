@@ -86,38 +86,38 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-secondary to-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-12 pb-20">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="py-5 md:py-5">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4">
               Contact{" "}
-              <span className="gradient-text">Us</span>
+              <span className="text-teal-600">Us</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm md:text-md text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Get in touch with our expert team. We're here to answer your questions 
               and help you start your transformation journey
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Card className="border-0 shadow-2xl">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-primary mb-6">Send us a Message</h2>
+              <Card className="border-0 shadow-lg">
+                <CardContent className="p-6">
+                  <h2 className="text-xl font-bold text-primary mb-4">Send us a Message</h2>
                   
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <Input
                         label="Full Name"
@@ -185,91 +185,74 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-8"
             >
-              {/* Contact Cards */}
-              <div className="space-y-8">
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardContent className="p-8">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Phone className="h-6 w-6 text-white" />
+              <Card className="border border-gray-200 rounded-xl shadow-sm">
+                <CardContent className="p-6">
+                  <div className="space-y-6">
+                    {/* Phone Numbers */}
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Phone className="h-4 w-4 text-white" />
                       </div>
                       
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-primary mb-2">Phone Numbers</h3>
                         <div className="space-y-1">
                           {CLINIC_INFO.phones.map((phone, index) => (
                             <div key={index}>
                               <a
                                 href={`tel:+91${phone}`}
-                                className="text-gray-600 hover:text-primary transition-colors"
+                                className="text-xs text-gray-600 hover:text-primary transition-colors"
                               >
                                 {formatPhoneNumber(phone)}
                               </a>
                             </div>
                           ))}
                         </div>
-                        <p className="text-sm text-gray-500 mt-2">Available during clinic hours</p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
 
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardContent className="p-8">
+                    {/* WhatsApp */}
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <MessageCircle className="h-6 w-6 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <MessageCircle className="h-5 w-5 text-white" />
                       </div>
                       
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-primary mb-2">WhatsApp</h3>
                         <a
                           href={generateWhatsAppUrl(CLINIC_INFO.phones[0], WHATSAPP_MESSAGE)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-600 hover:text-primary transition-colors"
+                          className="text-sm text-gray-600 hover:text-primary transition-colors"
                         >
                           {formatPhoneNumber(CLINIC_INFO.phones[0])}
                         </a>
-                        <p className="text-sm text-gray-500 mt-2">Quick responses, 24/7 availability</p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
 
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardContent className="p-8">
+                    {/* Email */}
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Mail className="h-6 w-6 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Mail className="h-5 w-5 text-white" />
                       </div>
                       
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-primary mb-2">Email Address</h3>
                         <a
                           href={`mailto:${CLINIC_INFO.email}`}
-                          className="text-gray-600 hover:text-primary transition-colors"
+                          className="text-sm text-gray-600 hover:text-primary transition-colors"
                         >
                           {CLINIC_INFO.email}
                         </a>
-                        <p className="text-sm text-gray-500 mt-2">We'll respond within 24 hours</p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
 
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardContent className="p-8">
+                    {/* Address */}
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <MapPin className="h-6 w-6 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <MapPin className="h-5 w-5 text-white" />
                       </div>
                       
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-primary mb-2">Clinic Address</h3>
-                        <p className="text-gray-600 leading-relaxed mb-3">
+                        <p className="text-sm text-gray-600 leading-relaxed mb-3">
                           {CLINIC_INFO.address}
                         </p>
                         <Button
@@ -282,19 +265,15 @@ export default function ContactPage() {
                         </Button>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
 
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardContent className="p-8">
+                    {/* Working Hours */}
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Clock className="h-6 w-6 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Clock className="h-5 w-5 text-white" />
                       </div>
                       
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-primary mb-2">Working Hours</h3>
-                        <div className="space-y-1 text-sm">
+                        <div className="space-y-1 text-xs">
                           <div className="flex justify-between">
                             <span className="text-gray-600">Monday - Friday</span>
                             <span className="font-medium">9:00 AM - 8:00 PM</span>
@@ -310,28 +289,28 @@ export default function ContactPage() {
                         </div>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
-            <h2 className="text-4xl font-bold text-primary mb-6">
-              Find <span className="gradient-text">Our Location</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4">
+              Find <span className="text-teal-600">Our Location</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm md:text-md text-gray-600 max-w-2xl mx-auto">
               Located in the heart of Panchavati, Nashik, we're easily accessible 
               with convenient parking facilities
             </p>
@@ -344,17 +323,18 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="rounded-3xl overflow-hidden shadow-2xl"
           >
-            <div className="bg-gradient-to-br from-primary/20 to-primary/10 h-96 flex items-center justify-center">
+            <div className="bg-gradient-to-br from-primary/20 to-primary/10 h-80 flex items-center justify-center">
               <div className="text-center">
-                <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-primary mb-2">
+                <MapPin className="h-12 w-12 text-primary mx-auto mb-3" />
+                <h3 className="text-xl font-bold text-primary mb-2">
                   Interactive Map
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-sm text-gray-600 mb-4">
                   Google Maps integration will be added here
                 </p>
                 <Button 
                   variant="primary"
+                  size="sm"
                   onClick={() => window.open(CLINIC_INFO.googleMapsUrl, '_blank')}
                 >
                   Open in Google Maps
