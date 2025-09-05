@@ -1,9 +1,10 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { AppointmentModal } from '@/components/appointment-modal';
 import { 
   Clock, 
   Calendar, 
@@ -16,151 +17,128 @@ import {
   MapPin,
   Award,
   Users,
-  Scissors
+  Droplets,
+  X
 } from 'lucide-react';
 import { TREATMENTS } from '@/lib/constants';
 import Link from 'next/link';
+import HeroImage1 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial.png"
+import HeroImage2 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-2.png"
+import HeroImage3 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-3.png"
+import HeroImage4 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-4.png"
 
 const treatment = TREATMENTS.find(t => t.id === 'dandruff-removal');
 
 export default function DandruffRemovalPage() {
   if (!treatment) return <div>Treatment not found</div>;
 
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
+
   const handleAppointmentClick = () => {
-    window.open(`https://wa.me/917588832221?text=${encodeURIComponent(`Hello! I would like to book an appointment for ${treatment.name} at Aries Skin and General Clinic. Please let me know your availability.`)}`, '_blank');
+    setIsAppointmentModalOpen(true);
   };
 
   const handleCallClick = () => {
     window.open(`tel:+917588832221`, '_blank');
   };
 
+  // Dandruff Removal specific benefits
+  const dandruffRemovalBenefits = [
+    "Eliminates dandruff and flaking",
+    "Reduces scalp irritation and itching",
+    "Improves scalp health and hygiene",
+    "Prevents future dandruff formation",
+    "Safe and effective treatment",
+    "Long-lasting results"
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-green-100/50 via-green-50/30 to-blue-100/50 py-20 lg:py-32">
-        <div className="container mx-auto px-10 sm:px-8 lg:px-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-700 mb-2">Treatment Image</p>
-                        <p className="text-sm text-gray-500">Professional Dandruff Removal Treatment</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-700 mb-2">Treatment Image</p>
-                        <p className="text-sm text-gray-500">Professional Dandruff Removal Treatment</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-700 mb-2">Treatment Image</p>
-                        <p className="text-sm text-gray-500">Professional Dandruff Removal Treatment</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-700 mb-2">Treatment Image</p>
-                        <p className="text-sm text-gray-500">Professional Dandruff Removal Treatment</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-700 mb-2">Treatment Image</p>
-                        <p className="text-sm text-gray-500">Professional Dandruff Removal Treatment</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>            <motion.div
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+            
+            {/* Left Content */}
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6"
+              viewport={{ once: true }}
+              className="space-y-4 px-4 md:px-0"
             >
-              <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                <Scissors className="h-4 w-4 mr-2" />
-                Hair Care & Treatments
-              </div>
-              
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
+              >
+                • Advanced Hair Treatment
+              </motion.div>
+
+              {/* Main Heading */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
+              >
                 {treatment.name}
-              </h1>
-              
-              <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
-                {treatment.description}
-              </p>
+              </motion.h1>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  onClick={handleAppointmentClick}
-                  size="lg"
-                  className="group bg-primary hover:bg-primary-dark text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  Book Free Consultation
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                
-                <Button
-                  onClick={handleCallClick}
-                  variant="outline"
-                  size="lg"
-                  className="px-8 py-4 text-lg font-semibold rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call Now
-                </Button>
+              {/* Description */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-sm md:text-md text-gray-600 leading-relaxed space-y-3"
+              >
+                <p>{treatment.description}</p>
+              </motion.div>
+
+              {/* Treatment Benefits */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mt-6"
+              >
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  This treatment helps in:
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Eliminating dandruff and flaking</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Reducing scalp irritation and itching</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Improving scalp health and hygiene</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Preventing future dandruff formation</span>
+                  </div>
               </div>
+              </motion.div>
 
-              <div className="flex items-center space-x-6 text-sm text-gray-600">
+              {/* Treatment Details */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="flex items-center space-x-6 text-sm text-gray-600"
+              >
                 <div className="flex items-center">
                   <Clock className="h-4 w-4 mr-2" />
                   {treatment.duration}
@@ -171,152 +149,161 @@ export default function DandruffRemovalPage() {
                 </div>
                 <div className="flex items-center">
                   <Shield className="h-4 w-4 mr-2" />
-                  FDA Approved
+                  Safe Treatment
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Action Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="flex flex-row gap-4 pt-2"
+              >
+                <Button
+                  onClick={handleAppointmentClick}
+                  className="flex-1 bg-teal-700 hover:bg-teal-800 text-white px-6 py-3 rounded-lg font-medium group"
+                >
+                  Book Appointment
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+                
+                <Button
+                  onClick={handleCallClick}
+                  variant="outline"
+                  className="flex-1 px-6 py-3 text-sm font-medium rounded-lg border-2 border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white transition-all duration-300"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call Now
+                </Button>
+              </motion.div>
             </motion.div>
 
+            {/* Right Content - Image */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
               className="relative"
             >
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-700 mb-2">Treatment Image</p>
-                        <p className="text-sm text-gray-500">Professional Dandruff Removal Treatment</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-700 mb-2">Treatment Image</p>
-                        <p className="text-sm text-gray-500">Professional Dandruff Removal Treatment</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-700 mb-2">Treatment Image</p>
-                        <p className="text-sm text-gray-500">Professional Dandruff Removal Treatment</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-                <div className="text-center space-y-4">
-                  <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-white/80 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
-                            <div className="w-6 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <p className="text-lg font-semibold text-gray-700 mb-2">Treatment Image</p>
-                        <p className="text-sm text-gray-500">Professional Dandruff Removal Treatment</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-3xl overflow-hidden"
+            >
+              <img 
+                  src={HeroImage1.src}
+                alt="Dandruff Removal Treatment" 
+                  className="w-full h-[300px] md:h-[500px] object-contain"
+              />
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Treatment Images Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-10 sm:px-8 lg:px-32">
+      {/* What is Dandruff Removal Section */}
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+
+            {/* Left Content - Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative order-2 lg:order-1"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-3xl overflow-hidden"
+              >
+                <img 
+                  src={HeroImage2.src}
+                  alt="Dandruff Removal Treatment Process" 
+                  className="w-full h-[300px] md:h-[500px] object-contain"
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Right Content */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Treatment Gallery
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              See the transformative results of our advanced hair treatment technology
-            </p>
+              className="space-y-4 px-4 md:px-0 order-1 lg:order-2"
+            >
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
+              >
+                • What is Dandruff Removal Treatment?
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
+              {/* Main Heading */}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="group"
+                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                <div className="bg-gray-200 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                  <div className="aspect-square bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                    <div className="text-center text-gray-600">
-                      <div className="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <Scissors className="h-8 w-8 text-white" />
-                      </div>
-                      <p className="text-sm font-medium">Treatment Image {index}</p>
-                      <p className="text-xs text-gray-500">Before/After</p>
-                    </div>
-                  </div>
-                </div>
+                Advanced <span className="text-primary">Scalp Treatment</span> Therapy
+              </motion.h2>
+
+              {/* Description */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-xs md:text-[15px] text-gray-600 leading-relaxed space-y-3"
+              >
+                <p>
+                  Dandruff removal treatment is a comprehensive scalp therapy designed to eliminate dandruff, reduce scalp irritation, and restore healthy scalp conditions. This treatment combines professional-grade products with advanced techniques to address the root causes of dandruff.
+                </p>
+                <p>
+                  Our treatment involves deep scalp cleansing, exfoliation, and the application of specialized anti-dandruff solutions that target the fungus and bacteria responsible for dandruff formation, providing long-lasting relief and improved scalp health.
+                </p>
               </motion.div>
-            ))}
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Key Benefits Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-10 sm:px-8 lg:px-32">
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key Benefits
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Key Benefits of Dandruff Removal Treatment
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Experience the transformative benefits of our advanced hair treatment technology
-            </p>
+                         <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
+                Experience the transformative benefits of our advanced scalp treatment therapy
+              </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {treatment.benefits.map((benefit, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+            {dandruffRemovalBenefits.map((benefit, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -324,187 +311,496 @@ export default function DandruffRemovalPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 h-full bg-gradient-to-br from-green-50 to-blue-50 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <CheckCircle className="h-6 w-6 text-primary" />
+                <div className="p-3 md:p-6 h-full bg-gradient-to-br from-blue-50 to-green-50 border-0 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
                     {benefit}
                   </h3>
-                  <p className="text-gray-600 text-sm">
-                    Achieve long-lasting results with our proven treatment approach
+                  <p className="text-gray-600 text-xs md:text-sm">
+                    Achieve healthy, dandruff-free scalp with our proven treatment approach
                   </p>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Treatment Details Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-10 sm:px-8 lg:px-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+      {/* Treatment Process Section */}
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+            
+            {/* Left Content - Image */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="relative"
             >
-              <div>
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                  Treatment Process
-                </h2>
-                <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-3xl overflow-hidden"
+              >
+                <img 
+                  src={HeroImage3.src}
+                  alt="Dandruff Removal Treatment Process" 
+                  className="w-full h-[300px] md:h-[500px] object-contain"
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Right Content - Text */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-4 px-4 md:px-0"
+            >
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
+              >
+                • How is the Treatment Performed?
+              </motion.div>
+
+              {/* Main Heading */}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
+              >
+                Our <span className="text-primary">Treatment Process</span>
+              </motion.h2>
+
+              {/* Process Steps */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="space-y-4"
+              >
                   <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                       1
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Consultation</h3>
-                      <p className="text-gray-600">Comprehensive analysis and treatment planning</p>
+                      <h3 className="font-semibold text-gray-900 mb-2">Scalp Analysis</h3>
+                    <p className="text-xs md:text-md text-gray-600">Comprehensive examination of scalp condition and dandruff severity</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                       2
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Treatment</h3>
-                      <p className="text-gray-600">Professional treatment using advanced technology</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Deep Cleansing</h3>
+                    <p className="text-xs md:text-md text-gray-600">Professional scalp cleansing to remove buildup and dead skin</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                       3
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Aftercare</h3>
-                      <p className="text-gray-600">{treatment.aftercare}</p>
-                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Anti-Dandruff Treatment</h3>
+                    <p className="text-xs md:text-md text-gray-600">Application of specialized anti-dandruff solutions</p>
                   </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    4
+                    </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Scalp Massage</h3>
+                    <p className="text-xs md:text-md text-gray-600">Therapeutic massage to improve circulation and absorption</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    5
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Aftercare Guidance</h3>
+                    <p className="text-xs md:text-md text-gray-600">Personalized aftercare instructions and maintenance tips</p>
                 </div>
               </div>
+                
+              </motion.div>
 
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Treatment Details</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Duration:</span>
-                    <span className="font-medium">{treatment.duration}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Sessions:</span>
-                    <span className="font-medium">{treatment.sessions}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Recovery:</span>
-                    <span className="font-medium">Minimal downtime</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Results:</span>
-                    <span className="font-medium">Long-lasting</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              <Card className="p-8 bg-gradient-to-br from-green-50 to-blue-50 border-0 shadow-xl">
-                <div className="text-center space-y-4">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                    <Award className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Why Aries Skin Clinic?</h3>
-                  <div className="space-y-3 text-left">
-                    <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">15+ Years of Medical Experience</span>
-                    </div>
-                    <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">FDA & CE Approved Equipment</span>
-                    </div>
-                    <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Government Certified Expert</span>
-                    </div>
-                    <div className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">Prime Location in Nashik</span>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 bg-white border-0 shadow-lg">
-                <div className="text-center space-y-4">
-                  <h3 className="text-xl font-semibold text-gray-900">Ready to Start?</h3>
-                  <p className="text-gray-600 text-sm">
-                    Book your consultation today and take the first step towards your goals
-                  </p>
-                  <Button
-                    onClick={handleAppointmentClick}
-                    className="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-semibold"
-                  >
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    Book Free Consultation
-                  </Button>
-                </div>
-              </Card>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
-        <div className="container mx-auto px-10 sm:px-8 lg:px-32 text-center">
+      {/* Treatment Types Section */}
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto space-y-8"
+            className="bg-gray-50 rounded-2xl p-8 md:p-12"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold">
-              Ready to Transform Your Hair?
+            <div className="text-center mb-8">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Treatment Options
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+              {[
+                {
+                  title: "Deep Cleansing",
+                  description: "Professional scalp cleansing to remove buildup and dead skin"
+                },
+                {
+                  title: "Anti-Dandruff Therapy",
+                  description: "Specialized treatment to eliminate dandruff-causing factors"
+                },
+                {
+                  title: "Scalp Hydration",
+                  description: "Moisturizing treatment to restore scalp health and balance"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
+                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
+                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
+                    </div>
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs md:text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Who Can Get Treatment Section */}
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+            
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-4 px-4 md:px-0"
+            >
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
+              >
+                • Who Can Get This Treatment?
+              </motion.div>
+
+              {/* Main Heading */}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
+              >
+                Perfect For <span className="text-primary">Dandruff Concerns</span>
+              </motion.h2>
+
+              {/* Suitable For */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="space-y-3"
+              >
+                <h3 className="text-md sm:text-lg font-semibold text-gray-900">This treatment is suitable for people with:</h3>
+                <div className="space-y-2">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm md:text-md text-gray-700">Persistent dandruff and flaking</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm md:text-md text-gray-700">Scalp irritation and itching</span>
+                    </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm md:text-md text-gray-700">Oily or dry scalp conditions</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm md:text-md text-gray-700">Hair loss due to scalp issues</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm md:text-md text-gray-700">General scalp health improvement</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Not Suitable For */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="space-y-3"
+              >
+                <h3 className="text-lg font-semibold text-gray-900">⚠️ Not suitable for:</h3>
+                <div className="space-y-2">
+                  <div className="flex items-start space-x-3">
+                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm md:text-md text-gray-700">Open wounds or infections on scalp</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm md:text-md text-gray-700">Severe allergic reactions to treatment products</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm md:text-md text-gray-700">Pregnant or breastfeeding women (consultation required)</span>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Content - Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-3xl overflow-hidden"
+              >
+                <img 
+                  src={HeroImage4.src}
+                  alt="Dandruff Removal for Everyone" 
+                  className="w-full h-[300px] md:h-[500px] object-contain"
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recovery & Aftercare Section */}
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gray-50 rounded-2xl p-8 md:p-12"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Recovery & Aftercare
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+              {[
+                {
+                  title: "No Downtime",
+                  description: "Return to normal activities immediately after treatment"
+                },
+                {
+                  title: "Gentle Care",
+                  description: "Use recommended hair care products for best results"
+                },
+                {
+                  title: "Follow-up Sessions",
+                  description: "Regular sessions for maintaining healthy scalp"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
+                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
+                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
+                    </div>
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs md:text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Aries Section */}
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gray-50 rounded-2xl p-8 md:p-12"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Why Choose Aries Skin & General Clinic?
+              </h2>
+              <p className="text-xs md:text-md text-gray-600 max-w-3xl mx-auto">
+                At Aries Skin & General Clinic, we provide safe, effective, and professional scalp treatments under the guidance of skilled doctors and trained professionals. We ensure optimal results with proper aftercare guidance.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+              {[
+                {
+                  icon: Award,
+                  title: "Expert Care",
+                  description: "Expert scalp treatment care with modern equipment"
+                },
+                {
+                  icon: Users,
+                  title: "Safe Treatment",
+                  description: "Safe, effective treatments using proven methods"
+                },
+                {
+                  icon: Shield,
+                  title: "Safe Environment",
+                  description: "Hygienic, comfortable, and patient-friendly environment"
+                },
+                {
+                  icon: Star,
+                  title: "Proven Results",
+                  description: "Proven results with satisfied clients"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
+                    <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
+                      <item.icon className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
+                    </div>
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs md:text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mt-8"
+            >
+              <p className="text-xs sm:text-lg font-medium text-gray-800">
+                ✨ Your journey to healthy, dandruff-free scalp starts at Aries Skin & General Clinic.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-5 md:py-5 bg-white mx-5">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center space-y-2 sm:space-y-6"
+          >
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+              Ready to Get Rid of Dandruff?
             </h2>
-            <p className="text-xl text-primary-100">
-              Join thousands of satisfied patients who have achieved their goals with us
+            <p className="text-xs md:text-md text-gray-600 mx-5">
+              Join thousands of satisfied patients who have achieved healthy, dandruff-free scalp with us
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-row gap-4 justify-center">
               <Button
                 onClick={handleAppointmentClick}
-                size="lg"
-                className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-lg"
+                className="flex-1 bg-teal-700 hover:bg-teal-800 text-white px-6 py-3 rounded-lg font-medium group"
               >
-                <MessageCircle className="mr-2 h-6 w-6" />
-                Book Free Consultation
+                <MessageCircle className="mr-2 h-4 w-4" />
+                Book Appointment
               </Button>
               
               <Button
                 onClick={handleCallClick}
                 variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold rounded-full"
+                className="flex-1 border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white px-6 py-3 rounded-lg font-medium"
               >
-                <Phone className="mr-2 h-6 w-6" />
+                <Phone className="mr-2 h-4 w-4" />
                 Call Now
               </Button>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm">
+            <div className="flex flex-row items-center justify-center space-x-8 text-sm text-gray-600">
               <div className="flex items-center">
                 <Users className="h-4 w-4 mr-2" />
                 1000+ Happy Patients
@@ -523,25 +819,31 @@ export default function DandruffRemovalPage() {
       </section>
 
       {/* Navigation Links */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-10 sm:px-8 lg:px-32">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="py-5 md:py-5 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <div className="flex flex-row items-center justify-between gap-4">
             <Link 
               href="/treatments/hair"
-              className="text-primary hover:text-primary-dark font-medium transition-colors"
+              className="text-teal-700 text-xs sm:text-sm hover:text-teal-800 font-medium transition-colors"
             >
               ← Back to Hair Care & Treatments
             </Link>
             
             <Link 
               href="/treatments"
-              className="text-primary hover:text-primary-dark font-medium transition-colors"
+              className="text-teal-700 hover:text-teal-800 font-medium text-xs sm:text-sm transition-colors"
             >
               View All Treatments →
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Appointment Modal */}
+      <AppointmentModal 
+        open={isAppointmentModalOpen}
+        onOpenChange={setIsAppointmentModalOpen}
+      />
     </div>
   );
 }

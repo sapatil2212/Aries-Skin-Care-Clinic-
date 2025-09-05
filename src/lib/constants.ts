@@ -183,7 +183,7 @@ export const TREATMENTS: Treatment[] = [
   {
     id: "medicated-hydrafacial",
     name: "Medicated Hydrafacial",
-    description: "Deep cleansing and hydrating facial treatment for glowing, healthy skin",
+    description: "The Medicated HydraFacial at Aries Skin & General Clinic is an advanced, non-invasive skin treatment that goes beyond a regular facial. It combines deep cleansing, gentle exfoliation, painless extractions, and powerful hydration with medical-grade serums enriched with antioxidants, peptides, and hyaluronic acid.",
     benefits: [
       "Deep pore cleansing",
       "Improved skin texture",

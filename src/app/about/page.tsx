@@ -319,9 +319,9 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="bg-white rounded-3xl border border-gray-200 overflow-hidden"
           >
-            <div className="grid lg:grid-cols-3 h-[500px]">
+            <div className="grid lg:grid-cols-3 h-[400px] md:h-[500px]">
               {/* Left Two-Thirds - Map */}
-              <div className="lg:col-span-2 relative">
+              <div className="lg:col-span-2 relative h-[300px] md:h-full">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.5405784069153!2d73.78962419999999!3d20.027787800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddebba552420eb%3A0x2e4fb303571dcc31!2sAries%20Skin%20and%20General%20Clinic%20%7C%20Skin%2C%20Hair%2C%20Acne%20%26%20Aesthetic%20Treatment%20in%20Nashik%20%7C!5e0!3m2!1sen!2sin!4v1757054334594!5m2!1sen!2sin" 
                   width="100%" 
@@ -334,69 +334,69 @@ export default function AboutPage() {
               </div>
 
               {/* Right One-Third - Information */}
-              <div className="p-6 flex flex-col justify-center space-y-6">
+              <div className="p-4 md:p-6 flex flex-col justify-center space-y-4 md:space-y-6">
                 {/* Address Section */}
                 <div>
-                  <div className="flex items-center space-x-2 mb-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
-                      <MapPin className="h-4 w-4 text-white" />
+                  <div className="flex items-center space-x-2 mb-2 md:mb-3">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                      <MapPin className="h-3 w-3 md:h-4 md:w-4 text-white" />
                     </div>
-                    <h3 className="text-sm md:text-base font-bold text-primary">Location & Address</h3>
+                    <h3 className="text-xs md:text-sm lg:text-base font-bold text-primary">Location & Address</h3>
                   </div>
                   
-                  <p className="text-xs text-gray-600 leading-relaxed">
+                  <p className="text-[10px] md:text-xs text-gray-600 leading-relaxed">
                     Shop No 1, Keystone Residency Apartment, Behind Sharad Pawar Fruit Market, Peth-Makhalamabad Link Road, Samarth Nagar, Panchavati, Nashik - 422001
                   </p>
                 </div>
 
                 {/* Working Hours Section */}
                 <div>
-                  <div className="flex items-center space-x-2 mb-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
-                      <Clock className="h-4 w-4 text-white" />
+                  <div className="flex items-center space-x-2 mb-2 md:mb-3">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                      <Clock className="h-3 w-3 md:h-4 md:w-4 text-white" />
                     </div>
-                    <h3 className="text-sm md:text-base font-bold text-primary">Hours</h3>
+                    <h3 className="text-xs md:text-sm lg:text-base font-bold text-primary">Hours</h3>
                   </div>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-1 md:space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-xs text-gray-600">Monday</span>
-                      <span className="text-xs font-medium">10 am–2 pm, 5–9 pm</span>
+                      <span className="text-[10px] md:text-xs text-gray-600">Monday</span>
+                      <span className="text-[10px] md:text-xs font-medium">10 am–2 pm, 5–9 pm</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-xs text-gray-600">Tuesday</span>
-                      <span className="text-xs font-medium">10 am–2 pm, 5–9 pm</span>
+                      <span className="text-[10px] md:text-xs text-gray-600">Tuesday</span>
+                      <span className="text-[10px] md:text-xs font-medium">10 am–2 pm, 5–9 pm</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-xs text-gray-600">Wednesday</span>
-                      <span className="text-xs font-medium">10 am–2 pm, 5–9 pm</span>
+                      <span className="text-[10px] md:text-xs text-gray-600">Wednesday</span>
+                      <span className="text-[10px] md:text-xs font-medium">10 am–2 pm, 5–9 pm</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-xs text-gray-600">Thursday</span>
-                      <span className="text-xs font-medium">10 am–2 pm, 5–9 pm</span>
+                      <span className="text-[10px] md:text-xs text-gray-600">Thursday</span>
+                      <span className="text-[10px] md:text-xs font-medium">10 am–2 pm, 5–9 pm</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-xs text-gray-600">Friday</span>
-                      <span className="text-xs font-medium">10 am–2 pm, 5–9 pm</span>
+                      <span className="text-[10px] md:text-xs text-gray-600">Friday</span>
+                      <span className="text-[10px] md:text-xs font-medium">10 am–2 pm, 5–9 pm</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-xs text-gray-600">Saturday</span>
-                      <span className="text-xs font-medium">10 am–2 pm, 5–9 pm</span>
+                      <span className="text-[10px] md:text-xs text-gray-600">Saturday</span>
+                      <span className="text-[10px] md:text-xs font-medium">10 am–2 pm, 5–9 pm</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-xs text-gray-600">Sunday</span>
-                      <span className="text-xs font-medium text-red-500">Closed</span>
+                      <span className="text-[10px] md:text-xs text-gray-600">Sunday</span>
+                      <span className="text-[10px] md:text-xs font-medium text-red-500">Closed</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Book Appointment Button */}
-                <div className="pt-2">
+                <div className="pt-1 md:pt-2">
                   <Button 
-                    className="w-full bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-lg font-medium group text-sm"
+                    className="w-full bg-teal-700 hover:bg-teal-800 text-white px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium group text-xs md:text-sm"
                   >
                     Book Appointment
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="ml-1 md:ml-2 h-3 w-3 md:h-4 md:w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </div>
               </div>
