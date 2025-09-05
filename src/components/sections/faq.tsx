@@ -45,7 +45,7 @@ export function FAQ() {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="bg-gradient-to-br from-emerald-800 to-emerald-900 rounded-2xl p-8 lg:p-12 relative overflow-hidden">
           
@@ -89,12 +89,12 @@ export function FAQ() {
             </div>
 
             {/* Right Column - FAQ Accordion */}
-            <div className="space-y-3">
+            <div className="space-y-1">
               {faqData.map((faq, index) => (
                 <div key={index} className="border-b border-white/20 last:border-b-0">
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full text-left py-5 flex items-center justify-between text-white hover:text-white/80 transition-colors duration-200"
+                    className="w-full text-left py-3 flex items-center justify-between text-white hover:text-white/80 transition-colors duration-200"
                   >
                     <span className="font-medium text-sm pr-4">{faq.question}</span>
                     {openIndex === index ? (
@@ -105,7 +105,7 @@ export function FAQ() {
                   </button>
                   
                   {openIndex === index && (
-                    <div className="pb-5">
+                    <div className="pb-3">
                       <p className="text-white/80 text-xs leading-relaxed">
                         {faq.answer}
                       </p>

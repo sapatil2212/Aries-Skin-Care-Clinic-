@@ -1,10 +1,8 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-
+import { motion } from "framer-motion"
+import HowImage from "../../../public/home-how-we-work/how-we-work.png"
 export function HowWeWork() {
-  const [isExpanded, setIsExpanded] = useState(false)
   const steps = [
     {
       number: "01",
@@ -45,9 +43,9 @@ export function HowWeWork() {
             >
               {/* Main Image */}
               <img 
-                src="/home-about/home-about.png"
+                src={HowImage.src}
                 alt="Patient receiving facial treatment"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[400px] md:h-[450px] object-cover"
               />
             </motion.div>
           </motion.div>
@@ -77,7 +75,7 @@ export function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#2E524C] leading-tight"
+              className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2E524C] leading-tight"
             >
               A commitment to your skin health
             </motion.h2>
@@ -88,78 +86,49 @@ export function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-sm md:text-md text-[#646464] leading-relaxed"
+              className="text-xs md:text-sm text-[#646464] leading-relaxed"
             >
               <p>
                 We're dedicated to helping you achieve and maintain beautiful, healthy skin. Trust us to provide exceptional care tailored to you.
               </p>
             </motion.div>
 
-            {/* Toggle Button */}
+            {/* Steps */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
               viewport={{ once: true }}
-              className="pt-4"
+              className="space-y-6 pt-4"
             >
-              <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center space-x-2 text-[#2E524C] hover:text-[#1a3a35] transition-colors"
-              >
-                <span className="font-medium">
-                  {isExpanded ? 'Hide' : 'Show'} Our Process
-                </span>
+              {steps.map((step, index) => (
                 <motion.div
-                  animate={{ rotate: isExpanded ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="space-y-3"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                  <div className="flex items-start space-x-3">
+                    <div className="text-xl md:text-2xl font-bold text-[#2E524C] leading-none">
+                      {step.number}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-sm md:text-base font-semibold text-[#2E524C] mb-1">
+                        {step.title}
+                      </h3>
+                      <p className="text-[#646464] text-xs md:text-sm leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                  {index < steps.length - 1 && (
+                    <div className="border-t border-gray-200 pt-4"></div>
+                  )}
                 </motion.div>
-              </button>
+              ))}
             </motion.div>
-
-            {/* Steps - Expandable */}
-            <AnimatePresence>
-              {isExpanded && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="space-y-6 pt-4 overflow-hidden"
-                >
-                  {steps.map((step, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1, duration: 0.5 }}
-                      className="space-y-3"
-                    >
-                      <div className="flex items-start space-x-4">
-                        <div className="text-4xl font-bold text-[#2E524C] leading-none">
-                          {step.number}
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-lg font-semibold text-[#2E524C] mb-2">
-                            {step.title}
-                          </h3>
-                          <p className="text-[#646464] text-sm md:text-md leading-relaxed">
-                            {step.description}
-                          </p>
-                        </div>
-                      </div>
-                      {index < steps.length - 1 && (
-                        <div className="border-t border-gray-200 pt-4"></div>
-                      )}
-                    </motion.div>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
           </motion.div>
         </div>
       </div>

@@ -2,7 +2,6 @@ import { Hero } from "@/components/sections/hero"
 import { About } from "@/components/sections/about"
 import { InteractiveGallery } from "@/components/sections/interactive-gallery"
 import { Benefits } from "@/components/sections/benefits"
-import { Features } from "@/components/sections/features"
 import { TreatmentsPreview } from "@/components/sections/treatments-preview"
 import { FAQ } from "@/components/sections/faq"
 import Testimonials from "@/components/sections/testimonials-preview"
@@ -17,7 +16,6 @@ export default function HomePage() {
       <HowWeWork/>
       <InteractiveGallery />
       <Benefits />
-      <Features />
       <FAQ />
       <Testimonials />
     </>
