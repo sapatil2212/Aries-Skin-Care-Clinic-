@@ -19,12 +19,27 @@
    - Output Directory: `.next` (auto-detected)
    - Install Command: `npm install` (auto-detected)
 
-3. **Environment Variables** (Optional)
+3. **Environment Variables** (Required for Email Functionality)
    ```
+   # Email Configuration
+   EMAIL_HOST=smtp.gmail.com
+   EMAIL_PORT=587
+   EMAIL_SECURE=false
+   EMAIL_USER=ariesskin25@gmail.com
+   EMAIL_PASS=anfw zygk bgxm itpa
+   CLINIC_EMAIL=ariesskin25@gmail.com
+   
+   # Site Configuration
    NEXT_PUBLIC_SITE_URL=https://your-vercel-domain.vercel.app
    ```
 
-4. **Deploy**
+4. **Set Environment Variables in Vercel**
+   - After importing the project, go to "Settings" → "Environment Variables"
+   - Add each environment variable from the list above
+   - Make sure to set them for "Production", "Preview", and "Development" environments
+   - Click "Save" after adding all variables
+
+5. **Deploy**
    - Click "Deploy"
    - Vercel will automatically build and deploy your site
 

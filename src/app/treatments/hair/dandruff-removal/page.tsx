@@ -22,10 +22,10 @@ import {
 } from 'lucide-react';
 import { TREATMENTS } from '@/lib/constants';
 import Link from 'next/link';
-import HeroImage1 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial.png"
-import HeroImage2 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-2.png"
-import HeroImage3 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-3.png"
-import HeroImage4 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-4.png"
+import HeroImage1 from "../../../../../public/treatments/hair/4.png"
+import HeroImage2 from "../../../../../public/treatments/hair/5.png"
+import HeroImage3 from "../../../../../public/treatments/hair/6.png"
+import HeroImage4 from "../../../../../public/treatments/hair/2.png"
 
 const treatment = TREATMENTS.find(t => t.id === 'dandruff-removal');
 
@@ -97,7 +97,7 @@ export default function DandruffRemovalPage() {
                 viewport={{ once: true }}
                 className="text-sm md:text-md text-gray-600 leading-relaxed space-y-3"
               >
-                <p>{treatment.description}</p>
+                <p>Dandruff—those persistent white flakes on your shoulders—can feel both embarrassing and uncomfortable. But beyond being just a minor irritation, dandruff often signals an underlying issue with scalp health. The good news is that with the right treatment—ranging from medicated shampoos to natural remedies and lifestyle changes—you can restore your scalp to its healthiest state.</p>
               </motion.div>
 
               {/* Treatment Benefits */}
@@ -109,24 +109,24 @@ export default function DandruffRemovalPage() {
                 className="mt-6"
               >
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  This treatment helps in:
+                  Key Benefits:
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Eliminating dandruff and flaking</span>
+                    <span className="text-sm text-gray-600">Prevents itching, redness, and scalp irritation</span>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Reducing scalp irritation and itching</span>
+                    <span className="text-sm text-gray-600">Reduces the risk of fungal spread and hair damage</span>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Improving scalp health and hygiene</span>
+                    <span className="text-sm text-gray-600">Boosts confidence with a healthier, flake-free scalp</span>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Preventing future dandruff formation</span>
+                    <span className="text-sm text-gray-600">Restores scalp to its healthiest state</span>
                   </div>
               </div>
               </motion.div>
@@ -206,7 +206,7 @@ export default function DandruffRemovalPage() {
         </div>
       </section>
 
-      {/* What is Dandruff Removal Section */}
+      {/* What Causes Dandruff Section */}
       <section className="py-5 md:py-5 bg-white">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
@@ -228,7 +228,7 @@ export default function DandruffRemovalPage() {
               >
                 <img 
                   src={HeroImage2.src}
-                  alt="Dandruff Removal Treatment Process" 
+                  alt="What Causes Dandruff" 
                   className="w-full h-[300px] md:h-[500px] object-contain"
                 />
               </motion.div>
@@ -250,7 +250,7 @@ export default function DandruffRemovalPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • What is Dandruff Removal Treatment?
+                • Understanding Dandruff
           </motion.div>
           
               {/* Main Heading */}
@@ -261,7 +261,7 @@ export default function DandruffRemovalPage() {
                 viewport={{ once: true }}
                 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                Advanced <span className="text-primary">Scalp Treatment</span> Therapy
+                What <span className="text-primary">Causes Dandruff?</span>
               </motion.h2>
 
               {/* Description */}
@@ -273,19 +273,56 @@ export default function DandruffRemovalPage() {
                 className="text-xs md:text-[15px] text-gray-600 leading-relaxed space-y-3"
               >
                 <p>
-                  Dandruff removal treatment is a comprehensive scalp therapy designed to eliminate dandruff, reduce scalp irritation, and restore healthy scalp conditions. This treatment combines professional-grade products with advanced techniques to address the root causes of dandruff.
+                  Dandruff can be triggered by multiple factors, including:
                 </p>
-                <p>
-                  Our treatment involves deep scalp cleansing, exfoliation, and the application of specialized anti-dandruff solutions that target the fungus and bacteria responsible for dandruff formation, providing long-lasting relief and improved scalp health.
-                </p>
+              </motion.div>
+
+              {/* Causes List */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="space-y-3"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-sm font-semibold text-gray-900">Dry Scalp</span>
+                      <span className="text-sm text-gray-600"> → Leads to flakiness and irritation.</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-sm font-semibold text-gray-900">Fungal Infections (Malassezia)</span>
+                      <span className="text-sm text-gray-600"> → Overgrowth of yeast on the scalp feeds on natural oils, causing itching and flakes.</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-sm font-semibold text-gray-900">Seborrheic Dermatitis</span>
+                      <span className="text-sm text-gray-600"> → A chronic condition marked by redness, scaling, and persistent dandruff due to excess oil and inflammation.</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-sm font-semibold text-gray-900">External Factors</span>
+                      <span className="text-sm text-gray-600"> → Weather changes, overuse of hot styling tools, harsh hair products, or frequent washing.</span>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Key Benefits Section */}
-      <section className="py-5 md:py-5 bg-white">
+      {/* Types of Anti-Dandruff Treatments Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -295,41 +332,115 @@ export default function DandruffRemovalPage() {
             className="text-center mb-8"
           >
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key Benefits of Dandruff Removal Treatment
+              Types of Anti-Dandruff Treatments
             </h2>
-                         <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
-                Experience the transformative benefits of our advanced scalp treatment therapy
-              </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-            {dandruffRemovalBenefits.map((benefit, index) => (
+          <div className="space-y-8">
+            {/* Medicated Shampoos */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 md:p-8"
+            >
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">1. Medicated Shampoos</h3>
+              <p className="text-sm text-gray-600 mb-4">Depending on the cause, different shampoos are recommended:</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="p-4 border border-gray-200 rounded-lg">
+                  <h4 className="font-semibold text-gray-900 mb-2">For Dryness:</h4>
+                  <p className="text-sm text-gray-600">Moisturizing shampoos with aloe vera, glycerin, or coconut oil.</p>
+                </div>
+                <div className="p-4 border border-gray-200 rounded-lg">
+                  <h4 className="font-semibold text-gray-900 mb-2">For Fungal Infections:</h4>
+                  <p className="text-sm text-gray-600">Shampoos with ketoconazole, zinc pyrithione, or selenium sulfide.</p>
+                </div>
+                <div className="p-4 border border-gray-200 rounded-lg">
+                  <h4 className="font-semibold text-gray-900 mb-2">For Seborrheic Dermatitis:</h4>
+                  <p className="text-sm text-gray-600">Shampoos with coal tar, salicylic acid, or ciclopirox to reduce inflammation and flaking.</p>
+                </div>
+              </div>
+              
+              <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  💡 <span className="font-semibold">Consistency is key</span>—results may take several weeks, so regular use as prescribed is important.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Natural Remedies */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 md:p-8"
+            >
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">2. Natural Remedies</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="p-4 border border-gray-200 rounded-lg">
+                  <h4 className="font-semibold text-gray-900 mb-2">Tea Tree Oil:</h4>
+                  <p className="text-sm text-gray-600">Antifungal properties that fight scalp infections.</p>
+                </div>
+                <div className="p-4 border border-gray-200 rounded-lg">
+                  <h4 className="font-semibold text-gray-900 mb-2">Aloe Vera:</h4>
+                  <p className="text-sm text-gray-600">Soothes irritation and hydrates the scalp.</p>
+                </div>
+                <div className="p-4 border border-gray-200 rounded-lg">
+                  <h4 className="font-semibold text-gray-900 mb-2">Apple Cider Vinegar Rinse:</h4>
+                  <p className="text-sm text-gray-600">Helps restore pH balance and reduce itchiness.</p>
+                </div>
+              </div>
+              
+              <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="text-sm text-yellow-800">
+                  ⚠️ <span className="font-semibold">Always do a patch test</span> before using natural remedies to avoid irritation.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Lifestyle Adjustments */}
               <motion.div
-                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-              >
-                <div className="p-3 md:p-6 h-full bg-gradient-to-br from-blue-50 to-green-50 border-0 rounded-lg transition-all duration-300 group">
-                  <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform">
-                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
+              className="bg-white rounded-2xl p-6 md:p-8"
+            >
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-4">3. Lifestyle Adjustments</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Maintain good scalp hygiene</span>
                   </div>
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                    {benefit}
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm">
-                    Achieve healthy, dandruff-free scalp with our proven treatment approach
-                  </p>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Avoid excessive use of hair gels, sprays, or styling creams</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Wash hair regularly but not excessively</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Manage stress levels, as stress can worsen dandruff flare-ups</span>
+                  </div>
+                </div>
                 </div>
               </motion.div>
-            ))}
           </div>
         </div>
       </section>
 
 
-      {/* Treatment Process Section */}
+      {/* Why Treat Dandruff Early Section */}
       <section className="py-5 md:py-5 bg-white">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
@@ -351,7 +462,7 @@ export default function DandruffRemovalPage() {
               >
                 <img 
                   src={HeroImage3.src}
-                  alt="Dandruff Removal Treatment Process" 
+                  alt="Why Treat Dandruff Early" 
                   className="w-full h-[300px] md:h-[500px] object-contain"
                 />
               </motion.div>
@@ -373,7 +484,7 @@ export default function DandruffRemovalPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • How is the Treatment Performed?
+                • Importance of Early Treatment
               </motion.div>
 
               {/* Main Heading */}
@@ -384,10 +495,10 @@ export default function DandruffRemovalPage() {
                 viewport={{ once: true }}
                 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                Our <span className="text-primary">Treatment Process</span>
+                Why Treat <span className="text-primary">Dandruff Early?</span>
               </motion.h2>
 
-              {/* Process Steps */}
+              {/* Benefits List */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -395,59 +506,37 @@ export default function DandruffRemovalPage() {
                 viewport={{ once: true }}
                 className="space-y-4"
               >
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      1
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Prevents itching, redness, and scalp irritation</span>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Scalp Analysis</h3>
-                    <p className="text-xs md:text-md text-gray-600">Comprehensive examination of scalp condition and dandruff severity</p>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Reduces the risk of fungal spread and hair damage</span>
                     </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Boosts confidence with a healthier, flake-free scalp</span>
                   </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      2
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Deep Cleansing</h3>
-                    <p className="text-xs md:text-md text-gray-600">Professional scalp cleansing to remove buildup and dead skin</p>
-                    </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Prevents secondary infections and complications</span>
                   </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      3
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Anti-Dandruff Treatment</h3>
-                    <p className="text-xs md:text-md text-gray-600">Application of specialized anti-dandruff solutions</p>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Improves overall hair health and appearance</span>
                   </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    4
-                    </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Scalp Massage</h3>
-                    <p className="text-xs md:text-md text-gray-600">Therapeutic massage to improve circulation and absorption</p>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Saves time and money on extensive treatments later</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Maintains healthy scalp microbiome balance</span>
                   </div>
                 </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Aftercare Guidance</h3>
-                    <p className="text-xs md:text-md text-gray-600">Personalized aftercare instructions and maintenance tips</p>
-                </div>
-              </div>
-                
               </motion.div>
-
-
             </motion.div>
           </div>
         </div>
@@ -509,181 +598,7 @@ export default function DandruffRemovalPage() {
         </div>
       </section>
 
-      {/* Who Can Get Treatment Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-            
-            {/* Left Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • Who Can Get This Treatment?
-              </motion.div>
 
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Perfect For <span className="text-primary">Dandruff Concerns</span>
-              </motion.h2>
-
-              {/* Suitable For */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <h3 className="text-md sm:text-lg font-semibold text-gray-900">This treatment is suitable for people with:</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Persistent dandruff and flaking</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Scalp irritation and itching</span>
-                    </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Oily or dry scalp conditions</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Hair loss due to scalp issues</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">General scalp health improvement</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Not Suitable For */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <h3 className="text-lg font-semibold text-gray-900">⚠️ Not suitable for:</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Open wounds or infections on scalp</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Severe allergic reactions to treatment products</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Pregnant or breastfeeding women (consultation required)</span>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage4.src}
-                  alt="Dandruff Removal for Everyone" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recovery & Aftercare Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Recovery & Aftercare
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-              {[
-                {
-                  title: "No Downtime",
-                  description: "Return to normal activities immediately after treatment"
-                },
-                {
-                  title: "Gentle Care",
-                  description: "Use recommended hair care products for best results"
-                },
-                {
-                  title: "Follow-up Sessions",
-                  description: "Regular sessions for maintaining healthy scalp"
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
-                    </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Why Choose Aries Section */}
       <section className="py-5 md:py-5 bg-white">

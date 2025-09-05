@@ -22,9 +22,9 @@ import {
 } from 'lucide-react';
 import { TREATMENTS } from '@/lib/constants';
 import Link from 'next/link';
-import HeroImage1 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial.png"
+import HeroImage1 from "../../../../../public/treatments/mole-removal/2.png"
 import HeroImage2 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-2.png"
-import HeroImage3 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-3.png"
+import HeroImage3 from "../../../../../public/treatments/mole-removal/1.png"
 import HeroImage4 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-4.png"
 
 
@@ -44,8 +44,8 @@ export default function SkinTagRemovalPage() {
     window.open(`tel:+917588832221`, '_blank');
   };
 
-  // Skin Tag Removal specific benefits
-  const skinTagRemovalBenefits = [
+  // Mole Removal specific benefits
+  const moleRemovalBenefits = [
     "Quick and painless removal",
     "Minimal scarring risk",
     "Suitable for all skin types",
@@ -77,7 +77,7 @@ export default function SkinTagRemovalPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • Advanced Cosmetic Treatment
+                • Mole, Skin Tags & Warts Removal Treatment in Nashik
               </motion.div>
 
               {/* Main Heading */}
@@ -88,7 +88,7 @@ export default function SkinTagRemovalPage() {
                 viewport={{ once: true }}
                 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                {treatment.name}
+                Safe • Painless • Advanced Laser Solutions at Aries Skin & General Clinic
               </motion.h1>
 
               {/* Description */}
@@ -99,7 +99,7 @@ export default function SkinTagRemovalPage() {
                 viewport={{ once: true }}
                 className="text-sm md:text-md text-gray-600 leading-relaxed space-y-3"
               >
-                <p>{treatment.description}</p>
+                <p>Say goodbye to unwanted moles, skin tags, and warts with Aries Skin & General Clinic, Nashik. Our advanced laser procedures ensure quick, safe, and virtually painless removal, helping you achieve clear, flawless skin with confidence.</p>
               </motion.div>
 
               {/* Treatment Benefits */}
@@ -110,26 +110,10 @@ export default function SkinTagRemovalPage() {
                 viewport={{ once: true }}
                 className="mt-6"
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  This treatment helps in:
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Quick and painless removal</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Minimal scarring risk</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Suitable for all skin types</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Professional treatment methods</span>
-                  </div>
+                <div className="bg-gradient-to-r from-teal-50 to-blue-50 rounded-2xl p-6">
+                  <p className="text-lg font-semibold text-gray-900 text-center">
+                    ✨ No cuts. No scars. No downtime – Just smooth, healthy skin.
+                  </p>
               </div>
               </motion.div>
 
@@ -199,7 +183,7 @@ export default function SkinTagRemovalPage() {
             >
               <img 
                   src={HeroImage1.src}
-                alt="Skin Tag Removal Treatment" 
+                alt="Mole Removal Treatment" 
                   className="w-full h-[300px] md:h-[500px] object-contain"
               />
               </motion.div>
@@ -208,11 +192,144 @@ export default function SkinTagRemovalPage() {
         </div>
       </section>
 
-      {/* What is Skin Tag Removal Section */}
+      {/* What Are Moles, Skin Tags & Warts Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              What Are Moles, Skin Tags & Warts?
+            </h2>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              {
+                title: "Moles",
+                description: "Brown or black skin growths that can appear anywhere on the body. Some may grow larger, become raised, or even develop hair."
+              },
+              {
+                title: "Skin Tags",
+                description: "Small, soft, skin-colored growths that commonly occur on the neck, armpits, groin, or under breasts. They are harmless but can cause irritation."
+              },
+              {
+                title: "Warts",
+                description: "Caused by the human papillomavirus (HPV), warts are rough, contagious growths that usually appear on the hands, feet, face, or knees."
+              }
+            ].map((type, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="p-4 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
+                  </div>
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {type.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs md:text-sm">
+                    {type.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-8"
+          >
+            <p className="text-sm md:text-lg text-gray-600 max-w-3xl mx-auto">
+              Most of these are harmless, but many patients choose to remove them for cosmetic reasons, discomfort, or hygiene.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why Do They Appear Section */}
       <section className="py-5 md:py-5 bg-white">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Why Do They Appear?
+            </h2>
+          </motion.div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              {
+                title: "Genetic predisposition",
+                description: "Family history can influence the development of moles and skin tags"
+              },
+              {
+                title: "Sun exposure",
+                description: "UV radiation can trigger the formation of moles and skin lesions"
+              },
+              {
+                title: "Hormonal changes",
+                description: "Adolescence, pregnancy, and other hormonal shifts can cause growths"
+              },
+              {
+                title: "Viral infection",
+                description: "HPV infection is the primary cause of warts"
+              },
+              {
+                title: "Friction due to clothing or jewelry",
+                description: "Constant rubbing can lead to skin tag formation"
+              },
+              {
+                title: "Age and skin changes",
+                description: "Natural aging process can increase the likelihood of developing skin growths"
+              }
+            ].map((cause, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="p-4 md:p-6 h-full bg-gray-50 border border-gray-200 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
+                  </div>
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {cause.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs md:text-sm">
+                    {cause.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* How Are They Treated at Aries Clinic Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
+            
             {/* Left Content - Image */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -229,19 +346,19 @@ export default function SkinTagRemovalPage() {
                 className="rounded-3xl overflow-hidden"
               >
                 <img 
-                  src={HeroImage2.src}
-                  alt="Skin Tag Removal Treatment Process" 
+                  src={HeroImage3.src}
+                  alt="Mole, Skin Tag & Wart Removal Treatment Process" 
                   className="w-full h-[300px] md:h-[500px] object-contain"
                 />
               </motion.div>
             </motion.div>
 
             {/* Right Content */}
-          <motion.div
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
               className="space-y-4 px-4 md:px-0 order-1 lg:order-2"
             >
               {/* Badge */}
@@ -252,9 +369,9 @@ export default function SkinTagRemovalPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • What is Skin Tag Removal?
-          </motion.div>
-          
+                • How Are They Treated at Aries Clinic?
+              </motion.div>
+
               {/* Main Heading */}
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -263,7 +380,7 @@ export default function SkinTagRemovalPage() {
                 viewport={{ once: true }}
                 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                Advanced <span className="text-primary">Skin Treatment</span> Procedure
+                Advanced <span className="text-primary">CO2 Laser Technology</span> for Precise Removal
               </motion.h2>
 
               {/* Description */}
@@ -275,10 +392,49 @@ export default function SkinTagRemovalPage() {
                 className="text-xs md:text-[15px] text-gray-600 leading-relaxed space-y-3"
               >
                 <p>
-                  Skin tag removal is a safe and effective cosmetic procedure that eliminates unwanted skin tags, which are small, benign growths that commonly appear on the skin. These harmless growths can be removed using various professional methods for cosmetic or comfort reasons.
+                  At Aries Skin & General Clinic, Nashik, we use advanced CO2 Laser Technology for precise removal.
                 </p>
+              </motion.div>
+
+              {/* Treatment Features */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="space-y-3"
+              >
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Quick outpatient procedure - Fast and efficient treatment in our clinic</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Painless and scar-free - Advanced laser technology ensures minimal discomfort</span>
+                    </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">No anesthesia required - Numbing cream optional for comfort</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Minimal to no downtime - Return to normal activities quickly</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Safe for all skin types - Effective treatment for diverse skin tones</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-xs md:text-[15px] text-gray-600 leading-relaxed"
+              >
                 <p>
-                  Our experienced professionals use advanced techniques including cryotherapy, laser removal, or surgical excision to safely remove skin tags with minimal discomfort and excellent cosmetic results.
+                  In some cases, dermatologists may also suggest TCA peels or other methods depending on the skin concern.
                 </p>
               </motion.div>
             </motion.div>
@@ -286,7 +442,7 @@ export default function SkinTagRemovalPage() {
         </div>
       </section>
 
-      {/* Key Benefits Section */}
+      {/* Benefits of Mole, Skin Tag & Wart Removal Section */}
       <section className="py-5 md:py-5 bg-white">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <motion.div
@@ -296,196 +452,38 @@ export default function SkinTagRemovalPage() {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key Benefits of Skin Tag Removal
-            </h2>
-                         <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
-                Experience the transformative benefits of our advanced skin treatment procedure
-              </p>
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Benefits of Mole, Skin Tag & Wart Removal at Aries, Nashik
+              </h2>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-            {skinTagRemovalBenefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="p-3 md:p-6 h-full bg-gradient-to-br from-blue-50 to-green-50 border-0 rounded-lg transition-all duration-300 group">
-                  <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform">
-                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                    {benefit}
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm">
-                    Achieve clean, smooth skin with our proven treatment approach
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* Treatment Process Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-            
-            {/* Left Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage3.src}
-                  alt="Skin Tag Removal Treatment Process" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content - Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • How is the Treatment Performed?
-              </motion.div>
-
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Our <span className="text-primary">Treatment Process</span>
-              </motion.h2>
-
-              {/* Process Steps */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-4"
-              >
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      1
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Consultation & Assessment</h3>
-                    <p className="text-xs md:text-md text-gray-600">Evaluation of skin tags and determination of best removal method</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      2
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Treatment Area Preparation</h3>
-                    <p className="text-xs md:text-md text-gray-600">Cleaning and preparation of the treatment area</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      3
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Skin Tag Removal</h3>
-                    <p className="text-xs md:text-md text-gray-600">Professional removal using appropriate method</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    4
-                    </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Wound Care</h3>
-                    <p className="text-xs md:text-md text-gray-600">Application of appropriate dressing and care instructions</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Aftercare Instructions</h3>
-                    <p className="text-xs md:text-md text-gray-600">Detailed aftercare guidance and follow-up schedule</p>
-                </div>
-              </div>
-                
-              </motion.div>
-
-
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Treatment Methods Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Treatment Methods
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-              {[
-                {
-                  title: "Cryotherapy",
-                  description: "Freezing method using liquid nitrogen for quick removal"
-                },
-                {
-                  title: "Laser Removal",
-                  description: "Precise laser treatment for clean, effective removal"
-                },
-                {
-                  title: "Surgical Excision",
-                  description: "Professional surgical removal for larger skin tags"
-                }
-              ].map((item, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              {
+                title: " Safe & USFDA-approved laser technology",
+                description: "Advanced, safe, and proven laser technology"
+              },
+              {
+                title: " No bleeding or stitches",
+                description: "Clean, bloodless procedure with minimal trauma"
+              },
+              {
+                title: " No hospital stay – walk-in, walk-out procedure",
+                description: "Convenient outpatient treatment"
+              },
+              {
+                title: " Suitable for all ages",
+                description: "Safe treatment for patients of all age groups"
+              },
+              {
+                title: " Visible results after just one session",
+                description: "Immediate improvement after treatment"
+              },
+              {
+                title: " Affordable & transparent pricing",
+                description: "Cost-effective solution with clear pricing"
+              }
+            ].map((benefit, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
@@ -493,278 +491,24 @@ export default function SkinTagRemovalPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
+                <div className="p-4 md:p-6 h-full bg-gradient-to-br from-teal-50 to-blue-50 border-0 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {benefit.title}
                     </h3>
                     <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
+                    {benefit.description}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* Who Can Get Treatment Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-            
-            {/* Left Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • Who Can Get This Treatment?
-              </motion.div>
 
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Perfect For <span className="text-primary">Skin Tag Removal</span>
-              </motion.h2>
-
-              {/* Suitable For */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <h3 className="text-md sm:text-lg font-semibold text-gray-900">This treatment is suitable for:</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">People with unwanted skin tags</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">All skin types and ages</span>
-                    </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Skin tags in various locations</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Those seeking cosmetic improvement</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">People with irritated skin tags</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Not Suitable For */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <h3 className="text-lg font-semibold text-gray-900">⚠️ Not suitable for:</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Pregnant or breastfeeding women</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Active skin infections or wounds</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Those with certain medical conditions</span>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage4.src}
-                  alt="Skin Tag Removal for Everyone" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recovery & Aftercare Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Recovery & Aftercare
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-              {[
-                {
-                  title: "Quick Recovery",
-                  description: "Minimal downtime with fast healing process"
-                },
-                {
-                  title: "Gentle Care",
-                  description: "Keep treated area clean and protected"
-                },
-                {
-                  title: "Follow-up Care",
-                  description: "Regular check-ups to ensure proper healing"
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
-                    </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Why Choose Aries Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Why Choose Aries Skin & General Clinic?
-              </h2>
-              <p className="text-xs md:text-md text-gray-600 max-w-3xl mx-auto">
-                At Aries Skin & General Clinic, we provide safe, effective, and professional skin tag removal treatments under the guidance of skilled doctors and trained professionals. We ensure optimal results with proper aftercare guidance.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-              {[
-                {
-                  icon: Award,
-                  title: "Expert Care",
-                  description: "Expert skin treatment care with modern equipment"
-                },
-                {
-                  icon: Users,
-                  title: "Safe Treatment",
-                  description: "Safe, effective treatments using proven methods"
-                },
-                {
-                  icon: Shield,
-                  title: "Safe Environment",
-                  description: "Hygienic, comfortable, and patient-friendly environment"
-                },
-                {
-                  icon: Star,
-                  title: "Proven Results",
-                  description: "Proven results with satisfied clients"
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <item.icon className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
-                    </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center mt-8"
-            >
-              <p className="text-xs sm:text-lg font-medium text-gray-800">
-                ✨ Your journey to clean, smooth skin starts at Aries Skin & General Clinic.
-              </p>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-5 md:py-5 bg-white mx-5">
@@ -777,7 +521,7 @@ export default function SkinTagRemovalPage() {
             className="max-w-4xl mx-auto text-center space-y-2 sm:space-y-6"
           >
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900">
-              Ready to Remove Your Skin Tags?
+              Ready to Remove Your Moles, Skin Tags & Warts?
             </h2>
             <p className="text-xs md:text-md text-gray-600 mx-5">
               Join thousands of satisfied patients who have achieved clean, smooth skin with us

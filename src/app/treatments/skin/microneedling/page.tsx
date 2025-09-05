@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 import { TREATMENTS } from '@/lib/constants';
 import Link from 'next/link';
-import HeroImage1 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial.png"
+import HeroImage1 from "../../../../../public/treatments/microneedling/micro1.png"
 import HeroImage2 from "../../../../../public/treatments/microneedling/micro4.png"
 import HeroImage3 from "../../../../../public/treatments/microneedling/micro2.png"
 import HeroImage4 from "../../../../../public/treatments/microneedling/micro3.png"

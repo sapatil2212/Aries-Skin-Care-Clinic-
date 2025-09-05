@@ -51,7 +51,6 @@ export const TREATMENT_CATEGORIES = [
       { id: 'microneedling', name: 'Microneedling', href: '/treatments/skin/microneedling' },
       { id: 'rf-skin-tightening', name: 'RF Skin Tightening', href: '/treatments/skin/rf-skin-tightening' },
       { id: 'melasma-acne-freckles', name: 'Melasma, Acne, Freckles Treatment', href: '/treatments/skin/melasma-acne-freckles' },
-      { id: 'skin-care', name: 'Skin Care', href: '/treatments/skin/skin-care' },
       { id: 'skin-fungal-disease', name: 'Skin Fungal Disease Treatment', href: '/treatments/skin/skin-fungal-disease' }
     ]
   },
@@ -62,8 +61,7 @@ export const TREATMENT_CATEGORIES = [
     hasSubDropdown: true,
     subItems: [
       { id: 'prp-gfc-hair', name: 'PRP/GFC for Hair', href: '/treatments/hair/prp-gfc-hair' },
-      { id: 'dandruff-removal', name: 'Dandruff Removal', href: '/treatments/hair/dandruff-removal' },
-      { id: 'hair-fall-treatment', name: 'Hair Fall Treatment', href: '/treatments/hair/hair-fall-treatment' }
+      { id: 'dandruff-removal', name: 'Dandruff Removal', href: '/treatments/hair/dandruff-removal' }
     ]
   },
   { 
@@ -98,13 +96,11 @@ export const TREATMENTS_BY_CATEGORY = {
     'microneedling',
     'rf-skin-tightening',
     'melasma-acne-freckles',
-    'skin-care',
     'skin-fungal-disease'
   ],
   hair: [
     'prp-gfc-hair',
-    'dandruff-removal',
-    'hair-fall-treatment'
+    'dandruff-removal'
   ],
   cosmetic: [
     'laser-hair-reduction',
@@ -127,8 +123,7 @@ export const NAVIGATION: NavItem[] = [
     hasDropdown: true,
     dropdownItems: TREATMENT_CATEGORIES
   },
-  { name: "Testimonials", href: "/testimonials" },
-  { name: "Our Clinic", href: "/our-clinic" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" }
 ];
 
@@ -400,23 +395,6 @@ export const TREATMENTS: Treatment[] = [
     sessions: "As per medical requirement",
     aftercare: "Follow medical advice and prescribed medications",
     category: "general"
-  },
-  {
-    id: "hair-fall-treatment",
-    name: "Hair Fall Treatment",
-    description: "Comprehensive treatment for various types of hair loss and thinning",
-    benefits: [
-      "Reduced hair fall",
-      "Stronger hair follicles",
-      "Improved hair density",
-      "Healthy scalp",
-      "Boosted confidence"
-    ],
-    procedure: "Medical evaluation followed by targeted treatment including PRP, medications, and scalp care",
-    duration: "45-90 minutes",
-    sessions: "4-8 sessions depending on condition",
-    aftercare: "Use prescribed medications and follow hair care routine",
-    category: "hair"
   },
   {
     id: "skin-fungal-disease",

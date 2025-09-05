@@ -22,8 +22,8 @@ import {
 } from 'lucide-react';
 import { TREATMENTS } from '@/lib/constants';
 import Link from 'next/link';
-import HeroImage1 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial.png"
-import HeroImage2 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-2.png"
+import HeroImage1 from "../../../../../public/treatments/fungal/1.png"
+import HeroImage2 from "../../../../../public/treatments/fungal/2.png"
 import HeroImage3 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-3.png"
 import HeroImage4 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-4.png"
 
@@ -206,484 +206,345 @@ export default function SkinFungalDiseaseTreatmentPage() {
         </div>
       </section>
 
-      {/* What is Skin Fungal Disease Treatment Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-
-            {/* Left Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative order-2 lg:order-1"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage2.src}
-                  alt="Skin Fungal Disease Treatment Process" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content */}
-          <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0 order-1 lg:order-2"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • What is Skin Fungal Disease Treatment?
-          </motion.div>
-          
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Professional <span className="text-primary">Fungal Infection</span> Treatment
-              </motion.h2>
-
-              {/* Description */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xs md:text-[15px] text-gray-600 leading-relaxed space-y-3"
-              >
-                <p>
-                  Our skin fungal disease treatment is a comprehensive medical approach to effectively treat various fungal infections of the skin. We provide proper diagnosis, targeted treatment, and preventive care to ensure complete recovery and prevent recurrence.
-                </p>
-                <p>
-                  Using evidence-based medical treatments, topical and oral medications, and proper hygiene guidance, we help patients overcome fungal infections and restore healthy skin. Our approach focuses on both immediate relief and long-term prevention.
-                </p>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Benefits Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+      {/* Modern Fungal Infections Guide Section */}
+      <section className="py-8 md:py-12 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="space-y-12"
           >
-            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key Benefits of Fungal Disease Treatment
-            </h2>
-                         <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
-                Experience the effective benefits of our professional fungal infection treatment
+            {/* Hero Section */}
+            <div className="text-center max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="inline-block bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium mb-6"
+              >
+                📋 Complete Medical Guide
+              </motion.div>
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                Fungal Infections: <span className="text-teal-600">Causes, Symptoms & Treatments</span>
+              </h2>
+              <p className="text-sm md:text-lg text-gray-600 leading-relaxed">
+                Fungal infections are among the most common skin concerns worldwide, affecting millions of people each year. They can appear in different forms—such as rashes, itching, or scaling—and if left untreated, may lead to severe discomfort and complications.
               </p>
-          </motion.div>
+            </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-            {skinFungalDiseaseBenefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="p-3 md:p-6 h-full bg-gradient-to-br from-blue-50 to-green-50 border-0 rounded-lg transition-all duration-300 group">
-                  <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform">
-                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
+            {/* Side-by-Side Content Grid */}
+            <div className="grid lg:grid-cols-2 gap-8">
+              
+              {/* Left Column */}
+              <div className="flex flex-col space-y-6">
+                
+                {/* What are Fungal Infections */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-6 border border-blue-200/50 flex-1"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">🔬</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">What are Fungal Infections?</h3>
                   </div>
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                    {benefit}
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm">
-                    Achieve healthy, infection-free skin with our proven treatment approach
+                  <p className="text-gray-600 leading-relaxed">
+                    Fungal infections (mycoses) occur when fungi thrive in warm, moist environments. They can affect the skin, nails, hair, or even internal organs. While some infections are mild and easily treatable, others may become chronic and require ongoing medical care.
                   </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+                </motion.div>
 
+                {/* What is Skin Fungus */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-green-50 to-green-100/50 rounded-2xl p-6 border border-green-200/50 flex-1"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">🦠</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">What is Skin Fungus?</h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    Skin fungus refers to fungal infections that specifically affect the skin. The most common causes include dermatophytes, yeasts, and molds. These infections can appear anywhere on the body, often leading to redness, itching, and discomfort.
+                  </p>
+                </motion.div>
 
-      {/* Treatment Process Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-            
-            {/* Left Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage3.src}
-                  alt="Skin Fungal Disease Treatment Process" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
-              </motion.div>
-            </motion.div>
+                {/* How They Look */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-2xl p-6 border border-orange-200/50 flex-1"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">👁️</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">How They Look</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">Fungal skin infections may appear as:</p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      'Red, itchy, scaly patches',
+                      'Blisters or oozing areas',
+                      'Discoloration of the skin',
+                      'Rash with raised, defined borders',
+                      'Pustules at the edge of the infected area'
+                    ].map((symptom, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-gray-600">{symptom}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
 
-            {/* Right Content - Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • How is the Treatment Performed?
-              </motion.div>
+                {/* Common Types */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-2xl p-6 border border-purple-200/50 flex-1"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">🏷️</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">Common Types</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {[
+                      {
+                        name: "Athlete's Foot (Tinea Pedis)",
+                        description: "Itchy, burning, peeling skin between the toes. Highly contagious."
+                      },
+                      {
+                        name: "Ringworm (Tinea Corporis)",
+                        description: "Red, circular patches with raised borders, affecting skin, scalp, or nails."
+                      },
+                      {
+                        name: "Yeast Infections (Candida Overgrowth)",
+                        description: "Commonly affects skin folds, mouth, throat, or genital areas; symptoms include redness, itching, and cottage cheese-like discharge."
+                      }
+                    ].map((type, index) => (
+                      <div key={index} className="bg-gray-50 rounded-lg p-4">
+                        <h4 className="font-semibold text-gray-900 mb-2">{type.name}</h4>
+                        <p className="text-sm text-gray-600">{type.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
 
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Our <span className="text-primary">Medical Treatment</span> Process
-              </motion.h2>
-
-              {/* Process Steps */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-4"
-              >
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      1
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Medical Consultation & Diagnosis</h3>
-                    <p className="text-xs md:text-md text-gray-600">Thorough examination and proper diagnosis of fungal infection</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      2
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Treatment Plan Development</h3>
-                    <p className="text-xs md:text-md text-gray-600">Customized treatment plan based on infection type and severity</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      3
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Medical Treatment</h3>
-                    <p className="text-xs md:text-md text-gray-600">Application of appropriate antifungal medications and treatments</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    4
-                    </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Hygiene & Prevention Guidance</h3>
-                    <p className="text-xs md:text-md text-gray-600">Education on proper hygiene and prevention measures</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Follow-up & Monitoring</h3>
-                    <p className="text-xs md:text-md text-gray-600">Regular follow-up appointments to monitor progress and prevent recurrence</p>
-                </div>
               </div>
+
+              {/* Right Column */}
+              <div className="flex flex-col space-y-6">
                 
-              </motion.div>
-
-
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Types of Fungal Infections Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Types of Fungal Infections We Treat
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-              {[
-                {
-                  title: "Ringworm (Tinea)",
-                  description: "Circular, red, itchy patches on the skin"
-                },
-                {
-                  title: "Athlete's Foot",
-                  description: "Fungal infection of the feet and toes"
-                },
-                {
-                  title: "Jock Itch",
-                  description: "Fungal infection in the groin area"
-                }
-              ].map((item, index) => (
+                {/* Who is at Risk */}
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
                   viewport={{ once: true }}
+                  className="bg-gradient-to-br from-red-50 to-red-100/50 rounded-2xl p-6 border border-red-200/50 flex-1"
                 >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">⚠️</span>
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
-                    </p>
+                    <h3 className="text-xl font-bold text-gray-900">Who is at Risk?</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">While anyone can get a fungal infection, certain individuals are at higher risk:</p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      'People with weakened immunity (HIV, cancer treatment, organ transplant, etc.)',
+                      'Long-term or high-dose antibiotic users',
+                      'Diabetic patients',
+                      'Overweight individuals',
+                      'Pregnant women',
+                      'People who sweat excessively',
+                      'Babies (diaper rash)'
+                    ].map((risk, index) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <X className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-gray-600">{risk}</span>
+                      </div>
+                    ))}
                   </div>
                 </motion.div>
-              ))}
+
+                {/* Causes */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-yellow-50 to-yellow-100/50 rounded-2xl p-6 border border-yellow-200/50 flex-1"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">🔍</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">Causes</h3>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      'Warm, humid environments',
+                      'Poor hygiene practices',
+                      'Sharing personal items like towels or shoes',
+                      'Weak immune system',
+                      'Prolonged use of antibiotics or steroids'
+                    ].map((cause, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-yellow-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-gray-600">{cause}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Symptoms */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-indigo-50 to-indigo-100/50 rounded-2xl p-6 border border-indigo-200/50 flex-1"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">📋</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">Symptoms</h3>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      'Persistent itching and redness',
+                      'Rash with scaling or peeling',
+                      'Skin discoloration',
+                      'Cracks or blisters',
+                      'Burning or discomfort in affected areas'
+                    ].map((symptom, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-indigo-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-gray-600">{symptom}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Treatment Options */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-teal-50 to-teal-100/50 rounded-2xl p-6 border border-teal-200/50 flex-1"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">💊</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">Treatment Options</h3>
+                  </div>
+                  <div className="space-y-4">
+                    {[
+                      {
+                        title: "Topical Antifungal Creams & Ointments",
+                        description: "Applied directly to infected areas for mild cases."
+                      },
+                      {
+                        title: "Oral Antifungal Medications",
+                        description: "Prescribed in severe or widespread infections."
+                      },
+                      {
+                        title: "Home Remedies (supportive care)",
+                        description: "Tea tree oil, apple cider vinegar, and garlic may help mild cases but should not replace medical treatment."
+                      }
+                    ].map((treatment, index) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold text-gray-900 text-sm">{treatment.title}</h4>
+                          <p className="text-xs text-gray-600">{treatment.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Prevention & Care */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-2xl p-6 border border-emerald-200/50 flex-1"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">🛡️</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">Prevention & Care</h3>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      'Keep skin clean and dry',
+                      'Wear loose, breathable clothing',
+                      'Avoid sharing personal items',
+                      'Change socks and undergarments daily',
+                      'Seek treatment promptly if symptoms persist'
+                    ].map((prevention, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                        <span className="text-sm text-gray-600">{prevention}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* When to See Doctor */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-6 border border-red-200/50 flex-1"
+                >
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xl">👨‍⚕️</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">When to See a Doctor?</h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    If your symptoms last for more than 1–2 weeks, worsen despite treatment, or spread to sensitive areas like the face or genitals, consult a dermatologist immediately.
+                  </p>
+                </motion.div>
+
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Who Can Get Treatment Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-            
-            {/* Left Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • Who Can Get This Treatment?
-              </motion.div>
 
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Treatment For <span className="text-primary">Fungal Infections</span>
-              </motion.h2>
 
-              {/* Suitable For */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <h3 className="text-md sm:text-lg font-semibold text-gray-900">This treatment is suitable for people with:</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Ringworm and tinea infections</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Athlete's foot and nail fungus</span>
-                    </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Jock itch and groin infections</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Recurrent fungal infections</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Persistent itching and skin irritation</span>
-                  </div>
-                </div>
-              </motion.div>
 
-              {/* Symptoms */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <h3 className="text-lg font-semibold text-gray-900">⚠️ Common symptoms include:</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Red, itchy, and scaly patches on skin</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Burning sensation and discomfort</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Cracking and peeling of skin</span>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
 
-            {/* Right Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage4.src}
-                  alt="Skin Fungal Disease Treatment for Everyone" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
-      {/* Prevention & Aftercare Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Prevention & Aftercare
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-              {[
-                {
-                  title: "Proper Hygiene",
-                  description: "Maintain good personal hygiene and keep skin dry"
-                },
-                {
-                  title: "Medication Compliance",
-                  description: "Complete the full course of prescribed medications"
-                },
-                {
-                  title: "Follow-up Care",
-                  description: "Regular follow-up appointments to prevent recurrence"
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
-                    </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Why Choose Aries Section */}
       <section className="py-5 md:py-5 bg-white">

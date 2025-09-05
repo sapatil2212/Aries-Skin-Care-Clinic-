@@ -13,12 +13,30 @@ import {
   Star, 
   CheckCircle, 
   Filter,
-  Search
+  Search,
+  ArrowRight
 } from "lucide-react"
 import { TREATMENTS, TREATMENT_CATEGORIES, CLINIC_INFO } from "@/lib/constants"
 import { AppointmentModal } from "@/components/appointment-modal"
 import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
+
+// Import treatment images
+import LaserHairReductionImg from "../../../public/treatments/Laser-Hair-Reduction.webp"
+import MedicatedHydrafacialImg from "../../../public/treatments/Medicated-Hydrafacial.webp"
+import CarbonPeelImg from "../../../public/treatments/Carbon-Peel.webp"
+import PRPGFCImg from "../../../public/treatments/PRP-GFC.webp"
+import ChemicalPeelImg from "../../../public/treatments/Chemical-Peels/Heroimage.webp"
+import MicroneedlingImg from "../../../public/treatments/microneedling/micro1.png"
+import RFSkinTighteningImg from "../../../public/treatments/skintightening/1.png"
+import MelasmaAcneImg from "../../../public/treatments/acne/1.png"
+import SkinFungalImg from "../../../public/treatments/fungal/1.png"
+import TattooRemovalImg from "../../../public/treatments/tattoo/1.png"
+import SkinTagRemovalImg from "../../../public/treatments/mole-removal/1.png"
+import IVGlutaDripImg from "../../../public/treatments/Glutathione/1.png"
+import EarlobeRepairImg from "../../../public/treatments/Earlobe-Repair/1.png"
+import DandruffRemovalImg from "../../../public/treatments/hair/1.png"
+import GynecologicalCareImg from "../../../public/treatments/General/1.png"
 
 const treatmentIcons: Record<string, any> = {
   "laser-hair-reduction": Zap,
@@ -26,6 +44,24 @@ const treatmentIcons: Record<string, any> = {
   "prp-gfc-hair": Heart,
   "carbon-peel": Users,
   default: Star
+}
+
+const treatmentImages: Record<string, any> = {
+  "laser-hair-reduction": LaserHairReductionImg,
+  "medicated-hydrafacial": MedicatedHydrafacialImg,
+  "carbon-peel": CarbonPeelImg,
+  "prp-gfc-hair": PRPGFCImg,
+  "chemical-peel": ChemicalPeelImg,
+  "microneedling": MicroneedlingImg,
+  "rf-skin-tightening": RFSkinTighteningImg,
+  "melasma-acne-freckles": MelasmaAcneImg,
+  "skin-fungal-disease": SkinFungalImg,
+  "tattoo-removal": TattooRemovalImg,
+  "skin-tag-removal": SkinTagRemovalImg,
+  "iv-gluta-drip": IVGlutaDripImg,
+  "earlobe-repair": EarlobeRepairImg,
+  "dandruff-removal": DandruffRemovalImg,
+  "gynecological-care": GynecologicalCareImg
 }
 
 export default function TreatmentsPage() {
@@ -95,10 +131,11 @@ export default function TreatmentsPage() {
             </motion.div>
 
             {/* Treatments Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid md:grid-cols-2 gap-8">
               <AnimatePresence>
                 {filteredTreatments.map((treatment, index) => {
                   const IconComponent = treatmentIcons[treatment.id] || treatmentIcons.default
+                  const treatmentImage = treatmentImages[treatment.id]
                   
                   return (
                     <motion.div
@@ -108,87 +145,91 @@ export default function TreatmentsPage() {
                       exit={{ opacity: 0, y: -30 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       layout
+                      className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
                     >
-                      <Card className="h-full group card-hover border-0 bg-white/80 backdrop-blur-sm">
-                        <CardHeader className="pb-4">
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-primary to-primary-dark flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                              <IconComponent className="h-6 w-6 text-white" />
-                            </div>
-                            
-                            <div className="text-right text-sm text-gray-500">
-                              <div className="flex items-center space-x-1">
-                                <Clock className="h-3 w-3" />
-                                <span>{treatment.duration}</span>
+                      <div className="grid grid-cols-1 md:grid-cols-2 h-full">
+                        {/* Image Section */}
+                        <div className="relative overflow-hidden order-1 md:order-1">
+                          {treatmentImage ? (
+                            <img 
+                              src={treatmentImage.src} 
+                              alt={treatment.name}
+                              className="w-full h-48 md:h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-48 md:h-full bg-gradient-to-br from-primary/10 to-primary-dark/10 flex items-center justify-center">
+                              <div className="w-16 h-16 rounded-xl bg-gradient-to-r from-primary to-primary-dark flex items-center justify-center">
+                                <IconComponent className="h-8 w-8 text-white" />
                               </div>
-                              <div className="mt-1">{treatment.sessions}</div>
                             </div>
-                          </div>
-                          
-                          <CardTitle className="text-xl text-primary group-hover:text-primary-dark transition-colors">
-                            {treatment.name}
-                          </CardTitle>
-                        </CardHeader>
-                        
-                        <CardContent className="space-y-4">
-                          <p className="text-gray-600 leading-relaxed">
-                            {treatment.description}
-                          </p>
-                          
-                          <div className="space-y-3">
-                            <div className="text-sm font-medium text-primary">Key Benefits:</div>
-                            <div className="space-y-1">
-                              {treatment.benefits.slice(0, 3).map((benefit, idx) => (
-                                <div key={idx} className="flex items-center space-x-2 text-sm">
-                                  <CheckCircle className="h-3 w-3 text-green-500 flex-shrink-0" />
-                                  <span className="text-gray-600">{benefit}</span>
+                          )}
+                        </div>
+
+                        {/* Content Section */}
+                        <div className="p-6 flex flex-col justify-between order-2 md:order-2">
+                          <div>
+                            <div className="flex items-center justify-between mb-2">
+                              <h3 className="text-lg font-bold text-gray-900">
+                                {treatment.name}
+                              </h3>
+                              <div className="text-right text-xs text-gray-500">
+                                <div className="flex items-center space-x-1">
+                                  <Clock className="h-3 w-3" />
+                                  <span>{treatment.duration}</span>
                                 </div>
-                              ))}
-                              {treatment.benefits.length > 3 && (
-                                <div className="text-xs text-gray-500">
-                                  +{treatment.benefits.length - 3} more benefits
-                                </div>
-                              )}
+                              </div>
                             </div>
-                          </div>
-                          
-                          <div className="space-y-2 pt-4 border-t border-gray-100">
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-500">Procedure:</span>
-                              <span className="text-gray-700 font-medium">
-                                {treatment.procedure.slice(0, 30)}...
-                              </span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-500">Sessions:</span>
-                              <span className="text-gray-700 font-medium">{treatment.sessions}</span>
-                            </div>
-                          </div>
-                          
-                          <div className="flex space-x-2 pt-4">
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="flex-1 text-xs"
-                              onClick={() => {
-                                // Could open a detailed modal here
-                                console.log("Learn more about", treatment.name)
-                              }}
-                            >
-                              Learn More
-                            </Button>
                             
-                            <Button
-                              variant="primary"
-                              size="sm"
-                              className="flex-1 text-xs"
-                              onClick={() => handleBookAppointment(treatment.id)}
-                            >
-                              Book Now
-                            </Button>
+                            <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                              {treatment.description}
+                            </p>
+                            
+                            <div className="space-y-2">
+                              <div className="text-xs font-medium text-primary">Key Benefits:</div>
+                              <div className="flex flex-wrap gap-1">
+                                {treatment.benefits.slice(0, 3).map((benefit, idx) => (
+                                  <span
+                                    key={idx}
+                                    className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                                  >
+                                    {benefit}
+                                  </span>
+                                ))}
+                                {treatment.benefits.length > 3 && (
+                                  <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">
+                                    +{treatment.benefits.length - 3} more
+                                  </span>
+                                )}
+                              </div>
+                            </div>
                           </div>
-                        </CardContent>
-                      </Card>
+
+                          <div className="mt-4 pt-4 border-t border-gray-100">
+                            <div className="flex gap-2">
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="flex-1 text-xs px-3 py-1 group"
+                                onClick={() => {
+                                  // Could open a detailed modal here
+                                  console.log("Learn more about", treatment.name)
+                                }}
+                              >
+                                View More
+                                <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                              </Button>
+                              <Button
+                                variant="primary"
+                                size="sm"
+                                onClick={() => handleBookAppointment(treatment.id)}
+                                className="flex-1 text-xs px-3 py-1"
+                              >
+                                Book Now
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </motion.div>
                   )
                 })}

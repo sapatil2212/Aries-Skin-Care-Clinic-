@@ -22,8 +22,9 @@ import {
 } from 'lucide-react';
 import { TREATMENTS } from '@/lib/constants';
 import Link from 'next/link';
-import HeroImage1 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial.png"
-import HeroImage2 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-2.png"
+import HeroImage1 from "../../../../../public/treatments/Glutathione/1.png"
+
+import HeroImage2 from "../../../../../public/treatments/Glutathione/2.png"
 import HeroImage3 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-3.png"
 import HeroImage4 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-4.png"
 
@@ -75,7 +76,7 @@ export default function IVGlutaDripPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • Advanced Cosmetic Treatment
+                • Glutathione IV Drip Therapy in Nashik
               </motion.div>
 
               {/* Main Heading */}
@@ -86,7 +87,7 @@ export default function IVGlutaDripPage() {
                 viewport={{ once: true }}
                 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                {treatment.name}
+                Illuminate Your Radiance from Within – Reveal Your Natural Glow with Glutathione IV Therapy 
               </motion.h1>
 
               {/* Description */}
@@ -97,39 +98,9 @@ export default function IVGlutaDripPage() {
                 viewport={{ once: true }}
                 className="text-sm md:text-md text-gray-600 leading-relaxed space-y-3"
               >
-                <p>{treatment.description}</p>
+                <p>At Aries Skin & General Clinic, Nashik, we offer advanced Glutathione IV Drip Therapy – a scientifically backed treatment that works from the inside out to rejuvenate your skin.</p>
               </motion.div>
 
-              {/* Treatment Benefits */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="mt-6"
-              >
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  This treatment helps in:
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Brightening and lightening skin tone</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Reducing dark spots and pigmentation</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Boosting skin hydration and glow</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Improving overall skin texture</span>
-                  </div>
-              </div>
-              </motion.div>
 
               {/* Treatment Details */}
               <motion.div
@@ -206,7 +177,80 @@ export default function IVGlutaDripPage() {
         </div>
       </section>
 
-      {/* What is IV Gluta Drip Section */}
+      {/* Overview Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Overview – Best Glutathione IV Treatment in Nashik
+            </h2>
+            <p className="text-xs md:text-[15px] text-gray-600 max-w-4xl mx-5 md:mx-auto">
+              Glutathione is a powerful natural antioxidant that helps fight free radicals, detoxifies your body, and restores skin health. With regular sessions, it can:
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {[
+              {
+                title: " Reduce pigmentation and melasma",
+                description: "Targets dark spots and uneven skin tone"
+              },
+              {
+                title: " Brighten & even out skin tone",
+                description: "Achieves natural, radiant complexion"
+              },
+              {
+                title: " Minimize wrinkles and fine lines",
+                description: "Anti-aging benefits for youthful skin"
+              },
+              {
+                title: " Detoxify your system for overall wellness",
+                description: "Comprehensive body detoxification"
+              }
+            ].map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="p-4 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
+                  </div>
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs md:text-sm">
+                    {benefit.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-8"
+          >
+            <p className="text-sm md:text-lg text-gray-600 max-w-3xl mx-auto">
+              This therapy is also a favorite among celebrities and athletes for its skin-enhancing, anti-aging, and body-rejuvenating effects.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* What is Glutathione Section */}
       <section className="py-5 md:py-5 bg-white">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
@@ -228,7 +272,7 @@ export default function IVGlutaDripPage() {
               >
                 <img 
                   src={HeroImage2.src}
-                  alt="IV Gluta Drip Treatment Process" 
+                  alt="What is Glutathione" 
                   className="w-full h-[300px] md:h-[500px] object-contain"
                 />
               </motion.div>
@@ -250,7 +294,7 @@ export default function IVGlutaDripPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • What is IV Gluta Drip?
+                • What is Glutathione?
           </motion.div>
           
               {/* Main Heading */}
@@ -261,7 +305,7 @@ export default function IVGlutaDripPage() {
                 viewport={{ once: true }}
                 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                Advanced <span className="text-primary">Skin Brightening</span> Therapy
+                Master <span className="text-primary">Antioxidant</span> for Skin Health
               </motion.h2>
 
               {/* Description */}
@@ -273,10 +317,45 @@ export default function IVGlutaDripPage() {
                 className="text-xs md:text-[15px] text-gray-600 leading-relaxed space-y-3"
               >
                 <p>
-                  IV Gluta Drip is a revolutionary skin brightening treatment that delivers high-dose glutathione directly into your bloodstream through intravenous infusion. This powerful antioxidant helps lighten skin tone, reduce pigmentation, and promote a radiant, even complexion.
+                  Glutathione is a master antioxidant naturally produced in the body. But as we age, its levels decline, leading to:
                 </p>
+              </motion.div>
+
+              {/* Problems */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="space-y-3"
+              >
+                <div className="flex items-start space-x-3">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Dullness & pigmentation</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Wrinkles & sagging</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Uneven skin tone</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Weakened immunity</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-xs md:text-[15px] text-gray-600 leading-relaxed"
+              >
                 <p>
-                  Our specialized IV therapy combines glutathione with other skin-beneficial nutrients to provide comprehensive skin brightening and anti-aging benefits from within, resulting in naturally glowing and healthy skin.
+                  Glutathione IV replenishes these levels, helping you look brighter, fresher, and healthier.
                 </p>
               </motion.div>
             </motion.div>
@@ -284,8 +363,9 @@ export default function IVGlutaDripPage() {
         </div>
       </section>
 
-      {/* Key Benefits Section */}
-      <section className="py-5 md:py-5 bg-white">
+
+      {/* Benefits of Glutathione IV Drip Therapy Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -295,15 +375,45 @@ export default function IVGlutaDripPage() {
             className="text-center mb-8"
           >
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key Benefits of IV Gluta Drip
+              Benefits of Glutathione IV Drip Therapy
             </h2>
-                         <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
-                Experience the transformative benefits of our advanced skin brightening therapy
-              </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-            {ivGlutaDripBenefits.map((benefit, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {[
+              {
+                title: "Lightens & brightens skin naturally",
+                description: "Achieves natural skin lightening from within"
+              },
+              {
+                title: "Evens out pigmentation & dark spots",
+                description: "Targets and reduces uneven skin tone"
+              },
+              {
+                title: "Reduces wrinkles, fine lines & early signs of aging",
+                description: "Anti-aging benefits for youthful appearance"
+              },
+              {
+                title: "Protects skin from UV & environmental damage",
+                description: "Shields skin from harmful external factors"
+              },
+              {
+                title: "Detoxifies liver & removes toxins",
+                description: "Comprehensive body detoxification"
+              },
+              {
+                title: "Strengthens immunity & boosts energy",
+                description: "Enhances overall health and vitality"
+              },
+              {
+                title: "Improves hair & nail health",
+                description: "Benefits extend beyond skin to hair and nails"
+              },
+              {
+                title: "Relieves jet lag & fatigue",
+                description: "Restores energy and reduces tiredness"
+              }
+            ].map((benefit, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -311,15 +421,138 @@ export default function IVGlutaDripPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="p-3 md:p-6 h-full bg-gradient-to-br from-blue-50 to-green-50 border-0 rounded-lg transition-all duration-300 group">
-                  <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform">
-                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
+                <div className="p-4 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
                   </div>
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                    {benefit}
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {benefit.title}
                   </h3>
                   <p className="text-gray-600 text-xs md:text-sm">
-                    Achieve radiant, glowing skin with our proven treatment approach
+                    {benefit.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Conditions Glutathione Helps With Section */}
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Conditions Glutathione Helps With
+              </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              {
+                title: " Uneven & dark skin tone",
+                description: "Addresses overall skin discoloration and unevenness"
+              },
+              {
+                title: " Melasma & hyperpigmentation",
+                description: "Targets stubborn dark patches and spots"
+              },
+              {
+                title: " Fine lines, dark circles & wrinkles",
+                description: "Reduces signs of aging and fatigue"
+              },
+              {
+                title: " Sun damage & tanning",
+                description: "Reverses effects of UV exposure"
+              },
+              {
+                title: " Post-travel fatigue & jet lag",
+                description: "Restores energy after long journeys"
+              },
+              {
+                title: " Skin dullness & lack of glow",
+                description: "Brings back natural radiance and brightness"
+              }
+            ].map((condition, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                <div className="p-4 md:p-6 h-full bg-gradient-to-br from-teal-50 to-blue-50 border-0 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
+                    </div>
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {condition.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs md:text-sm">
+                    {condition.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+        </div>
+      </section>
+
+      {/* Types of Glutathione IV Drips at Aries Clinic Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+            <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Types of Glutathione IV Drips at Aries Clinic
+            </h2>
+                         <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
+              We offer customized Glutathione drips depending on your skin needs:
+              </p>
+              </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              {
+                title: "Single / Double / Triple Boosters",
+                description: "Gradual skin brightening & detox"
+              },
+              {
+                title: "Cinderella Drip",
+                description: "Celebrity-favorite cocktail with Glutathione, Vitamin C, B Complex, Alpha Lipoic Acid & more – for ultimate glow & anti-aging"
+              },
+              {
+                title: "Bella Drip",
+                description: "Premium infusion designed for faster results & overall rejuvenation"
+              }
+            ].map((drip, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="p-4 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <Droplets className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
+                  </div>
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {drip.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs md:text-sm">
+                    {drip.description}
                   </p>
                 </div>
               </motion.div>
@@ -329,161 +562,40 @@ export default function IVGlutaDripPage() {
       </section>
 
 
-      {/* Treatment Process Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-            
-            {/* Left Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage3.src}
-                  alt="IV Gluta Drip Treatment Process" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content - Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • How is the Treatment Performed?
-              </motion.div>
-
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Our <span className="text-primary">Treatment Process</span>
-              </motion.h2>
-
-              {/* Process Steps */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-4"
-              >
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      1
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Consultation & Assessment</h3>
-                    <p className="text-xs md:text-md text-gray-600">Comprehensive evaluation of skin condition and health status</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      2
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">IV Preparation</h3>
-                    <p className="text-xs md:text-md text-gray-600">Preparation of glutathione solution and IV setup</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      3
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">IV Infusion</h3>
-                    <p className="text-xs md:text-md text-gray-600">Controlled intravenous administration of glutathione</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    4
-                    </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Monitoring</h3>
-                    <p className="text-xs md:text-md text-gray-600">Continuous monitoring during the infusion process</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Aftercare Instructions</h3>
-                    <p className="text-xs md:text-md text-gray-600">Detailed aftercare guidance and follow-up schedule</p>
-                </div>
-              </div>
-                
-              </motion.div>
-
-
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Treatment Types Section */}
-      <section className="py-5 md:py-5 bg-white">
+      {/* Safety & Precautions Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
+            className="text-center mb-8"
           >
-            <div className="text-center mb-8">
               <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Treatment Options
+              Safety & Precautions
               </h2>
-            </div>
+          </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-              {[
-                {
-                  title: "Standard Gluta Drip",
-                  description: "High-dose glutathione infusion for skin brightening"
-                },
-                {
-                  title: "Premium Gluta Drip",
-                  description: "Enhanced formula with additional skin nutrients"
-                },
-                {
-                  title: "Customized Drip",
-                  description: "Personalized combination based on individual needs"
-                }
-              ].map((item, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {[
+              {
+                title: " Performed only by qualified dermatologists at Aries Clinic, Nashik",
+                description: "Expert medical supervision ensures safety"
+              },
+              {
+                title: " USFDA-approved formulations",
+                description: "High-quality, approved ingredients"
+              },
+              {
+                title: "Kidney function test recommended before treatment",
+                description: "Pre-treatment screening for safety"
+              },
+              {
+                title: "Zero downtime & safe when administered by experts",
+                description: "Minimal side effects with proper care"
+              }
+            ].map((safety, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
@@ -491,175 +603,69 @@ export default function IVGlutaDripPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
+                <div className="p-4 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <Shield className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {safety.title}
                     </h3>
                     <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
+                    {safety.description}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+            className="text-center mt-8"
+              >
+            <p className="text-sm md:text-lg text-gray-600 max-w-3xl mx-auto">
+              Possible mild side effects (rare): Temporary rashes or mild stomach discomfort, which subside quickly.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Who Can Get Treatment Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-            
-            {/* Left Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • Who Can Get This Treatment?
-              </motion.div>
 
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Perfect For <span className="text-primary">Skin Brightening</span>
-              </motion.h2>
-
-              {/* Suitable For */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <h3 className="text-md sm:text-lg font-semibold text-gray-900">This treatment is suitable for people with:</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Dark spots and pigmentation</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Uneven skin tone</span>
-                    </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Dull and tired-looking skin</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Sun damage and age spots</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">General skin brightening needs</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Not Suitable For */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <h3 className="text-lg font-semibold text-gray-900">⚠️ Not suitable for:</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Pregnant or breastfeeding women</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">People with kidney or liver problems</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Those with certain medical conditions</span>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage4.src}
-                  alt="IV Gluta Drip for Everyone" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recovery & Aftercare Section */}
-      <section className="py-5 md:py-5 bg-white">
+      {/* Results – Before & After Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
+            className="text-center mb-8"
           >
-            <div className="text-center mb-8">
               <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Recovery & Aftercare
+              Results – Before & After
               </h2>
-            </div>
+            <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
+              Patients at Aries Clinic, Nashik have seen:
+            </p>
+          </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-              {[
-                {
-                  title: "No Downtime",
-                  description: "Return to normal activities immediately after treatment"
-                },
-                {
-                  title: "Gentle Care",
-                  description: "Use sunscreen and maintain proper skincare routine"
-                },
-                {
-                  title: "Follow-up Sessions",
-                  description: "Regular sessions for optimal skin brightening results"
-                }
-              ].map((item, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              {
+                title: "Noticeable glow & fairness after a few sessions",
+                description: "Visible improvement in skin brightness"
+              },
+              {
+                title: "Reduction in pigmentation & melasma",
+                description: "Significant decrease in dark spots"
+              },
+              {
+                title: "Smoother, more youthful skin",
+                description: "Enhanced skin texture and appearance"
+              }
+            ].map((result, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
@@ -667,100 +673,20 @@ export default function IVGlutaDripPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
+                <div className="p-4 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <Star className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {result.title}
                     </h3>
                     <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
+                    {result.description}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Why Choose Aries Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Why Choose Aries Skin & General Clinic?
-              </h2>
-              <p className="text-xs md:text-md text-gray-600 max-w-3xl mx-auto">
-                At Aries Skin & General Clinic, we provide safe, effective, and professional IV Gluta Drip treatments under the guidance of skilled doctors and trained professionals. We ensure optimal results with proper aftercare guidance.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-              {[
-                {
-                  icon: Award,
-                  title: "Expert Care",
-                  description: "Expert IV therapy care with modern equipment"
-                },
-                {
-                  icon: Users,
-                  title: "Safe Treatment",
-                  description: "Safe, effective treatments using proven methods"
-                },
-                {
-                  icon: Shield,
-                  title: "Safe Environment",
-                  description: "Hygienic, comfortable, and patient-friendly environment"
-                },
-                {
-                  icon: Star,
-                  title: "Proven Results",
-                  description: "Proven results with satisfied clients"
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <item.icon className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
-                    </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center mt-8"
-            >
-              <p className="text-xs sm:text-lg font-medium text-gray-800">
-                ✨ Your journey to radiant, glowing skin starts at Aries Skin & General Clinic.
-              </p>
-            </motion.div>
-          </motion.div>
         </div>
       </section>
 
@@ -775,10 +701,10 @@ export default function IVGlutaDripPage() {
             className="max-w-4xl mx-auto text-center space-y-2 sm:space-y-6"
           >
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900">
-              Ready to Brighten Your Skin?
+              Ready to Illuminate Your Radiance from Within?
             </h2>
             <p className="text-xs md:text-md text-gray-600 mx-5">
-              Join thousands of satisfied patients who have achieved radiant, glowing skin with us
+              Join thousands of satisfied patients who have achieved radiant, glowing skin with our Glutathione IV Drip Therapy
             </p>
             
             <div className="flex flex-row gap-4 justify-center">

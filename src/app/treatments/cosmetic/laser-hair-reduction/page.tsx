@@ -22,10 +22,10 @@ import {
 } from 'lucide-react';
 import { TREATMENTS } from '@/lib/constants';
 import Link from 'next/link';
-import HeroImage1 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial.png"
-import HeroImage2 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-2.png"
-import HeroImage3 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-3.png"
-import HeroImage4 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-4.png"
+import HeroImage1 from "../../../../../public/treatments/hairremoval/1.png"
+import HeroImage2 from "../../../../../public/treatments/hairremoval/1.png"
+import HeroImage3 from "../../../../../public/treatments/hairremoval/2.png"
+import HeroImage4 from "../../../../../public/treatments/Laser-Hair-Reduction.webp"
 
 const treatment = TREATMENTS.find(t => t.id === 'laser-hair-reduction');
 
@@ -75,7 +75,7 @@ export default function LaserHairReductionPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • Advanced Cosmetic Treatment
+                • Laser Hair Removal Treatment in Nashik
               </motion.div>
 
               {/* Main Heading */}
@@ -86,7 +86,7 @@ export default function LaserHairReductionPage() {
                 viewport={{ once: true }}
                 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                {treatment.name}
+                Get Smooth, Hair-Free Skin with Confidence
               </motion.h1>
 
               {/* Description */}
@@ -97,7 +97,7 @@ export default function LaserHairReductionPage() {
                 viewport={{ once: true }}
                 className="text-sm md:text-md text-gray-600 leading-relaxed space-y-3"
               >
-                <p>{treatment.description}</p>
+                <p>Tired of waxing, threading, or shaving every few days? At Aries Skin & General Clinic, Nashik, we offer advanced Laser Hair Removal (LHR) that ensures long-lasting smoothness with safety and precision.</p>
               </motion.div>
 
               {/* Treatment Benefits */}
@@ -109,24 +109,24 @@ export default function LaserHairReductionPage() {
                 className="mt-6"
               >
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  This treatment helps in:
+                  Key Features:
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Permanent hair reduction</span>
+                    <span className="text-sm text-gray-600">✨ USFDA-approved technology</span>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Precise and targeted treatment</span>
+                    <span className="text-sm text-gray-600">✨ Safe for all Indian skin types</span>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Suitable for all skin types</span>
+                    <span className="text-sm text-gray-600">✨ Performed by experienced dermatologists</span>
                   </div>
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-gray-600">Minimal discomfort and downtime</span>
+                    <span className="text-sm text-gray-600">✨ Long-lasting smoothness with safety and precision</span>
                   </div>
               </div>
               </motion.div>
@@ -206,85 +206,7 @@ export default function LaserHairReductionPage() {
         </div>
       </section>
 
-      {/* What is Laser Hair Reduction Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-
-            {/* Left Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative order-2 lg:order-1"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage2.src}
-                  alt="Laser Hair Reduction Treatment Process" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content */}
-          <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0 order-1 lg:order-2"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • What is Laser Hair Reduction?
-          </motion.div>
-          
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Advanced <span className="text-primary">Laser Technology</span> Treatment
-              </motion.h2>
-
-              {/* Description */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xs md:text-[15px] text-gray-600 leading-relaxed space-y-3"
-              >
-                <p>
-                  Laser hair reduction is a safe and effective cosmetic procedure that uses concentrated light energy to target and destroy hair follicles, resulting in permanent hair reduction. This advanced treatment is suitable for both men and women and can be performed on various body areas.
-                </p>
-                <p>
-                  Our state-of-the-art laser technology precisely targets hair follicles while leaving surrounding skin unharmed, providing long-lasting results with minimal discomfort and downtime.
-                </p>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Benefits Section */}
+      {/* Why Choose Laser Hair Removal Over Waxing & Shaving Section */}
       <section className="py-5 md:py-5 bg-white">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <motion.div
@@ -295,15 +217,108 @@ export default function LaserHairReductionPage() {
             className="text-center mb-8"
           >
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key Benefits of Laser Hair Reduction
+              Why Choose Laser Hair Removal Over Waxing & Shaving?
+            </h2>
+          </motion.div>
+
+          {/* Comparison Table */}
+              <motion.div
+            initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+                viewport={{ once: true }}
+            className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8"
+          >
+            <div className="overflow-x-auto">
+              <table className="w-full bg-white rounded-lg overflow-hidden">
+                <thead className="bg-teal-600 text-white">
+                  <tr>
+                    <th className="px-4 py-3 text-center text-sm font-semibold w-1/2">Laser Hair Removal</th>
+                    <th className="px-2 py-3 text-center text-sm font-semibold text-teal-200">vs</th>
+                    <th className="px-4 py-3 text-center text-sm font-semibold w-1/2">Waxing/Shaving</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {[
+                    { laser: "Permanent hair reduction after 6–10 sessions", waxing: "Temporary results – hair regrows in days/weeks" },
+                    { laser: "Almost painless", waxing: "Painful waxing & risk of cuts with shaving" },
+                    { laser: "Cost-effective in the long run", waxing: "Cheaper initially but lifelong recurring expense" },
+                    { laser: "Safe, precise & skin-friendly", waxing: "Can cause irritation, ingrown hair, and pigmentation" },
+                    { laser: "Quick sessions with no downtime", waxing: "Requires frequent, time-consuming sessions" }
+                  ].map((row, index) => (
+                    <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                      <td className="px-4 py-3 text-sm text-gray-600 w-1/2">{row.laser}</td>
+                      <td className="px-2 py-3 text-center text-sm font-bold text-teal-600">vs</td>
+                      <td className="px-4 py-3 text-sm text-gray-600 w-1/2">{row.waxing}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+          
+          {/* Conclusion */}
+              <motion.div
+            initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+            className="text-center"
+              >
+            <div className="bg-gradient-to-r from-teal-50 to-blue-50 rounded-2xl p-6 md:p-8">
+              <p className="text-lg font-semibold text-gray-900 mb-2">
+                👉 Clearly, Laser Hair Removal is the smarter choice for hassle-free grooming.
+                </p>
+            </div>
+            </motion.div>
+        </div>
+      </section>
+
+      {/* Areas We Treat Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Areas We Treat with Laser Hair Removal in Nashik
             </h2>
                          <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
-                Experience the transformative benefits of our advanced laser technology
+              At Aries Skin & General Clinic, we provide customized treatment packages for both men and women, including:
               </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-            {laserHairReductionBenefits.map((benefit, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              {
+                title: "Full body hair removal",
+                description: "Complete body treatment for comprehensive hair reduction"
+              },
+              {
+                title: "Facial hair removal",
+                description: "Upper lip, chin, cheeks, forehead treatment"
+              },
+              {
+                title: "Underarms",
+                description: "Precise underarm hair removal for comfort"
+              },
+              {
+                title: "Bikini & Brazilian",
+                description: "Intimate area hair removal with discretion"
+              },
+              {
+                title: "Arms & Legs",
+                description: "Complete arm and leg hair reduction"
+              },
+              {
+                title: "Chest & Back",
+                description: "Men's chest and back hair removal"
+              },
+            ].map((area, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -311,15 +326,15 @@ export default function LaserHairReductionPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="p-3 md:p-6 h-full bg-gradient-to-br from-blue-50 to-green-50 border-0 rounded-lg transition-all duration-300 group">
-                  <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform">
-                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
+                <div className="p-4 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
                   </div>
-                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                    {benefit}
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {area.title}
                   </h3>
                   <p className="text-gray-600 text-xs md:text-sm">
-                    Achieve smooth, hair-free skin with our proven laser treatment approach
+                    {area.description}
                   </p>
                 </div>
               </motion.div>
@@ -329,7 +344,7 @@ export default function LaserHairReductionPage() {
       </section>
 
 
-      {/* Treatment Process Section */}
+      {/* Technology We Use Section */}
       <section className="py-5 md:py-5 bg-white">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
@@ -351,7 +366,7 @@ export default function LaserHairReductionPage() {
               >
                 <img 
                   src={HeroImage3.src}
-                  alt="Laser Hair Reduction Treatment Process" 
+                  alt="USFDA-approved Laser Technology" 
                   className="w-full h-[300px] md:h-[500px] object-contain"
                 />
               </motion.div>
@@ -373,7 +388,7 @@ export default function LaserHairReductionPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • How is the Treatment Performed?
+                • Advanced Technology
               </motion.div>
 
               {/* Main Heading */}
@@ -384,200 +399,23 @@ export default function LaserHairReductionPage() {
                 viewport={{ once: true }}
                 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                Our <span className="text-primary">Treatment Process</span>
+                Technology <span className="text-primary">We Use</span>
               </motion.h2>
 
-              {/* Process Steps */}
+              {/* Description */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="space-y-4"
+                className="text-xs md:text-[15px] text-gray-600 leading-relaxed space-y-3"
               >
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      1
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Consultation & Assessment</h3>
-                    <p className="text-xs md:text-md text-gray-600">Comprehensive evaluation of skin type and hair characteristics</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      2
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Treatment Area Preparation</h3>
-                    <p className="text-xs md:text-md text-gray-600">Cleaning and preparation of the treatment area</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      3
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Laser Treatment</h3>
-                    <p className="text-xs md:text-md text-gray-600">Precise laser application to target hair follicles</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    4
-                    </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Cooling & Soothing</h3>
-                    <p className="text-xs md:text-md text-gray-600">Application of cooling gel to soothe treated area</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Aftercare Instructions</h3>
-                    <p className="text-xs md:text-md text-gray-600">Detailed aftercare guidance and follow-up schedule</p>
-                </div>
-              </div>
-                
+                <p>
+                  We use USFDA-approved laser systems designed for Indian skin and hair types.
+                </p>
               </motion.div>
 
-
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Treatment Areas Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Treatment Areas
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
-              {[
-                {
-                  title: "Face & Neck",
-                  description: "Upper lip, chin, sideburns, and neck area"
-                },
-                {
-                  title: "Body Areas",
-                  description: "Arms, legs, chest, back, and abdomen"
-                },
-                {
-                  title: "Bikini Area",
-                  description: "Brazilian, bikini line, and intimate areas"
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
-                    </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Who Can Get Treatment Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-            
-            {/* Left Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-4 px-4 md:px-0"
-            >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
-              >
-                • Who Can Get This Treatment?
-              </motion.div>
-
-              {/* Main Heading */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
-              >
-                Perfect For <span className="text-primary">Hair Removal</span>
-              </motion.h2>
-
-              {/* Suitable For */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <h3 className="text-md sm:text-lg font-semibold text-gray-900">This treatment is suitable for:</h3>
-                <div className="space-y-2">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Men and women of all ages</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">All skin types and tones</span>
-                    </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Dark, coarse hair</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Unwanted facial and body hair</span>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Those seeking permanent hair reduction</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Not Suitable For */}
+              {/* Technology Features */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -585,51 +423,56 @@ export default function LaserHairReductionPage() {
                 viewport={{ once: true }}
                 className="space-y-3"
               >
-                <h3 className="text-lg font-semibold text-gray-900">⚠️ Not suitable for:</h3>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Very light or white hair</span>
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Safe for all skin tones, including darker skin</span>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Pregnant or breastfeeding women</span>
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Fast, effective, and precise hair reduction</span>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm md:text-md text-gray-700">Active skin infections or wounds</span>
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Suitable for both fine and coarse hair</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-gray-600">Minimal discomfort with long-lasting results</span>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-3xl overflow-hidden"
-              >
-                <img 
-                  src={HeroImage4.src}
-                  alt="Laser Hair Reduction for Everyone" 
-                  className="w-full h-[300px] md:h-[500px] object-contain"
-                />
               </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Recovery & Aftercare Section */}
+
+
+      {/* Safety & Side Effects Section */}
+      <section className="py-5 md:py-5 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Safety & Side Effects
+              </h2>
+            <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
+              Laser Hair Removal at Aries Clinic is safe & dermatologist-supervised.
+            </p>
+            <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto mt-2">
+              Mild redness or irritation may occur in rare cases, but subsides within hours.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Aftercare Tips Section */}
       <section className="py-5 md:py-5 bg-white">
         <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
           <motion.div
@@ -637,29 +480,32 @@ export default function LaserHairReductionPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
+            className="text-center mb-8"
           >
-            <div className="text-center mb-8">
               <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Recovery & Aftercare
+              Aftercare Tips
               </h2>
-            </div>
+          </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {[
                 {
-                  title: "Minimal Downtime",
-                  description: "Return to normal activities immediately after treatment"
+                title: "Avoid sun exposure",
+                description: "for 24–48 hours"
                 },
                 {
-                  title: "Gentle Care",
-                  description: "Avoid sun exposure and use recommended skincare products"
+                title: "Use soothing creams",
+                description: "if mild redness occurs"
                 },
                 {
-                  title: "Follow-up Sessions",
-                  description: "Multiple sessions required for optimal hair reduction results"
+                title: "Do not wax or pluck",
+                description: "between sessions"
+                },
+                {
+                title: "Follow dermatologist's advice",
+                description: "for best results"
                 }
-              ].map((item, index) => (
+            ].map((tip, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
@@ -667,102 +513,24 @@ export default function LaserHairReductionPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
+                <div className="p-4 md:p-6 h-full bg-gray-50 border border-gray-200 rounded-lg transition-all duration-300 group text-center">
+                  <div className="w-8 h-8 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-teal-600" />
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
+                    {tip.title}
                     </h3>
                     <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
+                    {tip.description}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Aries Section */}
-      <section className="py-5 md:py-5 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-gray-50 rounded-2xl p-8 md:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Why Choose Aries Skin & General Clinic?
-              </h2>
-              <p className="text-xs md:text-md text-gray-600 max-w-3xl mx-auto">
-                At Aries Skin & General Clinic, we provide safe, effective, and professional laser hair reduction treatments under the guidance of skilled doctors and trained professionals. We ensure optimal results with proper aftercare guidance.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-              {[
-                {
-                  icon: Award,
-                  title: "Expert Care",
-                  description: "Expert laser treatment care with modern equipment"
-                },
-                {
-                  icon: Users,
-                  title: "Safe Treatment",
-                  description: "Safe, effective treatments using FDA-approved technology"
-                },
-                {
-                  icon: Shield,
-                  title: "Safe Environment",
-                  description: "Hygienic, comfortable, and patient-friendly environment"
-                },
-                {
-                  icon: Star,
-                  title: "Proven Results",
-                  description: "Proven results with satisfied clients"
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 md:p-6 h-full bg-white border border-gray-200 rounded-lg transition-all duration-300 group text-center">
-                    <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2 md:mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <item.icon className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
-                    </div>
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs md:text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center mt-8"
-            >
-              <p className="text-xs sm:text-lg font-medium text-gray-800">
-                ✨ Your journey to smooth, hair-free skin starts at Aries Skin & General Clinic.
-              </p>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-5 md:py-5 bg-white mx-5">

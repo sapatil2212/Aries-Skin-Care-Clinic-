@@ -22,10 +22,10 @@ import {
 } from 'lucide-react';
 import { TREATMENTS } from '@/lib/constants';
 import Link from 'next/link';
-import HeroImage1 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial.png"
-import HeroImage2 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-2.png"
-import HeroImage3 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-3.png"
-import HeroImage4 from "../../../../../public/treatments/Medicated-Hydrafacial/Medicated-Hydrafacial-4.png"
+import HeroImage1 from "../../../../../public/treatments/skintightening/3.png"
+import HeroImage2 from  "../../../../../public/treatments/skintightening/2.png"
+import HeroImage3 from  "../../../../../public/treatments/skintightening/1.png"
+import HeroImage4 from  "../../../../../public/treatments/skintightening/4.png"
 
 const treatment = TREATMENTS.find(t => t.id === 'rf-skin-tightening');
 
@@ -44,12 +44,12 @@ export default function RFSkinTighteningPage() {
 
   // RF Skin Tightening specific benefits
   const rfSkinTighteningBenefits = [
-    "Tightens and firms loose skin",
-    "Reduces fine lines and wrinkles",
-    "Improves skin texture and tone",
-    "Stimulates collagen production",
-    "Non-invasive and painless procedure",
-    "Minimal downtime with immediate results"
+    "Non-surgical alternative to facelift",
+    "Reduces wrinkles & fine lines",
+    "Improves skin texture & tone",
+    "Tightens sagging skin (face, neck, arms, abdomen, thighs)",
+    "Safe for all skin types & tones",
+    "Minimal discomfort and no downtime"
   ];
 
   return (
@@ -86,7 +86,7 @@ export default function RFSkinTighteningPage() {
                 viewport={{ once: true }}
                 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                {treatment.name}
+                Radio Frequency (RF) Skin Tightening
               </motion.h1>
 
               {/* Description */}
@@ -97,7 +97,8 @@ export default function RFSkinTighteningPage() {
                 viewport={{ once: true }}
                 className="text-sm md:text-md text-gray-600 leading-relaxed space-y-3"
               >
-                <p>{treatment.description}</p>
+                <p>Non-Surgical Solution for Firmer, Younger-Looking Skin</p>
+                <p>At Aries Skin & General Clinic, we offer Radio Frequency (RF) Skin Tightening – a safe, non-invasive treatment that uses electromagnetic waves to stimulate collagen and elastin production, improving skin firmness, reducing wrinkles, and restoring a youthful glow.</p>
               </motion.div>
 
               {/* Treatment Benefits */}
@@ -250,7 +251,7 @@ export default function RFSkinTighteningPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • What is RF Skin Tightening?
+                ✨ What is RF Skin Tightening?
           </motion.div>
           
               {/* Main Heading */}
@@ -261,7 +262,7 @@ export default function RFSkinTighteningPage() {
                 viewport={{ once: true }}
                 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                Advanced <span className="text-primary">Skin Tightening</span> Treatment
+                What is <span className="text-primary">RF Skin Tightening</span>?
               </motion.h2>
 
               {/* Description */}
@@ -273,10 +274,15 @@ export default function RFSkinTighteningPage() {
                 className="text-xs md:text-[15px] text-gray-600 leading-relaxed space-y-3"
               >
                 <p>
-                  RF (Radio Frequency) Skin Tightening is a non-invasive cosmetic procedure that uses radiofrequency energy to heat the deeper layers of skin, stimulating collagen production and tightening loose skin.
+                  RF skin tightening is a minimally invasive cosmetic treatment that delivers controlled heat into the deeper layers of the skin. This process:
                 </p>
+                <ul className="list-disc list-inside space-y-2 ml-4">
+                  <li>Stimulates natural collagen and elastin production</li>
+                  <li>Improves skin structure and elasticity</li>
+                  <li>Reduces fine lines, wrinkles, and sagging skin</li>
+                </ul>
                 <p>
-                  This treatment is effective for reducing fine lines, wrinkles, and sagging skin on the face and body. It provides immediate results with continued improvement over several months as new collagen forms.
+                  The result is firmer, smoother, and rejuvenated skin without surgery or downtime.
                 </p>
               </motion.div>
             </motion.div>
@@ -295,7 +301,7 @@ export default function RFSkinTighteningPage() {
             className="text-center mb-8"
           >
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Key Benefits of RF Skin Tightening
+              🌟 Benefits of RF Skin Tightening
             </h2>
                          <p className="text-xs md:text-[15px] text-gray-600 max-w-3xl mx-5 md:mx-auto">
                 Experience the transformative benefits of our advanced RF skin tightening technology
@@ -373,7 +379,7 @@ export default function RFSkinTighteningPage() {
                 viewport={{ once: true }}
                 className="inline-block text-sm font-medium text-gray-500 uppercase tracking-wider"
               >
-                • How is the Treatment Performed?
+                🩺 The Procedure
               </motion.div>
 
               {/* Main Heading */}
@@ -384,7 +390,7 @@ export default function RFSkinTighteningPage() {
                 viewport={{ once: true }}
                 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
-                How Our <span className="text-primary">Treatment Works</span>
+                The <span className="text-primary">Procedure</span>
               </motion.h2>
 
               {/* Process Steps */}
@@ -393,58 +399,42 @@ export default function RFSkinTighteningPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="space-y-4"
+                className="space-y-6"
               >
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      1
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-2">Consultation & Skin Analysis</h3>
-                    <p className="text-xs md:text-md text-gray-600">Comprehensive skin analysis and treatment planning</p>
-                    </div>
-                  </div>
+                <div className="space-y-4">
+                  <p className="text-xs md:text-md text-gray-600">
+                    Our Radio Frequency (RF) Skin Tightening treatment is a safe, non-invasive, and highly effective procedure designed to rejuvenate and tighten the skin.
+                  </p>
                   
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      2
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Skin Preparation</h3>
-                    <p className="text-xs md:text-md text-gray-600">Cleansing and applying conductive gel to the treatment area</p>
-                    </div>
+                  <div className="space-y-4">
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-900">✨ How it Works:</h3>
+                    <ul className="space-y-2 ml-4">
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-xs md:text-sm text-gray-600">A specialized RF device gently delivers controlled heat deep into the targeted layers of the skin.</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-xs md:text-sm text-gray-600">This heat stimulates natural collagen and elastin production, improving firmness and elasticity.</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-xs md:text-sm text-gray-600">The process also enhances blood circulation and cellular repair, promoting a youthful glow.</span>
+                      </li>
+                    </ul>
                   </div>
-                  
-                  <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      3
-                    </div>
-                    <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">RF Energy Application</h3>
-                    <p className="text-xs md:text-md text-gray-600">Radiofrequency energy is delivered to heat the deeper skin layers</p>
+
+                  <div className="space-y-3">
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-900">⏱️ Treatment Duration:</h3>
+                    <p className="text-xs md:text-sm text-gray-600">
+                      Each session typically lasts 30 to 60 minutes, depending on the treatment area (face, neck, or body).
+                    </p>
+                    <p className="text-xs md:text-sm text-gray-600">
+                      Patients can relax during the procedure, similar to enjoying a warm facial massage.
+                    </p>
                   </div>
+
                 </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    4
-                    </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Collagen Stimulation</h3>
-                    <p className="text-xs md:text-md text-gray-600">Heat stimulates collagen production and skin tightening</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    5
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Cooling & Aftercare</h3>
-                    <p className="text-xs md:text-md text-gray-600">Cooling gel applied and post-treatment care instructions provided</p>
-                </div>
-              </div>
-                
               </motion.div>
 
 
@@ -508,6 +498,122 @@ export default function RFSkinTighteningPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Effectiveness & Safety Section */}
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gray-50 rounded-2xl p-8 md:p-12"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                ⚡ Effectiveness & Safety
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Clinically proven safe and effective when performed by trained professionals.</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Visible improvement in 3–6 sessions depending on skin condition.</span>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Results continue to improve as collagen production increases.</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm md:text-md text-gray-700">Side effects are rare and temporary (mild redness, swelling, or warmth).</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
+      {/* Before & After Care Section */}
+      <section className="py-5 md:py-5 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-32 pt-4 pb-4 md:pt-8 md:pb-2 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gray-50 rounded-2xl p-8 md:p-12"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                🕒 Before & After Care
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div className="bg-white rounded-lg p-4 md:p-6">
+                <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-4">✅ Before Treatment:</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Avoid sun exposure and tanning for 1–2 weeks.</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Keep skin hydrated.</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Inform your doctor about blood-thinning medications.</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Attend a consultation to personalize your treatment plan.</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-lg p-4 md:p-6">
+                <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-4">✅ After Treatment:</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Mild redness/swelling may occur (subsides in hours).</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Use a gentle cleanser and moisturizer.</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Avoid heat exposure (hot baths, saunas, heavy exercise) for 2–3 days.</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Always wear sunscreen (SPF 30+).</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Avoid makeup for 24 hours post-treatment.</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-xs md:text-sm text-gray-600">Stay hydrated and follow post-care instructions provided by your doctor.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
 
       {/* Who Can Get RF Skin Tightening Section */}
       <section className="py-5 md:py-5 bg-white">
@@ -749,17 +855,6 @@ export default function RFSkinTighteningPage() {
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center mt-8"
-            >
-              <p className="text-xs sm:text-lg font-medium text-gray-800">
-                ✨ Your journey to firm, tight, and youthful skin starts at Aries Skin & General Clinic.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -775,7 +870,7 @@ export default function RFSkinTighteningPage() {
             className="max-w-4xl mx-auto text-center space-y-2 sm:space-y-6"
           >
             <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900">
-              Ready to Transform Your Skin?
+              📞 Book your consultation today 
             </h2>
             <p className="text-xs md:text-md text-gray-600 mx-5">
               Join thousands of satisfied patients who have achieved their skin goals with us
