@@ -487,7 +487,7 @@ export const WHATSAPP_MESSAGE = `Hello! I would like to book an appointment at A
 export const SOCIAL_LINKS = [
   {
     name: "WhatsApp",
-    url: `https://wa.me/917588832221?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
+    url: `https://wa.me/917972548001?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
     icon: "MessageCircle"
   },
   {

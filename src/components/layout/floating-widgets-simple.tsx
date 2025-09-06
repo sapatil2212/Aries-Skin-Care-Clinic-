@@ -1,23 +1,21 @@
 "use client"
 
 import * as React from "react"
-import { MessageCircle, Phone, ArrowUp, ArrowRight } from "lucide-react"
+import { usePathname } from "next/navigation"
+import { MessageCircle, Phone, ArrowUp, ArrowRight, Calendar } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useAppointmentModal } from "@/components/appointment-modal-provider"
 import { Button } from "@/components/ui/button"
 
 export function FloatingWidgetsSimple() {
   const [showScrollTop, setShowScrollTop] = React.useState(false)
-  const [isHomePage, setIsHomePage] = React.useState(false)
   const [isMounted, setIsMounted] = React.useState(false)
+  const { openModal } = useAppointmentModal()
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
 
   React.useEffect(() => {
     setIsMounted(true)
-    
-    // Check if we're on home page
-    if (typeof window !== 'undefined') {
-      const pathname = window.location.pathname
-      setIsHomePage(pathname === "/")
-    }
 
     // Set up scroll listener
     const handleScroll = () => {
@@ -123,20 +121,14 @@ export function FloatingWidgetsSimple() {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/95 backdrop-blur-sm border-t border-gray-200"
+          className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-3 bg-white/95 backdrop-blur-sm border-t border-gray-200"
         >
           <Button
-            onClick={handleWhatsAppClick}
-            className="group shadow-2xl px-8 py-4 rounded-full text-lg font-semibold w-full bg-primary hover:bg-primary-dark text-white"
+            onClick={openModal}
+            className="group shadow-lg px-6 py-3 rounded-lg text-sm font-medium w-full bg-primary hover:bg-primary-dark text-white flex items-center justify-center gap-2"
           >
+            <Calendar className="h-4 w-4" />
             Book Appointment
-            <motion.div
-              className="ml-2"
-              animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <ArrowRight className="h-5 w-5" />
-            </motion.div>
           </Button>
         </motion.div>
       )}

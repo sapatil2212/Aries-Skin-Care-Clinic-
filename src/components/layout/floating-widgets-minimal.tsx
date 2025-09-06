@@ -1,21 +1,19 @@
 "use client"
 
 import * as React from "react"
+import { usePathname } from "next/navigation"
 import { CLINIC_INFO, WHATSAPP_MESSAGE } from "@/lib/constants"
+import { useAppointmentModal } from "@/components/appointment-modal-provider"
 
 export function FloatingWidgetsMinimal() {
   const [showScrollTop, setShowScrollTop] = React.useState(false)
-  const [isHomePage, setIsHomePage] = React.useState(false)
   const [isMounted, setIsMounted] = React.useState(false)
+  const { openModal } = useAppointmentModal()
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
 
   React.useEffect(() => {
     setIsMounted(true)
-    
-    // Check if we're on home page
-    if (typeof window !== 'undefined') {
-      const pathname = window.location.pathname
-      setIsHomePage(pathname === "/")
-    }
 
     // Set up scroll listener
     const handleScroll = () => {
@@ -106,13 +104,15 @@ export function FloatingWidgetsMinimal() {
 
       {/* Mobile Bottom Sticky Appointment Button - Only show on non-home pages */}
       {!isHomePage && (
-        <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/95 backdrop-blur-sm border-t border-gray-200">
+        <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-3 bg-white/95 backdrop-blur-sm border-t border-gray-200">
           <button
-            onClick={handleWhatsAppClick}
-            className="group shadow-2xl px-8 py-4 rounded-full text-lg font-semibold w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white transition-all duration-300 transform hover:scale-105"
+            onClick={openModal}
+            className="group shadow-lg px-6 py-3 rounded-lg text-sm font-medium w-full bg-primary hover:bg-primary-dark text-white transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2"
           >
+            <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
             Book Appointment
-            <span className="ml-2 inline-block animate-pulse">→</span>
           </button>
         </div>
       )}
