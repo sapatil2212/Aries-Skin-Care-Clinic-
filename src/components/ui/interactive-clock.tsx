@@ -145,7 +145,10 @@ const InteractiveClock = React.forwardRef<HTMLDivElement, InteractiveClockProps>
          setTimeout(() => {
            const scrollToOption = (ref: React.RefObject<HTMLDivElement>, index: number, itemHeight: number) => {
              if (ref.current) {
-               const scrollTop = Math.max(0, index * itemHeight - itemHeight * 2)
+               const containerHeight = ref.current.clientHeight
+               const centerPosition = containerHeight / 2
+               const itemTopPosition = (index + 2) * itemHeight
+               const scrollTop = Math.max(0, itemTopPosition - centerPosition)
                ref.current.scrollTo({ top: scrollTop, behavior: 'smooth' })
              }
            }
@@ -218,7 +221,7 @@ const InteractiveClock = React.forwardRef<HTMLDivElement, InteractiveClockProps>
       setIsOpen(false)
     }
 
-     // Create debounced scroll handler outside of render function
+     // Create enhanced scroll handler with auto-selection for mobile
      const createScrollHandler = React.useCallback((
        items: (number | string)[],
        selected: number | string,
@@ -231,23 +234,107 @@ const InteractiveClock = React.forwardRef<HTMLDivElement, InteractiveClockProps>
            clearTimeout(scrollTimeoutRef.current)
          }
          
+         // For mobile, use shorter delay for more responsive auto-selection
+         const delay = isMobile ? 50 : 150
+         
          scrollTimeoutRef.current = setTimeout(() => {
            if (scrollRef.current && !isAnimating) {
              const scrollTop = scrollRef.current.scrollTop
-             const centerOffset = itemHeight * 2
-             const itemIndex = Math.round((scrollTop + centerOffset) / itemHeight)
+             // Calculate which item is in the center of the visible area
+             const containerHeight = scrollRef.current.clientHeight
+             const centerPosition = containerHeight / 2
+             const itemIndex = Math.round((scrollTop + centerPosition) / itemHeight) - 2 // -2 for top spacer
              
              if (itemIndex >= 0 && itemIndex < items.length) {
                const item = items[itemIndex]
                if (item !== selected) {
-                 // Only update if the scroll has stopped for a longer period
                  onSelect(item)
+                 // Calculate exact position for perfect center alignment
+                 const itemTopPosition = (itemIndex + 2) * itemHeight
+                 const targetScrollTop = itemTopPosition - centerPosition
+                 scrollRef.current.scrollTo({
+                   top: Math.max(0, targetScrollTop),
+                   behavior: 'smooth'
+                 })
                }
              }
            }
-         }, 150) // Increased delay to prevent interference
+         }, delay)
        }
-     }, [isAnimating])
+     }, [isAnimating, isMobile])
+
+     // Create immediate selection handler for better mobile responsiveness
+     const createImmediateScrollHandler = React.useCallback((
+       items: (number | string)[],
+       selected: number | string,
+       onSelect: (value: any) => void,
+       scrollRef: React.RefObject<HTMLDivElement>,
+       itemHeight: number
+     ) => {
+       return () => {
+         if (scrollRef.current && !isAnimating && isMobile) {
+           const scrollTop = scrollRef.current.scrollTop
+           // Calculate which item is in the center of the visible area
+           const containerHeight = scrollRef.current.clientHeight
+           const centerPosition = containerHeight / 2
+           const itemIndex = Math.round((scrollTop + centerPosition) / itemHeight) - 2 // -2 for top spacer
+           
+           if (itemIndex >= 0 && itemIndex < items.length) {
+             const item = items[itemIndex]
+             if (item !== selected) {
+               onSelect(item)
+               // Calculate exact position for perfect center alignment
+               const itemTopPosition = (itemIndex + 2) * itemHeight
+               const targetScrollTop = itemTopPosition - centerPosition
+               scrollRef.current.scrollTo({
+                 top: Math.max(0, targetScrollTop),
+                 behavior: 'smooth'
+               })
+             }
+           }
+         }
+       }
+     }, [isAnimating, isMobile])
+
+     // Function to snap scroll to the nearest item with perfect alignment
+     const snapToNearestItem = React.useCallback((
+       scrollRef: React.RefObject<HTMLDivElement>,
+       itemHeight: number,
+       items: (number | string)[],
+       onSelect: (value: any) => void,
+       selected: number | string
+     ) => {
+       if (!scrollRef.current) return
+       
+       const scrollTop = scrollRef.current.scrollTop
+       const containerHeight = scrollRef.current.clientHeight
+       const centerPosition = containerHeight / 2
+       
+       // Find the item that should be in the center
+       const itemIndex = Math.round((scrollTop + centerPosition) / itemHeight) - 2
+       
+       if (itemIndex >= 0 && itemIndex < items.length) {
+         const item = items[itemIndex]
+         if (item !== selected) {
+           onSelect(item)
+         }
+         
+         // Calculate the exact scroll position to center this item
+         // The item should be positioned so its center aligns with the container center
+         const itemTopPosition = (itemIndex + 2) * itemHeight
+         const targetScrollTop = itemTopPosition - centerPosition
+         
+         // Use requestAnimationFrame for smoother alignment
+         requestAnimationFrame(() => {
+           if (scrollRef.current) {
+             scrollRef.current.scrollTo({
+               top: Math.max(0, targetScrollTop),
+               behavior: 'smooth'
+             })
+           }
+         })
+       }
+     }, [])
 
     const renderTimeWheel = (
       items: (number | string)[],
@@ -258,6 +345,7 @@ const InteractiveClock = React.forwardRef<HTMLDivElement, InteractiveClockProps>
        itemHeight = isMobile ? 28 : 32
     ) => {
       const handleScroll = createScrollHandler(items, selected, onSelect, scrollRef, itemHeight)
+      const handleImmediateScroll = createImmediateScrollHandler(items, selected, onSelect, scrollRef, itemHeight)
 
       return (
          <div className="flex flex-col items-center">
@@ -275,10 +363,23 @@ const InteractiveClock = React.forwardRef<HTMLDivElement, InteractiveClockProps>
                 className="h-full overflow-y-auto clock-wheel"
                 style={{ 
                   scrollSnapType: 'y mandatory',
-                  scrollBehavior: 'smooth'
+                  scrollBehavior: isMobile ? 'auto' : 'smooth',
+                  scrollPaddingTop: `${itemHeight * 2}px`,
+                  scrollPaddingBottom: `${itemHeight * 2}px`,
+                  scrollSnapStop: 'always',
+                  scrollSnapPointsY: 'repeat(100%)'
                 }}
-                 onScroll={handleScroll}
+                 onScroll={isMobile ? handleImmediateScroll : handleScroll}
                  onWheel={(e) => e.stopPropagation()}
+                 onTouchEnd={() => {
+                   // Snap to nearest item and select it
+                   if (isMobile) {
+                     setTimeout(() => {
+                       snapToNearestItem(scrollRef, itemHeight, items, onSelect, selected)
+                     }, 50) // Reduced delay for faster response
+                   }
+                 }}
+                 onTouchMove={isMobile ? handleImmediateScroll : undefined}
               >
                 {/* Top spacer */}
                 <div style={{ height: itemHeight * 2 }} className="pointer-events-none" />
@@ -296,15 +397,23 @@ const InteractiveClock = React.forwardRef<HTMLDivElement, InteractiveClockProps>
                        isMobile ? "text-xs" : "text-xs",
                        "focus:outline-none hover:bg-primary/10 active:scale-95",
                        "border-0 bg-transparent",
+                       "leading-none", // Remove line height for better centering
                        selected === item
-                         ? "text-primary font-semibold transform scale-105"
+                         ? "text-primary font-semibold transform scale-105 bg-primary/5 rounded-md"
                          : "text-gray-600 hover:text-gray-800"
                      )}
                     style={{ 
                       height: itemHeight,
                       scrollSnapAlign: 'center',
+                      scrollSnapStop: 'always',
                       border: 'none',
-                      outline: 'none'
+                      outline: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      lineHeight: 1,
+                      padding: 0,
+                      margin: 0
                     }}
                   >
                     {typeof item === 'number' ? item.toString().padStart(2, '0') : item}
@@ -318,7 +427,12 @@ const InteractiveClock = React.forwardRef<HTMLDivElement, InteractiveClockProps>
             
              {/* Enhanced selection indicator */}
              <div className={`absolute inset-x-0 top-1/2 -translate-y-1/2 ${isMobile ? 'h-6' : 'h-8'} pointer-events-none z-10`}>
-               <div className="h-full mx-1 border border-primary/30 bg-primary/10 rounded-md shadow-sm" />
+               <div className={cn(
+                 "h-full mx-1 border rounded-md shadow-sm transition-all duration-200",
+                 isMobile 
+                   ? "border-primary/50 bg-primary/15 shadow-md" 
+                   : "border-primary/30 bg-primary/10 shadow-sm"
+               )} />
              </div>
           </div>
         </div>

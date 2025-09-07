@@ -29,7 +29,8 @@ const createUserConfirmationEmail = (appointmentData: any) => {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+    timeZone: 'Asia/Kolkata'
   })
   
   return {
@@ -161,7 +162,8 @@ const createClinicNotificationEmail = (appointmentData: any) => {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+    timeZone: 'Asia/Kolkata'
   })
   
   return {
@@ -292,7 +294,16 @@ const createClinicNotificationEmail = (appointmentData: any) => {
             </div>
             
             <div class="timestamp">
-              <div class="timestamp-text">Booking Time: ${new Date().toLocaleString('en-IN')}</div>
+              <div class="timestamp-text">Booking Time: ${new Date().toLocaleString('en-IN', { 
+                timeZone: 'Asia/Kolkata',
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+              })}</div>
             </div>
           </div>
           
@@ -343,7 +354,7 @@ export async function POST(request: NextRequest) {
         'Reply-To': process.env.EMAIL_USER || 'ariesskin25@gmail.com'
       },
       // Add text version for better deliverability
-      text: `Dear ${appointmentData.name},\n\nYour appointment has been successfully scheduled with Aries Skin & General Clinic.\n\nAppointment Details:\nTreatment: ${appointmentData.treatmentType}\nDate: ${new Date(appointmentData.preferredDate).toLocaleDateString('en-IN')}\nTime: ${appointmentData.preferredTime}\n\nWe look forward to seeing you!\n\nBest regards,\nDr. Shweta Sonje\nAries Skin & General Clinic\n\nThis is an automated confirmation email. Please do not reply to this email.`
+      text: `Dear ${appointmentData.name},\n\nYour appointment has been successfully scheduled with Aries Skin & General Clinic.\n\nAppointment Details:\nTreatment: ${appointmentData.treatmentType}\nDate: ${new Date(appointmentData.preferredDate).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata' })}\nTime: ${appointmentData.preferredTime}\n\nWe look forward to seeing you!\n\nBest regards,\nDr. Shweta Sonje\nAries Skin & General Clinic\n\nThis is an automated confirmation email. Please do not reply to this email.`
     }
     
     // Send email to clinic
@@ -361,7 +372,7 @@ export async function POST(request: NextRequest) {
         'Reply-To': process.env.EMAIL_USER || 'ariesskin25@gmail.com'
       },
       // Add text version for better deliverability
-      text: `New Appointment Booking - ${appointmentData.name}\n\nPatient Information:\nName: ${appointmentData.name}\nEmail: ${appointmentData.email}\nPhone: ${appointmentData.phone}\nAge: ${appointmentData.age}\nGender: ${appointmentData.gender}\n\nAppointment Details:\nTreatment: ${appointmentData.treatmentType}\nDate: ${new Date(appointmentData.preferredDate).toLocaleDateString('en-IN')}\nTime: ${appointmentData.preferredTime}\n\nThis is an automated notification email from Aries Skin & General Clinic appointment system.`
+      text: `New Appointment Booking - ${appointmentData.name}\n\nPatient Information:\nName: ${appointmentData.name}\nEmail: ${appointmentData.email}\nPhone: ${appointmentData.phone}\nAge: ${appointmentData.age}\nGender: ${appointmentData.gender}\n\nAppointment Details:\nTreatment: ${appointmentData.treatmentType}\nDate: ${new Date(appointmentData.preferredDate).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata' })}\nTime: ${appointmentData.preferredTime}\n\nThis is an automated notification email from Aries Skin & General Clinic appointment system.`
     }
     
     // Send both emails
