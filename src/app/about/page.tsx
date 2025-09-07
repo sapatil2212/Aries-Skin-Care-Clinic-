@@ -5,9 +5,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, GraduationCap, Users, Heart, MapPin, Clock, CheckCircle, ArrowRight } from "lucide-react"
 import { DOCTOR_INFO, CLINIC_INFO } from "@/lib/constants"
+import { useAppointmentModal } from "@/components/appointment-modal-provider"
 import ClinicImage from "../../../public/about/clinic.png"
 import DoctorImage from "../../../public/about/doctor.png"
 export default function AboutPage() {
+  const { openModal } = useAppointmentModal()
+  
   const features = [
     "Commitment to Excellence in Skin Health",
     "State-of-the-Art Facility and Technology", 
@@ -91,21 +94,6 @@ export default function AboutPage() {
                 ))}
               </motion.div>
 
-              {/* Action Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="flex flex-col sm:flex-row gap-4 pt-2"
-              >
-                <Button 
-                  className="bg-teal-700 hover:bg-teal-800 text-white px-6 py-3 rounded-lg font-medium group"
-                >
-                  About More
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </motion.div>
             </motion.div>
 
             {/* Right Content - Single Image */}
@@ -239,6 +227,7 @@ export default function AboutPage() {
                 className="flex flex-col sm:flex-row gap-4 pt-2"
               >
                 <Button 
+                  onClick={openModal}
                   className="bg-teal-700 hover:bg-teal-800 text-white px-6 py-3 rounded-lg font-medium group"
                 >
                   Book Consultation
@@ -319,9 +308,9 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="bg-white rounded-3xl border border-gray-200 overflow-hidden"
           >
-            <div className="grid lg:grid-cols-3 h-[400px] md:h-[500px]">
+            <div className="grid grid-cols-1 lg:grid-cols-3 min-h-[400px] lg:h-[500px]">
               {/* Left Two-Thirds - Map */}
-              <div className="lg:col-span-2 relative h-[300px] md:h-full">
+              <div className="lg:col-span-2 relative h-[250px] sm:h-[300px] lg:h-full">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.5405784069153!2d73.78962419999999!3d20.027787800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddebba552420eb%3A0x2e4fb303571dcc31!2sAries%20Skin%20and%20General%20Clinic%20%7C%20Skin%2C%20Hair%2C%20Acne%20%26%20Aesthetic%20Treatment%20in%20Nashik%20%7C!5e0!3m2!1sen!2sin!4v1757054334594!5m2!1sen!2sin" 
                   width="100%" 
@@ -334,7 +323,7 @@ export default function AboutPage() {
               </div>
 
               {/* Right One-Third - Information */}
-              <div className="p-4 md:p-6 flex flex-col justify-center space-y-4 md:space-y-6">
+              <div className="p-4 md:p-6 flex flex-col justify-center space-y-3 md:space-y-4 lg:space-y-6">
                 {/* Address Section */}
                 <div>
                   <div className="flex items-center space-x-2 mb-2 md:mb-3">
@@ -381,11 +370,11 @@ export default function AboutPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[10px] md:text-xs text-gray-600">Saturday</span>
-                      <span className="text-[10px] md:text-xs font-medium">10 am–2 pm, 5–9 pm</span>
+                      <span className="text-[10px] md:text-xs font-medium text-red-500">Closed</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[10px] md:text-xs text-gray-600">Sunday</span>
-                      <span className="text-[10px] md:text-xs font-medium text-red-500">Closed</span>
+                      <span className="text-[10px] md:text-xs font-medium">12 pm–5 pm</span>
                     </div>
                   </div>
                 </div>
@@ -393,6 +382,7 @@ export default function AboutPage() {
                 {/* Book Appointment Button */}
                 <div className="pt-1 md:pt-2">
                   <Button 
+                    onClick={openModal}
                     className="w-full bg-teal-700 hover:bg-teal-800 text-white px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium group text-xs md:text-sm"
                   >
                     Book Appointment

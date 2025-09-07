@@ -12,8 +12,8 @@ export const CLINIC_INFO: ClinicInfo = {
     wednesday: "9:00 AM - 8:00 PM",
     thursday: "9:00 AM - 8:00 PM",
     friday: "9:00 AM - 8:00 PM",
-    saturday: "9:00 AM - 6:00 PM",
-    sunday: "10:00 AM - 4:00 PM"
+    saturday: "Closed",
+    sunday: "12:00 PM - 5:00 PM"
   }
 };
 

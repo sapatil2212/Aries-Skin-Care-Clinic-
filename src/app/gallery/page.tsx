@@ -191,10 +191,10 @@ export default function GalleryPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
+            <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-primary mb-4 md:mb-6">
               Clinic <span className="gradient-text">Gallery</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Take a virtual tour of our state-of-the-art clinic and see the modern facilities 
               where we provide world-class treatments
             </p>

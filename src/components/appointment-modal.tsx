@@ -24,6 +24,11 @@ const appointmentSchema = z.object({
   phone: z.string()
     .regex(/^[6-9]\d{9}$/, "Please enter a valid 10-digit phone number starting with 6-9")
     .length(10, "Phone number must be exactly 10 digits"),
+  whatsapp: z.string()
+    .regex(/^[6-9]\d{9}$/, "Please enter a valid 10-digit WhatsApp number starting with 6-9")
+    .length(10, "WhatsApp number must be exactly 10 digits")
+    .optional()
+    .or(z.literal("")),
   age: z.number().min(1, "Age must be at least 1").max(100, "Age must not be more than 100"),
   gender: z.enum(["male", "female", "other"], {
     required_error: "Please select your gender",
@@ -54,7 +59,7 @@ const appointmentSchema = z.object({
       
       return (timeInMinutes >= morningStart && timeInMinutes <= morningEnd) ||
              (timeInMinutes >= eveningStart && timeInMinutes <= eveningEnd)
-    }, "Please select a time during working hours (10 AM-2 PM or 5 PM-9 PM)"),
+    }, "Please select a time during working hours (10 AM-2 PM or 5 PM-9 PM, Sunday: 12 PM-5 PM)"),
   concerns: z.string().min(10, "Please describe your concerns (minimum 10 characters)"),
   
   // Medical History
@@ -113,6 +118,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
       name: '',
       email: '',
       phone: '',
+      whatsapp: '',
       gender: undefined,
       treatmentType: '',
       preferredDate: '',
@@ -141,6 +147,10 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
         if (!/^[6-9]\d{9}$/.test(value)) return 'Please enter a valid 10-digit phone number starting with 6-9'
         return ''
       
+      case 'whatsapp':
+        if (value && value.length > 0 && !/^[6-9]\d{9}$/.test(value)) return 'Please enter a valid 10-digit WhatsApp number starting with 6-9'
+        return ''
+      
         case 'age':
           if (!value || value === '' || value === null || value === undefined) return 'Age is required'
           const numValue = Number(value)
@@ -163,7 +173,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
       
       case 'preferredTime':
         if (!value) return 'Please select a preferred time'
-        // Check if time is within working hours (10 AM - 2 PM and 5 PM - 9 PM)
+        // Check if time is within working hours (10 AM - 2 PM and 5 PM - 9 PM, Sunday: 12 PM - 5 PM)
         const [timeStr, period] = value.split(' ')
         if (!timeStr || !period) return 'Please select a valid time'
         
@@ -182,7 +192,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                               (timeInMinutes >= eveningStart && timeInMinutes <= eveningEnd)
         
         if (!isWorkingHours) {
-          return 'Please select a time during working hours (10 AM-2 PM or 5 PM-9 PM)'
+          return 'Please select a time during working hours (10 AM-2 PM or 5 PM-9 PM, Sunday: 12 PM-5 PM)'
         }
         return ''
       
@@ -270,7 +280,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
         const treatmentValid = !!(watchedValues.treatmentType && watchedValues.treatmentType.length > 0)
         const dateValid = !!(watchedValues.preferredDate && new Date(watchedValues.preferredDate) >= new Date(new Date().setHours(0, 0, 0, 0)))
         
-        // Enhanced time validation for working hours
+        // Enhanced time validation for working hours (10 AM-2 PM or 5 PM-9 PM, Sunday: 12 PM-5 PM)
         let timeValid = false
         if (watchedValues.preferredTime && watchedValues.preferredTime.length > 0) {
           const [timeStr, period] = watchedValues.preferredTime.split(' ')
@@ -338,7 +348,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
         if (!watchedValues.preferredTime) {
           errors2.push('Preferred Time')
         } else {
-          // Check if time is within working hours
+          // Check if time is within working hours (10 AM-2 PM or 5 PM-9 PM, Sunday: 12 PM-5 PM)
           const [timeStr, period] = watchedValues.preferredTime.split(' ')
           if (timeStr && period) {
             const [hour, minute] = timeStr.split(':')
@@ -355,7 +365,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                                   (timeInMinutes >= eveningStart && timeInMinutes <= eveningEnd)
             
             if (!isWorkingHours) {
-              errors2.push('Time during working hours (10 AM-2 PM or 5 PM-9 PM)')
+              errors2.push('Time during working hours (10 AM-2 PM or 5 PM-9 PM, Sunday: 12 PM-5 PM)')
             }
           }
         }
@@ -418,11 +428,10 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                 className={watchedValues.name && watchedValues.name.length < 2 ? "border-red-500" : ""}
               />
               {watchedValues.name && getFieldError('name', watchedValues.name) && (
-                <p className="text-xs text-red-600 mt-1">{getFieldError('name', watchedValues.name)}</p>
+                <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('name', watchedValues.name)}</p>
               )}
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <Input
                   label="Email"
@@ -434,9 +443,11 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                   className={watchedValues.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(watchedValues.email) ? "border-red-500" : ""}
                 />
                 {watchedValues.email && getFieldError('email', watchedValues.email) && (
-                  <p className="text-xs text-red-600 mt-1">{getFieldError('email', watchedValues.email)}</p>
+                <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('email', watchedValues.email)}</p>
                 )}
               </div>
+            
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <Input
                   label="Phone Number"
@@ -447,8 +458,20 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                   className={watchedValues.phone && !/^[6-9]\d{9}$/.test(watchedValues.phone) ? "border-red-500" : ""}
                 />
                 {watchedValues.phone && getFieldError('phone', watchedValues.phone) && (
-                  <p className="text-xs text-red-600 mt-1">{getFieldError('phone', watchedValues.phone)}</p>
+                  <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('phone', watchedValues.phone)}</p>
                 )}
+              </div>
+            <div>
+              <Input
+                label="WhatsApp Number (Optional)"
+                placeholder="10-digit WhatsApp number"
+                {...register("whatsapp")}
+                error={errors.whatsapp?.message}
+                className={watchedValues.whatsapp && watchedValues.whatsapp.length > 0 && !/^[6-9]\d{9}$/.test(watchedValues.whatsapp) ? "border-red-500" : ""}
+              />
+              {watchedValues.whatsapp && watchedValues.whatsapp.length > 0 && getFieldError('whatsapp', watchedValues.whatsapp) && (
+                  <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('whatsapp', watchedValues.whatsapp)}</p>
+              )}
               </div>
             </div>
             
@@ -479,7 +502,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                   }
                 />
                 {watchedValues.age !== undefined && getFieldError('age', watchedValues.age) && (
-                  <p className="text-xs text-red-600 mt-1">{getFieldError('age', watchedValues.age)}</p>
+                  <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('age', watchedValues.age)}</p>
                 )}
               </div>
               <div>
@@ -493,7 +516,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                   required
                 />
                 {watchedValues.gender && getFieldError('gender', watchedValues.gender) && (
-                  <p className="text-xs text-red-600 mt-1">{getFieldError('gender', watchedValues.gender)}</p>
+                  <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('gender', watchedValues.gender)}</p>
                 )}
               </div>
             </div>
@@ -520,7 +543,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                 required
               />
               {watchedValues.treatmentType && getFieldError('treatmentType', watchedValues.treatmentType) && (
-                <p className="text-xs text-red-600 mt-1">{getFieldError('treatmentType', watchedValues.treatmentType)}</p>
+                <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('treatmentType', watchedValues.treatmentType)}</p>
               )}
             </div>
             
@@ -535,7 +558,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                   minDate={minDate}
                 />
                 {watchedValues.preferredDate && getFieldError('preferredDate', watchedValues.preferredDate) && (
-                  <p className="text-xs text-red-600 mt-1">{getFieldError('preferredDate', watchedValues.preferredDate)}</p>
+                  <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('preferredDate', watchedValues.preferredDate)}</p>
                 )}
               </div>
               <div>
@@ -547,7 +570,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                   required
                 />
                 {watchedValues.preferredTime && getFieldError('preferredTime', watchedValues.preferredTime) && (
-                  <p className="text-xs text-red-600 mt-1">{getFieldError('preferredTime', watchedValues.preferredTime)}</p>
+                  <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('preferredTime', watchedValues.preferredTime)}</p>
                 )}
               </div>
             </div>
@@ -563,7 +586,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                 className={watchedValues.concerns && watchedValues.concerns.length < 10 ? "border-red-500" : ""}
               />
               {watchedValues.concerns && getFieldError('concerns', watchedValues.concerns) && (
-                <p className="text-xs text-red-600 mt-1">{getFieldError('concerns', watchedValues.concerns)}</p>
+                <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('concerns', watchedValues.concerns)}</p>
               )}
             </div>
           </div>
@@ -656,10 +679,10 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
                 </label>
               </div>
               {watchedValues.agreeToTerms !== undefined && getFieldError('agreeToTerms', watchedValues.agreeToTerms) && (
-                <p className="text-xs text-red-600 mt-1">{getFieldError('agreeToTerms', watchedValues.agreeToTerms)}</p>
+                <p className="text-[10px] sm:text-xs text-red-600 mt-1">{getFieldError('agreeToTerms', watchedValues.agreeToTerms)}</p>
               )}
               {errors.agreeToTerms && (
-                <p className="text-xs text-red-600 mt-1">{errors.agreeToTerms.message}</p>
+                <p className="text-[10px] sm:text-xs text-red-600 mt-1">{errors.agreeToTerms.message}</p>
               )}
             </div>
           </div>
@@ -687,7 +710,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
         (errors) => {
           console.log('❌ Form validation failed:', errors)
         }
-      )} className="px-3 sm:px-4 py-2 sm:py-4">
+      )} className="px-3 sm:px-4 py-2 sm:py-4 pb-4 sm:pb-6">
         {/* Progress indicator */}
         <div className="mb-2 sm:mb-3 px-1 sm:px-2">
           <div className="flex items-center justify-center">
@@ -721,7 +744,7 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
         {!validateStep(currentStep) && currentStep < 4 && validationAttempted && (
           <div className="px-1 sm:px-2">
             <div className="bg-red-50 border border-red-200 rounded-lg p-2 mb-2">
-              <p className="text-xs text-red-600">
+              <p className="text-[10px] sm:text-xs text-red-600">
                 {getStepValidationMessage(currentStep)}
               </p>
             </div>
@@ -735,9 +758,9 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
             variant="outline"
             onClick={prevStep}
             disabled={currentStep === 1}
-            className="flex items-center gap-1 sm:gap-2 transition-all duration-200 hover:gap-1 text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
+            className="flex items-center gap-1 transition-all duration-200 hover:gap-1 text-xs px-2 py-1"
           >
-            <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-200 group-hover:-translate-x-1" />
+            <ChevronLeft className="h-3 w-3 transition-transform duration-200 group-hover:-translate-x-1" />
             Previous
           </Button>
           
@@ -747,14 +770,14 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
               variant="primary"
               onClick={nextStep}
               disabled={!validateStep(currentStep)}
-              className={`flex items-center gap-1 sm:gap-2 transition-all duration-200 hover:gap-3 group text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 ${
+              className={`flex items-center gap-1 transition-all duration-200 hover:gap-2 group text-xs px-2 py-1 ${
                 !validateStep(currentStep) 
                   ? 'opacity-50 cursor-not-allowed bg-gray-400 hover:bg-gray-400' 
                   : 'hover:bg-primary/90'
               }`}
             >
               Next
-              <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <ChevronRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-1" />
             </Button>
           ) : (
             <Button
@@ -762,14 +785,14 @@ export function AppointmentModal({ open, onOpenChange }: AppointmentModalProps) 
               variant="primary"
               loading={isSubmitting}
               disabled={isSubmitting || !validateStep(currentStep)}
-              className={`flex items-center gap-1 sm:gap-2 transition-all duration-200 hover:gap-3 group text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 ${
+              className={`flex items-center gap-1 transition-all duration-200 hover:gap-2 group text-xs px-2 py-1 ${
                 !validateStep(currentStep) || isSubmitting
                   ? 'opacity-50 cursor-not-allowed bg-gray-400 hover:bg-gray-400' 
                   : 'hover:bg-primary/90'
               }`}
             >
               Book Appointment
-              <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <ChevronRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-1" />
             </Button>
           )}
         </div>

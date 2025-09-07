@@ -64,21 +64,17 @@ export function Footer() {
                     <span className="text-white text-sm">Follow Us On Social</span>
                     <div className="flex space-x-2">
                       <a
-                        href={CLINIC_INFO.googleMapsUrl}
+                        href="https://www.facebook.com/share/1BJSXfw1wu/?mibextid=wwXIfr"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
-                      >
-                        <Globe className="h-4 w-4 text-white" />
-                      </a>
-                      <a
-                        href="#"
                         className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
                       >
                         <Facebook className="h-4 w-4 text-white" />
                       </a>
                       <a
-                        href="#"
+                        href="https://www.instagram.com/ariesskinn?igsh=djR0ZWc2Nmd5eTRk&utm_source=qr"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors"
                       >
                         <Instagram className="h-4 w-4 text-white" />
@@ -137,7 +133,9 @@ export function Footer() {
                       </svg>
                     </a>
                     <a 
-                      href={`tel:+91${CLINIC_INFO.phones[1]}`}
+                      href={generateWhatsAppUrl(CLINIC_INFO.phones[1], WHATSAPP_MESSAGE)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-white font-medium hover:text-white/80 transition-colors"
                     >
                       {formatPhoneNumber(CLINIC_INFO.phones[1])}
@@ -202,17 +200,17 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Bottom Section - All elements in one horizontal line */}
+            {/* Bottom Section - Stacked on mobile, horizontal on desktop */}
             <div className="mt-12 pt-8 border-t border-white/20">
-              <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/80">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-xs text-white/80">
                 {/* Copyright */}
-                <span>Copyright © {new Date().getFullYear()}, Aries Skin and General Clinic. All Rights Reserved.</span>
+                <span className="text-center md:text-left">Copyright © {new Date().getFullYear()}, Aries Skin and General Clinic. All Rights Reserved.</span>
                 
-                {/* Separator */}
-                <span className="text-white/60">|</span>
+                {/* Desktop Separator */}
+                <span className="hidden md:block text-white/60">|</span>
                 
                 {/* Credit */}
-                <span>
+                <span className="text-center md:text-left">
                   Made with ❤️ by{' '}
                   <a 
                     href="https://digiworldtechnologies.com/" 
@@ -224,18 +222,18 @@ export function Footer() {
                   </a>
                 </span>
                 
-                {/* Separator */}
-                <span className="text-white/60">|</span>
+                {/* Desktop Separator */}
+                <span className="hidden md:block text-white/60">|</span>
                 
                 {/* Policy Links */}
-                <div className="flex gap-2">
+                <div className="flex flex-col md:flex-row items-center gap-2">
                   <Link 
                     href="/privacy"
                     className="text-white/80 hover:text-white transition-colors"
                   >
                     Privacy Policy
                   </Link>
-                  <span className="text-white/60">|</span>
+                  <span className="hidden md:block text-white/60">|</span>
                   <Link 
                     href="/terms"
                     className="text-white/80 hover:text-white transition-colors"

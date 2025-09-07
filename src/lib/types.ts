@@ -42,6 +42,7 @@ export interface AppointmentForm {
   name: string;
   email: string;
   phone: string;
+  whatsapp?: string;
   age: number;
   gender: 'male' | 'female' | 'other';
   

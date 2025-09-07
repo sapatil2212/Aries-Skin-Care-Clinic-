@@ -21,8 +21,19 @@ const CustomDatePicker = React.forwardRef<HTMLDivElement, CustomDatePickerProps>
     const [isOpen, setIsOpen] = React.useState(false)
     const [currentMonth, setCurrentMonth] = React.useState(new Date())
     const [buttonRect, setButtonRect] = React.useState<DOMRect | null>(null)
+    const [isMobile, setIsMobile] = React.useState(false)
     const datePickerRef = React.useRef<HTMLDivElement>(null)
     const buttonRef = React.useRef<HTMLButtonElement>(null)
+
+    // Detect mobile view
+    React.useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile(window.innerWidth < 768)
+      }
+      checkMobile()
+      window.addEventListener('resize', checkMobile)
+      return () => window.removeEventListener('resize', checkMobile)
+    }, [])
 
     // Parse initial value
     React.useEffect(() => {
@@ -131,118 +142,107 @@ const CustomDatePicker = React.forwardRef<HTMLDivElement, CustomDatePickerProps>
     const renderCalendarDropdown = () => {
       if (!isOpen || !buttonRect) return null
 
-      // Calculate position to ensure dropdown stays within viewport
-      const viewportWidth = window.innerWidth
-      const viewportHeight = window.innerHeight
-      const dropdownWidth = viewportWidth < 640 ? viewportWidth - 80 : 320 // 20rem = 320px
-      const dropdownHeight = viewportWidth < 640 ? 350 : 400 // Calendar height
+      const dropdownWidth = buttonRect.width
+      const dropdownHeight = isMobile ? 280 : 320
       
-      // Center horizontally relative to the button
-      let left = buttonRect.left + (buttonRect.width / 2) - (dropdownWidth / 2)
+      let left = buttonRect.left
+      left = Math.max(16, Math.min(left, window.innerWidth - dropdownWidth - 16))
       
-      // Adjust horizontal position if dropdown would go off-screen
-      if (left < 16) {
-        left = 16
-      } else if (left + dropdownWidth > viewportWidth - 16) {
-        left = viewportWidth - dropdownWidth - 16
-      }
-      
-      // Smart vertical positioning - check space above and below
-      const spaceBelow = viewportHeight - buttonRect.bottom
+      const spaceBelow = window.innerHeight - buttonRect.bottom
       const spaceAbove = buttonRect.top
-      const gap = 4 // Gap between button and dropdown
+      const gap = 8
       
       let top: number
-      
-      // If not enough space below but enough above, open upward
-      if (spaceBelow < dropdownHeight + gap && spaceAbove > dropdownHeight + gap) {
+      if (spaceBelow >= dropdownHeight + gap) {
+        top = buttonRect.bottom + gap
+      } else if (spaceAbove >= dropdownHeight + gap) {
         top = buttonRect.top - dropdownHeight - gap
-      }
-      // If not enough space above but enough below, open downward
-      else if (spaceAbove < dropdownHeight + gap && spaceBelow > dropdownHeight + gap) {
-        top = buttonRect.bottom + gap
-      }
-      // If both have space, prefer opening below
-      else if (spaceBelow >= dropdownHeight + gap) {
-        top = buttonRect.bottom + gap
-      }
-      // If neither has enough space, open in the direction with more space
-      else if (spaceAbove > spaceBelow) {
-        top = buttonRect.top - dropdownHeight - gap
-      }
-      // Default to below
-      else {
-        top = buttonRect.bottom + gap
+      } else {
+        top = spaceAbove > spaceBelow 
+          ? Math.max(16, buttonRect.top - dropdownHeight - gap)
+          : buttonRect.bottom + gap
       }
 
       const dropdownStyle: React.CSSProperties = {
         position: 'fixed',
-        top: Math.max(16, top), // Ensure minimum top margin
-        left: Math.max(16, left), // Ensure minimum left margin
-        zIndex: 9999,
-        maxHeight: viewportWidth < 640 ? 'calc(100vh - 100px)' : 'calc(100vh - 200px)',
-        overflowY: 'auto'
+        top: Math.max(16, top),
+        left,
+        zIndex: 50,
+        width: dropdownWidth,
+        height: dropdownHeight
       }
 
       return createPortal(
         <>
-          {/* Backdrop */}
+          {/* Enhanced backdrop with subtle animation */}
           <div 
-            className="fixed inset-0 z-[9998] bg-transparent" 
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm transition-opacity duration-200" 
             onClick={(e) => {
               e.stopPropagation()
               setIsOpen(false)
-            }} 
+            }}
+            style={{ animation: 'fadeIn 200ms ease-out' }}
           />
-          {/* Calendar */}
+          {/* Enhanced calendar modal */}
           <div 
             ref={datePickerRef}
-            className="w-[calc(100vw-5rem)] sm:w-80 rounded-lg border border-gray-200 bg-white shadow-lg p-3 sm:p-4"
-            style={dropdownStyle}
+            className="rounded-xl border-2 border-gray-100 bg-white shadow-2xl"
+            style={{
+              ...dropdownStyle,
+              animation: 'slideIn 250ms cubic-bezier(0.16, 1, 0.3, 1)'
+            }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="space-y-3 sm:space-y-4">
-              {/* Header */}
-              <div className="flex items-center justify-between">
+            <div className={`${isMobile ? 'px-3 py-2' : 'px-4 py-2'} h-full flex flex-col overflow-hidden`}>
+              {/* Enhanced header */}
+              <div className={`flex items-center justify-center ${isMobile ? 'gap-1 mb-1' : 'gap-1 mb-1'} flex-shrink-0`}>
+                <h3 className={`${isMobile ? 'text-[10px]' : 'text-xs'} font-medium text-gray-800 flex items-center gap-1`}>
+                  <Calendar className={`${isMobile ? 'h-3 w-3' : 'h-3 w-3'} text-primary`} />
+                  Select Date
+                </h3>
+                <div className={`${isMobile ? 'text-xs' : 'text-sm'} font-mono font-semibold text-primary bg-primary/10 ${isMobile ? 'px-1 py-0.5' : 'px-1 py-0.5'} rounded-md`}>
+                  {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
+                </div>
+              </div>
+              
+              {/* Navigation */}
+              <div className={`flex items-center justify-between ${isMobile ? 'mb-1' : 'mb-1'} flex-shrink-0`}>
                 <button
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation()
                     navigateMonth('prev')
                   }}
-                  className="p-1 hover:bg-gray-100 rounded transition-colors duration-150"
+                  className={`${isMobile ? 'p-1' : 'p-1'} hover:bg-primary/10 rounded-lg transition-colors duration-200`}
                 >
-                  <ChevronLeft className="h-4 w-4 text-gray-600" />
+                  <ChevronLeft className={`${isMobile ? 'h-3 w-3' : 'h-3 w-3'} text-primary`} />
                 </button>
-                <h3 className="text-sm font-medium text-gray-900">
-                  {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
-                </h3>
                 <button
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation()
                     navigateMonth('next')
                   }}
-                  className="p-1 hover:bg-gray-100 rounded transition-colors duration-150"
+                  className={`${isMobile ? 'p-1' : 'p-1'} hover:bg-primary/10 rounded-lg transition-colors duration-200`}
                 >
-                  <ChevronRight className="h-4 w-4 text-gray-600" />
+                  <ChevronRight className={`${isMobile ? 'h-3 w-3' : 'h-3 w-3'} text-primary`} />
                 </button>
               </div>
 
               {/* Day names */}
-              <div className="grid grid-cols-7 gap-1">
+              <div className={`grid grid-cols-7 gap-0 ${isMobile ? 'mb-1' : 'mb-1'} flex-shrink-0`}>
                 {dayNames.map(day => (
-                  <div key={day} className="text-center text-xs text-gray-500 font-medium py-1">
+                  <div key={day} className={`text-center ${isMobile ? 'text-[9px]' : 'text-[10px]'} text-gray-500 font-medium ${isMobile ? 'py-0.5' : 'py-0.5'}`}>
                     {day}
                   </div>
                 ))}
               </div>
 
               {/* Calendar grid */}
-              <div className="grid grid-cols-7 gap-1">
+              <div className="grid grid-cols-7 gap-0 flex-1 min-h-0">
                 {getDaysInMonth(currentMonth).map((date, index) => {
                   if (!date) {
-                    return <div key={index} className="h-8" />
+                    return <div key={index} className={isMobile ? 'h-6' : 'h-8'} />
                   }
 
                   const isDisabled = isDateDisabled(date)
@@ -261,11 +261,12 @@ const CustomDatePicker = React.forwardRef<HTMLDivElement, CustomDatePickerProps>
                       }}
                       disabled={isDisabled}
                       className={cn(
-                        "h-8 w-8 text-xs rounded transition-colors duration-150 flex items-center justify-center",
+                        `${isMobile ? 'h-6 w-6 text-[10px]' : 'h-8 w-8 text-xs'} rounded-md transition-all duration-200 flex items-center justify-center font-medium`,
+                        "focus:outline-none hover:bg-primary/10 active:scale-95",
                         isDisabled && "text-gray-300 cursor-not-allowed",
-                        !isDisabled && !isSelected && !isTodayDate && "text-gray-700 hover:bg-gray-100",
-                        isTodayDate && !isSelected && "bg-blue-50 text-blue-600 font-medium",
-                        isSelected && "bg-primary text-white font-medium"
+                        !isDisabled && !isSelected && !isTodayDate && "text-gray-600 hover:text-gray-800",
+                        isTodayDate && !isSelected && "bg-primary/10 text-primary font-semibold",
+                        isSelected && "bg-primary text-white font-semibold transform scale-105"
                       )}
                     >
                       {date.getDate()}
@@ -274,8 +275,18 @@ const CustomDatePicker = React.forwardRef<HTMLDivElement, CustomDatePickerProps>
                 })}
               </div>
 
-              {/* Quick actions */}
-              <div className="flex justify-between pt-2 border-t border-gray-100">
+              {/* Enhanced action buttons */}
+              <div className={`flex justify-end ${isMobile ? 'space-x-1 pt-1' : 'space-x-1 pt-1'} border-t border-gray-100 flex-shrink-0`}>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setIsOpen(false)
+                  }}
+                  className={`${isMobile ? 'px-2 py-0.5 text-[10px]' : 'px-2 py-0.5 text-[10px]'} font-medium text-gray-600 hover:bg-gray-100 rounded-md transition-colors duration-200`}
+                >
+                  Cancel
+                </button>
                 <button
                   type="button"
                   onClick={(e) => {
@@ -285,23 +296,30 @@ const CustomDatePicker = React.forwardRef<HTMLDivElement, CustomDatePickerProps>
                       handleDateSelect(today)
                     }
                   }}
-                  className="text-xs text-primary hover:text-primary/80 transition-colors duration-150"
+                  className={`${isMobile ? 'px-2 py-0.5 text-[10px]' : 'px-2 py-0.5 text-[10px]'} font-medium bg-primary text-white rounded-md hover:bg-primary/90 active:bg-primary/80 transition-colors duration-200 shadow-sm`}
                 >
                   Today
-                </button>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setIsOpen(false)
-                  }}
-                  className="text-xs text-gray-600 hover:text-gray-800 transition-colors duration-150"
-                >
-                  Cancel
                 </button>
               </div>
             </div>
           </div>
+          
+          <style>{`
+            @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+            @keyframes slideIn {
+              from { 
+                opacity: 0; 
+                transform: translateY(-20px) scale(0.95); 
+              }
+              to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+              }
+            }
+          `}</style>
         </>,
         document.body
       )

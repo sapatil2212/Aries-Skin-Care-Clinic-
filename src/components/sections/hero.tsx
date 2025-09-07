@@ -285,7 +285,7 @@ export function Hero() {
                 onClick={openModal}
                 className="group"
               >
-                Book Free Consultation
+                Book Appointment
                 <motion.span
                   className="ml-2"
                   animate={{ x: [0, 4, 0] }}
@@ -293,6 +293,15 @@ export function Hero() {
                 >
                   →
                 </motion.span>
+              </Button>
+              <Button
+                variant="outline"
+                size="xl"
+                onClick={() => window.location.href = '/treatments'}
+                className="group"
+              >
+                View Treatments
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </motion.div>
 

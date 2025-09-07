@@ -322,11 +322,11 @@ export default function OurClinicPage() {
                     </div>
                     <div className="flex justify-between py-3 border-b border-gray-100">
                       <span className="text-gray-600">Saturday</span>
-                      <span className="font-medium text-primary">9:00 AM - 6:00 PM</span>
+                      <span className="font-medium text-red-500">Closed</span>
                     </div>
                     <div className="flex justify-between py-3">
                       <span className="text-gray-600">Sunday</span>
-                      <span className="font-medium text-primary">10:00 AM - 4:00 PM</span>
+                      <span className="font-medium text-primary">12:00 PM - 5:00 PM</span>
                     </div>
                     
                     <div className="mt-6 p-4 bg-green-50 rounded-lg">

@@ -54,10 +54,10 @@ const createUserConfirmationEmail = (appointmentData: any) => {
           .message { color: #6b7280; margin-bottom: 20px; font-size: 14px; line-height: 1.5; }
           .appointment-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 20px; margin: 20px 0; }
           .card-title { color: #374151; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
-          .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
+          .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #e5e7eb; }
           .detail-row:last-child { border-bottom: none; }
-          .detail-label { font-weight: 600; color: #374151; font-size: 14px; }
-          .detail-value { color: #6b7280; text-align: right; font-size: 14px; }
+          .detail-label { font-weight: 600; color: #374151; font-size: 14px; min-width: 80px; }
+          .detail-value { color: #6b7280; text-align: right; font-size: 14px; margin-left: 20px; }
           .clinic-info { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 20px; margin: 20px 0; }
           .clinic-title { color: #374151; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
           .clinic-details { color: #6b7280; font-size: 14px; line-height: 1.5; }
@@ -104,8 +104,14 @@ const createUserConfirmationEmail = (appointmentData: any) => {
               </div>
               <div class="detail-row">
                 <span class="detail-label">Phone</span>
-                <span class="detail-value">${appointmentData.phone}</span>
+                <span class="detail-value"><a href="tel:+91${appointmentData.phone}" style="color: #3b82f6; text-decoration: none;">${appointmentData.phone}</a></span>
               </div>
+              ${appointmentData.whatsapp ? `
+              <div class="detail-row">
+                <span class="detail-label">WhatsApp</span>
+                <span class="detail-value"><a href="https://wa.me/91${appointmentData.whatsapp}" style="color: #25d366; text-decoration: none;">${appointmentData.whatsapp}</a></span>
+              </div>
+              ` : ''}
               <div class="detail-row">
                 <span class="detail-label">Email</span>
                 <span class="detail-value">${appointmentData.email}</span>
@@ -116,7 +122,7 @@ const createUserConfirmationEmail = (appointmentData: any) => {
               <div class="clinic-title">Clinic Information</div>
               <div class="clinic-details">
                 <strong>Address:</strong> Shop No 1, Keystone Residency Apartment, Behind Sharad Pawar Fruit Market, Peth-Makhalamabad Link Road, Samarth Nagar, Panchavati, Nashik - 422001<br><br>
-                <strong>Working Hours:</strong> Monday-Saturday: 10 AM-2 PM, 5 PM-9 PM | Sunday: Closed
+                <strong>Working Hours:</strong> Monday-Friday: 10 AM-2 PM, 5 PM-9 PM | Saturday: Closed | Sunday: 12 PM-5 PM
               </div>
             </div>
             
@@ -181,10 +187,10 @@ const createClinicNotificationEmail = (appointmentData: any) => {
           .alert-text::before { content: "⚠️"; margin-right: 8px; font-size: 16px; }
           .info-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 20px; margin: 20px 0; }
           .card-title { color: #374151; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
-          .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
+          .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #e5e7eb; }
           .detail-row:last-child { border-bottom: none; }
-          .detail-label { font-weight: 600; color: #374151; font-size: 14px; }
-          .detail-value { color: #6b7280; text-align: right; max-width: 60%; word-wrap: break-word; font-size: 14px; }
+          .detail-label { font-weight: 600; color: #374151; font-size: 14px; min-width: 80px; }
+          .detail-value { color: #6b7280; text-align: right; max-width: 60%; word-wrap: break-word; font-size: 14px; margin-left: 20px; }
           .medical-info { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px; padding: 20px; margin: 20px 0; }
           .medical-details { color: #92400e; font-size: 14px; line-height: 1.5; }
           .medical-details p { margin-bottom: 8px; }
@@ -225,8 +231,14 @@ const createClinicNotificationEmail = (appointmentData: any) => {
               </div>
               <div class="detail-row">
                 <span class="detail-label">Phone</span>
-                <span class="detail-value">${appointmentData.phone}</span>
+                <span class="detail-value"><a href="tel:+91${appointmentData.phone}" style="color: #3b82f6; text-decoration: none;">${appointmentData.phone}</a></span>
               </div>
+              ${appointmentData.whatsapp ? `
+              <div class="detail-row">
+                <span class="detail-label">WhatsApp</span>
+                <span class="detail-value"><a href="https://wa.me/91${appointmentData.whatsapp}" style="color: #25d366; text-decoration: none;">${appointmentData.whatsapp}</a></span>
+              </div>
+              ` : ''}
               <div class="detail-row">
                 <span class="detail-label">Age</span>
                 <span class="detail-value">${appointmentData.age} years</span>
